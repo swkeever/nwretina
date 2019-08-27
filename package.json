@@ -6,19 +6,41 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "dev": "rm -rf .cache && gatsby develop",
+    "format": "node_modules/.bin/eslint . --fix",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
   },
   "dependencies": {
+    "bulma-timeline": "^3.0.4",
     "gatsby": "^2.13.73",
+    "gatsby-background-image": "^0.8.5",
+    "gatsby-image": "^2.2.14",
+    "gatsby-plugin-less": "^3.0.2",
+    "gatsby-plugin-react-helmet": "^3.1.5",
+    "gatsby-plugin-sass": "^2.1.12",
+    "gatsby-plugin-sharp": "^2.2.18",
+    "gatsby-source-filesystem": "^2.1.16",
+    "gatsby-transformer-remark": "^2.6.19",
+    "gatsby-transformer-sharp": "^2.2.12",
+    "node-sass": "^4.12.0",
+    "prop-types": "^15.7.2",
     "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "react-dom": "^16.9.0",
+    "react-helmet": "^5.2.1",
+    "smooth-scroll": "^16.1.0"
   },
   "devDependencies": {
-    "prettier": "^1.18.2"
+    "bulma": "^0.7.5",
+    "dotenv": "^8.1.0",
+    "eslint": "^6.2.1",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-loader": "^2.2.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.7.0"
   },
   "repository": {
     "type": "git",
