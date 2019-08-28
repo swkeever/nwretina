@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Footer from './footer';
 import Navbar from './navbar';
 import '../styles/main.scss';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 const Layout = ({ children, location }) => (
   <div>

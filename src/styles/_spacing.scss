@@ -1,22 +1,22 @@
 $sizeUnit: rem;
-$marginKey: 'M';
-$paddingKey: 'P';
+$marginKey: 'm';
+$paddingKey: 'p';
 $separator: '-';
 $sizes: (
     ('none', 0),
-    ('XXS', 0.125),
-    ('XS', 0.25),
-    ('SM', 0.5),
-    ('MD', 1),
-    ('LG', 2),
-    ('XL', 4),
-    ('XXL', 8),
+    ('xxs', 0.125),
+    ('xs', 0.25),
+    ('sm', 0.5),
+    ('md', 1),
+    ('lg', 2),
+    ('xl', 4),
+    ('xxl', 8),
 );
 $positions: (
-    ('T', 'top'),
-    ('R', 'right'),
-    ('B', 'bottom'),
-    ('L', 'left')
+    ('t', 'top'),
+    ('r', 'right'),
+    ('b', 'bottom'),
+    ('l', 'left')
 );
 
 @function sizeValue($key, $value) {

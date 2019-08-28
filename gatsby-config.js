@@ -17,6 +17,10 @@ module.exports = {
       city: 'Everett',
       state: 'WA',
       zipCode: 98201,
+      coordinates: {
+        latitude: 47.995280,
+        longitude: -122.22245,
+      },
     },
     officeHours: {
       weekStart: 'Monday',

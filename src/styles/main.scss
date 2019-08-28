@@ -2,7 +2,6 @@
 
 @import url(https://fonts.googleapis.com/css?family=Lato:300,400&display=swap);
 
-@import 'spacing';
 
 $color-primary: #2e364f;
 $color-primary-light: #2d5d7c;
@@ -23,6 +22,9 @@ $danger: $secondary;
 // $background: $color-background;
 // $text-invert: $color-background;
 @import "~bulma/bulma.sass";
+@import "~mapbox-gl/dist/mapbox-gl.css";
+@import 'spacing';
+
 
 .has-image-centered {
   margin-left: auto;
