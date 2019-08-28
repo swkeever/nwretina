@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import ReactMapGL, { Marker } from 'react-map-gl';
+import MapGL, { Marker } from 'react-map-gl';
 import { useStaticQuery, graphql } from 'gatsby';
 
 const ICON = `M20.2,15.7L20.2,15.7c1.1-1.6,1.8-3.6,1.8-5.7c0-5.6-4.5-10-10-10S2,4.5,2,10c0,2,0.6,3.9,1.6,5.4c0,0.1,0.1,0.2,0.2,0.3
@@ -29,7 +29,7 @@ const CityPin = ({ size, onClick }) => (
 
 CityPin.defaultProps = {
   size: 20,
-}
+};
 
 CityPin.propTypes = {
   size: PropTypes.number,
@@ -56,23 +56,33 @@ const Map = (props) => {
 
   const [viewport, setViewport] = useState(
     {
-      width: '100%',
-      height: '80vh',
       latitude: coordinates.latitude,
       longitude: coordinates.longitude,
-      zoom: 16,
+      zoom: 11,
     },
   );
 
-  console.log(process.env.MAP_ACCESS_TOKEN);
+  const onViewportChange = (vp) => setViewport({ ...viewport, ...vp });
 
+  const resizeMap = () => {
+    onViewportChange({
+      width: '100%',
+      height: '50vh',
+    });
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', resizeMap);
+    resizeMap();
+    return () => window.removeEventListener('resize', resizeMap);
+  }, []);
 
   return (
     <div className="container">
-      <ReactMapGL
+      <MapGL
         {...viewport}
         mapboxApiAccessToken={process.env.MAP_ACCESS_TOKEN}
-        onViewportChange={(vp) => setViewport(vp)}
+        onViewportChange={onViewportChange}
         mapStyle="mapbox://styles/mapbox/streets-v9"
       >
         <Marker
@@ -81,9 +91,8 @@ const Map = (props) => {
         >
           <CityPin size={25} />
         </Marker>
-      </ReactMapGL>
+      </MapGL>
     </div>
-
   );
 };
 

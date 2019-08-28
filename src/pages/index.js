@@ -52,7 +52,7 @@ export default () => {
         </p>
         <ContactInfo />
         <a
-          className="button is-info M-T-MD"
+          className="button is-info m-t-md"
           isColor="info"
           href={`/#${anchors.OFFERED}`}
         >

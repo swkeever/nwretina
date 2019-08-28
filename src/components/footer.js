@@ -41,7 +41,7 @@ const Footer = () => {
           {`${data.site.siteMetadata.titleFull}, ©️ ${new Date().getFullYear()}`}
         </p>
         <p>
-          Made with
+          This website was made with
           {' '}
           <span role="img" aria-label="heart">❤️</span>
           {' '}

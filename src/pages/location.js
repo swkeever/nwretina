@@ -70,9 +70,15 @@ const Location = (props) => {
         </div>
       </Hero>
       <Hero id="map">
-        <h2 className="is-size-2">Where We're Located</h2>
-
-        <Map />
+        <div className="columns is-one-third">
+          <div className="column">
+            <h2 className="is-size-2">Where We're Located</h2>
+            <p className="is-size-4">Zoom in on the map to take a closer look.</p>
+          </div>
+          <div className="column is-two-thirds">
+            <Map />
+          </div>
+        </div>
       </Hero>
     </Layout>
   );

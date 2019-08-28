@@ -21,10 +21,13 @@ const Contact = (props) => {
       <Hero color="light" id="contact-form">
         <div className="columns is-vcentered">
           <div className="column">
-            <h1 className="title is-1">Contact Us</h1>
-            <p className="subtitle">
+            <div className="content">
+              <h2>Contact Us</h2>
+              <p>
         Please contact the office directly for medical advice and emergency appointment needs.
-            </p>
+              </p>
+            </div>
+
             <ContactInfo />
           </div>
           <div className="column">
