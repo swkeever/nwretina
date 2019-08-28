@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
 import Layout from '../components/layout';
 import Head from '../components/head';
+import Hero from '../components/hero';
 
 const Location = (props) => {
   const [north, setNorth] = useState(true);
@@ -30,45 +31,46 @@ const Location = (props) => {
   return (
     <Layout location="/location/">
       <Head title="Location" />
-      <section className="hero is-medium is-success is-bold">
-        <div className="hero-body">
-          <div className="container">
+      <Hero id="driving-directions">
+        <div className="columns">
+          <div className="column">
             <h1 className="title is-1">Driving Directions</h1>
             <h2 className="subtitle is-2">Where are you coming from?</h2>
+            <div className="buttons">
+              <button
+                type="button"
+                className={`button is-info ${!north && 'is-outlined'}`}
+                onClick={() => !north && setNorth(!north)}
+              >
+                  North
+              </button>
+              <button
+                type="button"
+                className={`button is-danger ${north && 'is-outlined'}`}
+                onClick={() => north && setNorth(!north)}
+              >
+                  South
+              </button>
+            </div>
+          </div>
+          <div className="column">
+            <div className="container">
+              <div className="content">
+                <p>Coming from the {north ? 'North' : 'South'}:</p>
+                <ol>
+                  {directions}
+                </ol>
+              </div>
+              <div className="container has-text-right">
+              <a href="/location/#map" className="button is-primary">See Map</a>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="hero-foot">
-          <nav className="tabs is-boxed is-medium">
-            <div className="container">
-              <ul>
-                <li onClick={() => !north && setNorth(!north)} className={`tab ${north && 'is-active'}`}>
-                  <a>
-                    <span>North</span>
-                  </a>
-                </li>
-                <li onClick={() => north && setNorth(!north)} className={`tab ${!north && 'is-active'}`}>
-                  <a>
-                    <span>South</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </nav>
-        </div>
-      </section>
-      <div className="container section is-medium">
-        <div className="content">
-          <ol>
-            {directions}
-          </ol>
-        </div>
-        <div className="container has-text-centered">
-          <a href="/location/#map" className="button is-info">See Map</a>
-        </div>
-      </div>
-      <section id="map" className="section is-fullheight">
-        MAP
-      </section>
+      </Hero>
+      <Hero id="map">
+        
+      </Hero>
     </Layout>
   );
 };

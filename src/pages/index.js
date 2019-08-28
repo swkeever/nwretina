@@ -22,61 +22,50 @@ export default () => {
           titleFull
         }
       }
+      allMarkdownRemark {
+        edges {
+          node {
+            html
+            frontmatter {
+              title
+            }
+          }
+        }
+      }
     }
   `);
+
+  const getMarkdown = (t) => {
+    const edge = data.allMarkdownRemark.edges.find((e) => e.node.frontmatter.title === t);
+    return edge.node.html;
+  };
 
   return (
     <Layout location="/">
       <Head title="Home" />
-      <Hero color="primary" id="nw-retina-header">
-        <h1 className="title is-1">
+      <Hero color="primary" id="nw-retina-header" bold>
+        <h1 className="title">
           {data.site.siteMetadata.title}
         </h1>
-        <p className="subtitle is-2">
+        <p className="subtitle">
           {`Welcome to ${data.site.siteMetadata.titleFull}`}
         </p>
         <ContactInfo />
         <a
-          className="m-t-lg button is-info"
+          className="button is-info M-T-MD"
           isColor="info"
           href={`/#${anchors.OFFERED}`}
         >
           Learn more
         </a>
       </Hero>
-      <Hero color="light" id={anchors.OFFERED}>
+      <Hero id={anchors.OFFERED}>
         <div className="columns is-vcentered">
           <div className="column">
-            <div className="content">
-              <h2 className="title is-2">
-              Your Search for Retina Care is Over
-              </h2>
-              <p>
-                <Link className="has-text-link" to="/about/">Dr. Michael Osetinsky</Link>
-                {' '}
-                has been a leading
-                provider of retina eye care in Snohomish,
-                King and Skagit counties for over 20 years.
-              </p>
-              <p>
-                Our office uses state of the art equipment in
-                the diagnosis and treatment of:
-                <ul>
-                  <li>
-                    Diabetic Retinopathy
-                  </li>
-                  <li>
-                    Retinal Detachment
-                  </li>
-                  <li>
-                    Macular Degeneration
-                  </li>
-                  <li>
-                    and other Vitreo-Retinal related diseases
-                  </li>
-                </ul>
-              </p>
-            </div>
+            <div
+              className="content"
+              dangerouslySetInnerHTML={{ __html: getMarkdown('intro') }}
+            />
             <a className="button is-info" href={`/#${anchors.GENERAL_INFO}`}>Learn more</a>
           </div>
           <div className="column">
@@ -86,7 +75,7 @@ export default () => {
           </div>
         </div>
       </Hero>
-      <Hero color="danger" id={anchors.GENERAL_INFO}>
+      <Hero id={anchors.GENERAL_INFO}>
         <div className="columns is-vcentered">
           <div className="column">
             <figure className="image">
@@ -94,48 +83,26 @@ export default () => {
             </figure>
           </div>
           <div className="column">
-            <div className="content">
-              <h2 className="title is-2">
-              Your Care is Our Priority
-              </h2>
-              <p>
-                Patients can be referred to Dr. Osetinsky for their Vitreo-Retinal
-                problems by their primary care physicians, ophthalmologist, and
-                optometrist or may
-                {' '}
-                <Link className="has-text-info" to="/contact/">call directly</Link>
-                {' '}
-                if you know you have a retina concern.
-              </p>
-              <p>
-                Together we will work with your doctor to provide you with the best
-                possible care. We take pride in offering the highest quality in eye
-                care in a friendly and professional atmosphere. Our office will strive
-                to make sure you have a clear understanding of your retinal problems.
-              </p>
-            </div>
+            <div
+              className="content"
+              dangerouslySetInnerHTML={{ __html: getMarkdown('your care') }}
+            />
             <a className="button is-info" href={`/#${anchors.LOCATION}`}>
               Learn more
             </a>
           </div>
         </div>
       </Hero>
-      <Hero color="info" id={anchors.LOCATION}>
+      <Hero id={anchors.LOCATION}>
         <div className="columns is-vcentered">
           <div className="column">
-
-            <div className="content">
-              <h2 className="title is-2">
-              Location
-              </h2>
-              <p>
-                Our Everett office is on the beautiful waterfront in the Marina Village.
-                Dr. Osetinsky performs surgery at the new medical tower at Providence Everett Medical Center.
-              </p>
-              <Link className="button is-success" to="/location/">
+            <div
+              className="content"
+              dangerouslySetInnerHTML={{ __html: getMarkdown('location intro') }}
+            />
+            <Link className="button is-info" to="/location/">
                 Get Directions
-              </Link>
-            </div>
+            </Link>
           </div>
           <div className="column">
             <figure className="image">

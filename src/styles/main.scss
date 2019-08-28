@@ -12,9 +12,11 @@ $secondary: #ef5939 !default;
 $secondary-invert: findColorInvert($secondary) !default;
 $custom-colors: ("secondary": ($secondary, $secondary-invert));
 
-//$primary: $color-primary;
-// $info: $color-primary-light;
+$primary: $color-primary;
+$info: $color-primary-light;
 // $light: $color-background;
+$link: $color-primary-light;
+$danger: $secondary;
 
 //$family-primary: 'Lato', sans-serif;
 // $navbar-burger-color: $color-background;

@@ -9,43 +9,37 @@ import Image from '../components/image';
 const BillingInsurance = (props) => {
   const data = useStaticQuery(graphql`
     query {
-      site {
-        siteMetadata {
-          insuranceProviders
+      allMarkdownRemark {
+        edges {
+          node {
+            frontmatter {
+              title
+            }
+            html
+          }
         }
       }
     }
   `);
 
-  const providers = data.site.siteMetadata.insuranceProviders.map((provider) => (
-    <li>
-      {provider}
-    </li>
-  ));
+  const getHtml = (title) => {
+    const edge = data.allMarkdownRemark.edges.find((e) => (
+      e.node.frontmatter.title === title
+    ));
+    return edge.node.html;
+  };
+
 
   return (
     <Layout location="/billing-insurance/">
       <Head title="Billing & Insurance" />
-      <Hero color="warning" id="billing-insurance">
+      <Hero id="billing-insurance">
         <div className="columns is-vcentered">
           <div className="column">
-            <h1 className="title">Billing &amp; Insurance</h1>
-            <div className="content">
-              <p>
-Northwest Retina, LLC is contracted with
-                several insurance carriers. As a courtesy
-                we will bill your insurance carrier for your
-                visit, you will receive a billing statement
-                from us after the insurance company has
-                processed your claim.
-              </p>
-              <p>
-              We encourage you to check with your insurance
-              plan before making an appointment. This will
-              allow you to become familiar with your coverage,
-               copay and referral requirements.
-              </p>
-            </div>
+            <div
+              className="content"
+              dangerouslySetInnerHTML={{ __html: getHtml('billing insurance info') }}
+            />
             <a href="/billing-insurance/#providers" className="button is-info">See Providers</a>
           </div>
           <div className="column">
@@ -56,19 +50,16 @@ Northwest Retina, LLC is contracted with
       <Hero color="white" id="providers">
         <div className="columns is-vcentered">
           <div className="column">
-            <Image path="hero.jpg" alt="Marina" style={{width: '80%'}} />
+            <Image path="hero.jpg" alt="Marina" style={{ width: '80%' }} />
           </div>
           <div className="column">
-            <h2 className="title">Available Providers</h2>
-            <div className="content">
-              <ul>
-                {providers}
-              </ul>
-            </div>
+            <div
+              className="content"
+              dangerouslySetInnerHTML={{ __html: getHtml('providers') }}
+            />
           </div>
         </div>
       </Hero>
-
     </Layout>
   );
 };

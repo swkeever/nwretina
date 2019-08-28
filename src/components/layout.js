@@ -4,8 +4,6 @@ import Footer from './footer';
 import Navbar from './navbar';
 import '../styles/main.scss';
 
-
-
 const Layout = ({ children, location }) => (
   <div>
     <Navbar location={location} />

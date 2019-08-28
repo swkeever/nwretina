@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
 if (typeof window !== 'undefined') {
-  // eslint-disable-next-line global-require
+  // Make scroll behavior of internal links smooth
   require('smooth-scroll')('a[href*="#"]');
 }
 

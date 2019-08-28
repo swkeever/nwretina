@@ -106,19 +106,24 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
-    {
-      resolve: 'gatsby-plugin-sass',
-      options: {
-        includePaths: ['./src'],
-      },
-    },
+    'gatsby-plugin-sass',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        name: 'images',
         path: `${__dirname}/images`,
       },
     },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'content',
+        path: `${__dirname}/src/content`,
+      },
+    },
+    'gatsby-transformer-remark',
+    'gatsby-plugin-catch-links',
   ],
 };

@@ -23,7 +23,6 @@ const Navbar = ({ location }) => {
   const links = data.site.siteMetadata.navLinks.map((navLink) => {
     const { link } = navLink;
     const linkStyle = `navbar-item is-tab ${location === link.href && 'is-active'}`;
-    console.log(linkStyle)
     return link.href.includes('https')
       ? (
         <a className={linkStyle} href={link.href} target="_blank" rel="noopener noreferrer">

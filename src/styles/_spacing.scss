@@ -1,33 +1,22 @@
-/*
-Thanks to @furey for this file.
-@see https://github.com/jgthms/bulma/issues/451
-
-This file generates classes like:
-
-    <m|p>-<t|b|l|r>-<none|xxs|xs|xs|sm|md|lg|xl|xxl>
-
-The third item is optional if you want padding on all sides.
-*/
-
 $sizeUnit: rem;
-$marginKey: 'm';
-$paddingKey: 'p';
+$marginKey: 'M';
+$paddingKey: 'P';
 $separator: '-';
 $sizes: (
     ('none', 0),
-    ('xxs', 0.125),
-    ('xs', 0.25),
-    ('sm', 0.5),
-    ('md', 1),
-    ('lg', 2),
-    ('xl', 4),
-    ('xxl', 8),
+    ('XXS', 0.125),
+    ('XS', 0.25),
+    ('SM', 0.5),
+    ('MD', 1),
+    ('LG', 2),
+    ('XL', 4),
+    ('XXL', 8),
 );
 $positions: (
-    ('t', 'top'),
-    ('r', 'right'),
-    ('b', 'bottom'),
-    ('l', 'left')
+    ('T', 'top'),
+    ('R', 'right'),
+    ('B', 'bottom'),
+    ('L', 'left')
 );
 
 @function sizeValue($key, $value) {
