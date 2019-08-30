@@ -13,7 +13,10 @@ module.exports = {
       fax: '425-525-3359',
     },
     address: {
-      street: '1724 W Marine View Dr, Suite 130',
+      street: {
+        line1: '1724 W Marine View Dr',
+        line2: 'Suite 130',
+      },
       city: 'Everett',
       state: 'WA',
       zipCode: 98201,
@@ -28,85 +31,79 @@ module.exports = {
       hourStart: '8am',
       hourEnd: '5pm',
     },
-    navLinks: [
-      {
-        link: {
-          href: '/',
+    nav: {
+      internal: [
+        {
+          link: {
+            href: '/',
+          },
+          name: 'Home',
         },
-        name: 'Home',
-      },
-      {
-        link: {
-          href: '/about/',
+        {
+          link: {
+            href: '/about/',
+          },
+          name: 'About',
         },
-        name: 'About',
-      },
-      {
-        link: {
-          href: '/your-visit/',
+        {
+          link: {
+            href: '/your-visit/',
+          },
+          name: 'Your Visit',
         },
-        name: 'Your Visit',
-      },
-      {
-        link: {
-          href: 'location/',
+        {
+          link: {
+            href: 'location/',
+          },
+          name: 'Location',
         },
-        name: 'Location',
-      },
-      {
-        link: {
-          href: 'https://www.mypatientvisit.com/#/login?practiceID=YKOXLW',
+        {
+          link: {
+            href: '/billing-insurance/',
+          },
+          name: 'Billing & Insurance',
         },
-        name: 'Medical Records',
-      },
-      {
-        link: {
-          href: '/billing-insurance/',
+        {
+          link: {
+            href: '/contact/',
+          },
+          name: 'Contact',
         },
-        name: 'Billing & Insurance',
-      },
-      {
-        link: {
-          href: '/contact/',
-        },
-        name: 'Contact',
-      },
-    ],
-    directions: {
-      fromNorth: [
-        'Take Everett Avenue exit off I-5 (exit 194)',
-        'Travel west on Everett Ave 1.2 miles',
-        'Turn right on Marine View Dr.',
-        'Travel north on Marine View Dr. 0.8 miles',
-        'Turn right on 18th into Marina Village',
       ],
-      fromSouth: [
-        'Take Pacific Ave exit off I-5 (exit 193)',
-        'Travel west on Pacific 1.2 miles',
-        'Turn right on Marine View Dr.',
-        'Travel north on Marine View Dr. 1.2 miles',
-        'Turn right on 18th Street into Marina Village',
+      external: [
+        {
+          link: {
+            href: 'https://www.mypatientvisit.com/#/login?practiceID=YKOXLW',
+          },
+          name: 'Your Medical Records',
+        },
+        {
+          link: {
+            href: 'https://www.aao.org/',
+          },
+          name: 'American Academy of Ophthalmology',
+        },
+        {
+          link: {
+            href: 'https://goo.gl/maps/ZqnsBcWeuXWpVYRo9',
+          },
+          name: 'Google Maps',
+        },
       ],
     },
-    insuranceProviders: [
-      'Aetna',
-      'Cigna',
-      'Community Healthplan of Washington',
-      'DSHS',
-      'First Choice',
-      'GEHA',
-      'Humana',
-      'Lifewise',
-      'Medicare',
-      'Molina',
-      'Premera Blue Cross',
-      'Premera Medicare Advantage',
-      'Regence Blue Shield',
-      'Regence Medicare Advantage',
-      'Soundpath',
-      'Tricare/Triwest',
-      'Uniform Medical',
-    ],
+    socialMedia: {
+      facebook: 'https://www.facebook.com/nwretina',
+    },
+    developer: {
+      name: 'Sean Keever',
+      link: 'https://swkeever.github.io',
+    },
+    externalLinkProps: {
+      target: '_blank',
+      rel: 'noopener noreferrer',
+    },
+    siteUrl: 'https://www.nwretina.com',
+    email: 'office@nwretina.com',
   },
   plugins: [
     'gatsby-plugin-react-helmet',

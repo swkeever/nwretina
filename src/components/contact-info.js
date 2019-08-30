@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
+import getGoogleMapsLink from '../functions/get-google-maps-link';
 
 const ContactInfo = (props) => {
   const data = useStaticQuery(graphql`
@@ -8,7 +9,10 @@ const ContactInfo = (props) => {
       site {
         siteMetadata {
           address {
-            street
+            street {
+              line1
+              line2
+            }
             city
             state
             zipCode
@@ -17,29 +21,37 @@ const ContactInfo = (props) => {
             office
             fax
           }
+          externalLinkProps {
+            target
+            rel
+          }
         }
       }
     }
   `);
 
-  const { address } = data.site.siteMetadata;
-  const { phone } = data.site.siteMetadata;
+  const {
+    address,
+    phone,
+    externalLinkProps,
+  } = data.site.siteMetadata;
+
+  const linkColor = 'has-text-info';
 
   return (
     <div className="container">
       <p>
-        {address.street}
-      </p>
-      <p>
-        {`${address.city} ${address.state} ${address.zipCode}`}
+        <a className={linkColor} href={getGoogleMapsLink()} {...externalLinkProps}>
+          {`${address.street.line1} ${address.street.line2}, ${address.city} ${address.state} ${address.zipCode}`}
+        </a>
       </p>
       <p>
         {'Office: '}
-        <a href={`tel:${phone.office}`}>{phone.office}</a>
+        <a className={linkColor} href={`tel:${phone.office}`}>{phone.office}</a>
       </p>
       <p>
         {'Fax: '}
-        <a href={`tel:${phone.fax}`}>{phone.fax}</a>
+        <a className={linkColor} href={`tel:${phone.fax}`}>{phone.fax}</a>
       </p>
     </div>
   );

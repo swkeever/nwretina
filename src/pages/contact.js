@@ -4,16 +4,25 @@ import Layout from '../components/layout';
 import Head from '../components/head';
 import Hero from '../components/hero';
 import ContactInfo from '../components/contact-info';
+import { useStaticQuery, graphql } from 'gatsby';
 
 const Contact = (props) => {
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          email
+        }
+      }
+    }
+  `);
+
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
 
   const emailIsValid = (e) => /\S+@\S+\.\S+/.test(e);
   const nameIsValid = (n) => /^[a-zA-Z]+ [a-zA-Z]+$/.test(n);
-
-  console.log('KEY\n\n\n\n\n', process.env.RECAPTCHA_SITE_KEY);
 
   return (
     <Layout location="/contact/">
@@ -27,12 +36,10 @@ const Contact = (props) => {
         Please contact the office directly for medical advice and emergency appointment needs.
               </p>
             </div>
-
             <ContactInfo />
           </div>
           <div className="column">
-            <form method="POST" action="https://formspree.io/swkeever@gmail.com">
-
+            <form method="POST" action={`https://formspree.io/${data.site.siteMetadata.email}`}>
               <div className="field">
                 <label htmlFor="name" className="label">Name</label>
                 <div className="control">
@@ -98,7 +105,7 @@ const Contact = (props) => {
 
               <div className="field is-grouped">
                 <div className="control">
-                  <button type="submit" className="button is-link">Submit</button>
+                  <button type="submit" className="button is-primary">Submit</button>
                 </div>
               </div>
             </form>

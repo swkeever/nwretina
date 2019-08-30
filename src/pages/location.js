@@ -5,6 +5,7 @@ import Layout from '../components/layout';
 import Head from '../components/head';
 import Hero from '../components/hero';
 import Map from '../components/map';
+import getGoogleMapsLink from '../functions/get-google-maps-link';
 
 const Location = (props) => {
   const [north, setNorth] = useState(true);
@@ -12,20 +13,46 @@ const Location = (props) => {
     query {
       site {
         siteMetadata {
-          directions {
-            fromNorth
-            fromSouth
+          address {
+            street {
+              line1
+              line2
+            }
+            city
+            state
+            zipCode
+          }
+          externalLinkProps {
+            target
+            rel
+          }
+        }
+      }
+      allMarkdownRemark {
+        edges {
+          node {
+            frontmatter {
+              title
+            }
+            html
           }
         }
       }
     }
   `);
 
-  const directions = (
-    north
-      ? data.site.siteMetadata.directions.fromNorth.map((step) => <li>{step}</li>)
-      : data.site.siteMetadata.directions.fromSouth.map((step) => <li>{step}</li>)
-  );
+  const {
+    address,
+    externalLinkProps,
+  } = data.site.siteMetadata;
+
+  const getDirections = () => {
+    const title = north ? 'directions from north' : 'directions from south';
+    const edge = data.allMarkdownRemark.edges.find((e) => e.node.frontmatter.title === title);
+    return edge.node.html;
+  };
+
+  const addressSize = 'is-size-6';
 
   return (
     <Layout location="/location/">
@@ -33,15 +60,29 @@ const Location = (props) => {
       <Hero id="driving-directions">
         <div className="columns is-vcentered">
           <div className="column">
+
             <div className="content">
-              <h2>Driving Directions</h2>
+              <h2>Address</h2>
+              <p>
+                <a href={getGoogleMapsLink()} {...externalLinkProps}>
+                  {
+                    `
+                    ${address.street.line1}, ${address.street.line2}
+                    ${address.city}, ${address.state} ${address.zipCode}
+                    `
+                  }
+                </a>
+              </p>
+
+              <h4>Driving Directions</h4>
               <p>Where are you coming from?</p>
+
             </div>
 
             <div className="m-t-md buttons">
               <button
                 type="button"
-                className={`button is-info ${!north && 'is-outlined'}`}
+                className={`button is-primary ${!north && 'is-outlined'}`}
                 onClick={() => !north && setNorth(!north)}
               >
                   North
@@ -54,14 +95,11 @@ const Location = (props) => {
                   South
               </button>
             </div>
-            <div className="content">
-              <p>
-                {`Directions coming from ${north ? 'north' : 'south'}:`}
-              </p>
-              <ol>
-                {directions}
-              </ol>
-            </div>
+            <div
+              className="content"
+              dangerouslySetInnerHTML={{ __html: getDirections() }}
+            />
+
           </div>
           <div className="column is-two-thirds">
             <p className="help is-info m-b-sm">Zoom in on the map to take a closer look.</p>

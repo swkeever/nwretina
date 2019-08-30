@@ -43,7 +43,7 @@ export default () => {
   return (
     <Layout location="/">
       <Head title="Home" />
-      <Hero color="primary" id="nw-retina-header" bold>
+      <Hero color="primary" id="nw-retina-header">
         <h1 className="title">
           {data.site.siteMetadata.title}
         </h1>
@@ -52,7 +52,7 @@ export default () => {
         </p>
         <ContactInfo />
         <a
-          className="button is-info m-t-md"
+          className="button m-t-md is-white is-outlined"
           isColor="info"
           href={`/#${anchors.OFFERED}`}
         >
@@ -66,7 +66,7 @@ export default () => {
               className="content"
               dangerouslySetInnerHTML={{ __html: getMarkdown('intro') }}
             />
-            <a className="button is-info" href={`/#${anchors.GENERAL_INFO}`}>Learn more</a>
+            <a className="button is-primary" href={`/#${anchors.GENERAL_INFO}`}>Learn more</a>
           </div>
           <div className="column">
             <figure className="image">
@@ -87,7 +87,7 @@ export default () => {
               className="content"
               dangerouslySetInnerHTML={{ __html: getMarkdown('your care') }}
             />
-            <a className="button is-info" href={`/#${anchors.LOCATION}`}>
+            <a className="button is-primary" href={`/#${anchors.LOCATION}`}>
               Learn more
             </a>
           </div>
@@ -100,7 +100,7 @@ export default () => {
               className="content"
               dangerouslySetInnerHTML={{ __html: getMarkdown('location intro') }}
             />
-            <Link className="button is-info" to="/location/">
+            <Link className="button is-primary" to="/location/">
                 Get Directions
             </Link>
           </div>

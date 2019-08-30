@@ -6,11 +6,13 @@ const Navbar = ({ location }) => {
     query {
       site {
         siteMetadata {
-          navLinks {
-            link {
-              href
+          nav {
+            internal {
+              link {
+                href
+              }
+              name
             }
-            name
           }
         }
       }
@@ -20,28 +22,33 @@ const Navbar = ({ location }) => {
 
   const [open, setOpen] = useState(false);
 
-  const links = data.site.siteMetadata.navLinks.map((navLink) => {
-    const { link } = navLink;
-    const linkStyle = `navbar-item is-tab ${location === link.href && 'is-active'}`;
-    return link.href.includes('https')
-      ? (
-        <a className={linkStyle} href={link.href} target="_blank" rel="noopener noreferrer">
-          {navLink.name}
-        </a>
-      )
-      : (
-        <Link key={link.name} activeClassName="active" className={`${linkStyle}`} exact to={link.href}>
-          {navLink.name}
-        </Link>
-      );
-  });
+  const links = data
+    .site
+    .siteMetadata
+    .nav
+    .internal
+    .map((navLink) => {
+      const { link } = navLink;
+      const linkStyle = `navbar-item is-tab has-text-light ${location === link.href && 'is-active'}`;
+      return link.href.includes('https')
+        ? (
+          <a className={linkStyle} href={link.href} target="_blank" rel="noopener noreferrer">
+            {navLink.name}
+          </a>
+        )
+        : (
+          <Link key={link.name} activeClassName="active" className={`${linkStyle}`} exact to={link.href}>
+            {navLink.name}
+          </Link>
+        );
+    });
 
   return (
-    <nav className="navbar is-transparent is-fixed-top" role="navigation" aria-label="main navigation">
+    <nav className="navbar is-transparent is-fixed-top is-primary" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
         <button
           type="button"
-          className="navbar-burger burger button is-white"
+          className="navbar-burger burger button is-primary"
           aria-label="menu"
           aria-expanded="false"
           data-target="navbarBasicExample"
@@ -52,7 +59,7 @@ const Navbar = ({ location }) => {
           <span aria-hidden="true" />
         </button>
       </div>
-      <div className={`navbar-menu ${open && 'is-active'}`}>
+      <div className={`navbar-menu has-background-primary ${open && 'is-active'}`}>
         {links}
       </div>
     </nav>

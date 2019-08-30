@@ -40,7 +40,7 @@ const BillingInsurance = (props) => {
               className="content"
               dangerouslySetInnerHTML={{ __html: getHtml('billing insurance info') }}
             />
-            <a href="/billing-insurance/#providers" className="button is-info">See Providers</a>
+            <a href="/billing-insurance/#providers" className="button is-primary">See Providers</a>
           </div>
           <div className="column">
             <Image path="sign-1.jpg" alt="Sign of NW Retina" />

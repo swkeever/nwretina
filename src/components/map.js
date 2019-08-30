@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import MapGL, { Marker } from 'react-map-gl';
+import ReactMapGL, { Marker } from 'react-map-gl';
 import { useStaticQuery, graphql } from 'gatsby';
 
 const ICON = `M20.2,15.7L20.2,15.7c1.1-1.6,1.8-3.6,1.8-5.7c0-5.6-4.5-10-10-10S2,4.5,2,10c0,2,0.6,3.9,1.6,5.4c0,0.1,0.1,0.2,0.2,0.3
@@ -79,7 +79,7 @@ const Map = (props) => {
 
   return (
     <div className="container">
-      <MapGL
+      <ReactMapGL
         {...viewport}
         mapboxApiAccessToken={process.env.MAP_ACCESS_TOKEN}
         onViewportChange={onViewportChange}
@@ -91,7 +91,7 @@ const Map = (props) => {
         >
           <CityPin size={25} />
         </Marker>
-      </MapGL>
+      </ReactMapGL>
     </div>
   );
 };
