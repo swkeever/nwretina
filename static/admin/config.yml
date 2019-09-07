@@ -6,33 +6,20 @@ media_folder: "static/uploads"
 public_folder: "uploads"
 
 collections:
-  - label: "Home"
-    name: "home"
-    folder: "src/content/home"
+  - label: "Content"
+    name: "content"
+    folder: "src/content"
     create: true
     delete: true
+    slug: "{{page}}-{{title}}"
     fields:
+      - label: "Site Page"
+        name: "page"
+        widget: "select"
+        options: ["Home", "About", "Your Visit", "Billing & Insurance"]
+      - {label: "Order", name: "order", widget: "number", valueType: "int", min: 1}
       - {label: "Section Header", name: "title", widget: "string"}
       - {label: "Featured Image", name: "image", widget: "image"}
       - {label: "Image Description", name: "imageDescription", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
-  - label: "About"
-    name: "about"
-    folder: "src/content/about"
-    create: true
-    delete: true
-    fields:
-      - {label: "Name, title", name: "title", widget: "string"}
-      - {label: "Featured Image", name: "image", widget: "image"}
-      - {label: "Image Description", name: "imageDescription", widget: "string"}
-      - {label: "Bio", name: "body", widget: "markdown"}
-  - label: "Your Visit"
-    name: "visit"
-    folder: "src/content/visit"
-    create: true
-    delete: true
-    fields:
-      - {label: "Section Header", name: "title", widget: "string"}
-      - {label: "Featured Image", name: "image", widget: "image"}
-      - {label: "Image Description", name: "imageDescription", widget: "string"}
-      - {label: "Body", name: "body", widget: "markdown"}
+ 
