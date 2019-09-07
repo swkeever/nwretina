@@ -6,8 +6,8 @@ media_folder: "static/uploads"
 public_folder: "/uploads"
 
 collections:
-  - name: "Home"
-    label: "home"
+  - name: "content"
+    label: "Site Content"
     delete: false
     create: false
     files:
