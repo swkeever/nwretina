@@ -6,7 +6,7 @@ media_folder: "static/uploads"
 public_folder: "uploads"
 
 collections:
-  - label: "Home"
+  - label: "Home Page Sections"
     name: "home"
     folder: "src/content/home"
     create: true
@@ -16,7 +16,7 @@ collections:
       - {label: "Featured Image", name: "image", widget: "image"}
       - {label: "Image Description", name: "imageDescription", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
-  - label: "About"
+  - label: "About Page Sections"
     name: "about"
     folder: "src/content/about"
     create: true
