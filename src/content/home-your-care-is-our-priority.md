@@ -1,6 +1,6 @@
 ---
 page: Home
-order: 3
+order: 2
 title: Your Care is Our Priority
 image: /uploads/mo-working.jpg
 imageDescription: Dr. Osetinsky working
