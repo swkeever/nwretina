@@ -7,6 +7,8 @@ import ContactInfo from '../components/contact-info';
 import { useStaticQuery, graphql } from 'gatsby';
 
 const Contact = (props) => {
+  return null;
+  
   const data = useStaticQuery(graphql`
     query {
       site {

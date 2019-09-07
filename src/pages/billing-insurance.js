@@ -9,6 +9,8 @@ import Questions from '../components/contact-button';
 import ContactButton from '../components/contact-button';
 
 const BillingInsurance = (props) => {
+  return null;
+  
   const data = useStaticQuery(graphql`
     query {
       allMarkdownRemark {

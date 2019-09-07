@@ -24,8 +24,7 @@ collections:
         name: "about"
         file: "src/content/about"
         fields:
-          - {label: "Name", name: "name", widget: "string", required: true}
-          - {label: "Title", name: "title", widget: "string", required: true}
+          - {label: "Name", name: "title", widget: "string", required: true}
           - {label: "Featured Image", name: "image", widget: "image", required: true}
           - {label: "Image Description", name: "imageDescription", widget: "string", required: true}
           - {label: "Bio", name: "bio", widget: "markdown", required: true}

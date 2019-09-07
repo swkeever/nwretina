@@ -9,6 +9,8 @@ import Hero from '../components/hero';
 import ContactButton from '../components/contact-button';
 
 const YourVisit = (props) => {
+  return null;
+  
   const data = useStaticQuery(graphql`
     query {
       markdownRemark(frontmatter: {

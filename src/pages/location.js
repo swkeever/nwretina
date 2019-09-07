@@ -12,6 +12,8 @@ import ContactButton from '../components/contact-button';
 import getExternalLinkProps from '../functions/get-external-link-props';
 
 const Location = (props) => {
+  return null;
+  
   const [north, setNorth] = useState(true);
   const data = useStaticQuery(graphql`
     query {

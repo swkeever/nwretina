@@ -11,7 +11,9 @@ import slugs from '../utils/slugs';
 import getContent from '../functions/get-content';
 
 const About = () => {
-  const about1 = getContent(slugs.about.one);
+  //const about1 = getContent(slugs.about.one);
+
+  return null;
 
   return (
     <Layout location="/about/">
