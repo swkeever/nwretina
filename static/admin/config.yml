@@ -1,5 +1,5 @@
 backend:
-  name: test-repo
+  name: git-gateway
   branch: master
 
 media_folder: "static/uploads"
@@ -8,6 +8,8 @@ public_folder: "/uploads"
 collections:
   - name: "Home"
     label: "home"
+    delete: false
+    create: false
     files:
       - label: "Home 1"
         name: "home-1"
