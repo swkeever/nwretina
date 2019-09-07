@@ -1,0 +1,7 @@
+---
+header: Location
+image: /uploads/sign-2.jpg
+---
+[Our Everett office](/location/) is on the beautiful waterfront in the Marina Village. 
+Dr. Osetinsky performs surgery at the new medical tower at Providence 
+Everett Medical Center.
