@@ -10,116 +10,47 @@ import slugs from '../utils/slugs';
 import getContent from '../functions/get-content';
 import Header from '../components/header';
 import toAnchorLink from '../functions/to-anchor-link';
+import Jumbotron from '../components/jumbotron';
+import CallToAction from '../components/call-to-action';
 
 export default () => {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-          titleFull
-        }
-      }
-    }
-  `);
-
   const home1 = getContent(slugs.home.one);
   const home2 = getContent(slugs.home.two);
   const home3 = getContent(slugs.home.three);
 
+  const content = [home1, home2, home3];
+
+  console.log(home1)
+
+  const showContent = () => content.map((c, i) => (
+    <Hero id={c.id}>
+      <div className={`columns is-vcentered ${i % 2 !== 0 && 'has-column-order-reversed'}`}>
+        <div className="column">
+          <Header content={c.header} />
+          <div
+            className="content"
+            dangerouslySetInnerHTML={{ __html: c.html }}
+          />
+          <CallToAction
+            contentArray={content}
+            index={i}
+          />
+        </div>
+        <div className="column">
+          <Image
+            src={c.image.src}
+            alt={c.image.alt}
+          />
+        </div>
+      </div>
+    </Hero>
+  ));
+
   return (
     <Layout location="/">
       <Head title="Home" />
-      <Hero color="primary" id="nw-retina-header">
-        <h1 className="title">
-          {data.site.siteMetadata.title}
-        </h1>
-        <p className="subtitle">
-          {`Welcome to ${data.site.siteMetadata.titleFull}`}
-        </p>
-        <ContactInfo color="light" />
-        <div className="buttons m-t-md">
-          <a
-            className="button is-white is-outlined"
-            href={toAnchorLink(home1.id)}
-          >
-            Learn more
-          </a>
-          <Link
-            to="/contact/"
-            className="button is-white is-outlined"
-          >
-          Contact Us
-          </Link>
-        </div>
-      </Hero>
-      <Hero id={home1.id}>
-        <div className="columns is-vcentered">
-          <div className="column">
-            <Header content={home1.header} />
-            <div
-              className="content"
-              dangerouslySetInnerHTML={{ __html: home1.html }}
-            />
-            <a
-              className="button is-primary"
-              href={toAnchorLink(home2.id)}
-            >
-              Learn more
-            </a>
-          </div>
-          <div className="column">
-            <figure className="image">
-              <Image
-                src={home1.image.src}
-                alt={home1.image.alt}
-              />
-            </figure>
-          </div>
-        </div>
-      </Hero>
-      <Hero id={home2.id}>
-        <div className="columns is-vcentered">
-          <div className="column">
-            <figure className="image">
-              <Image
-                src={home2.image.src}
-                alt={home2.image.alt}
-              />
-            </figure>
-          </div>
-          <div className="column">
-            <Header content={home2.header} />
-            <div
-              className="content"
-              dangerouslySetInnerHTML={{ __html: home2.html }}
-            />
-            <a className="button is-primary" href={toAnchorLink(home3.id)}>
-              Learn more
-            </a>
-          </div>
-        </div>
-      </Hero>
-      <Hero id={home3.id}>
-        <div className="columns is-vcentered">
-          <div className="column">
-            <Header content={home3.header} />
-            <div
-              className="content"
-              dangerouslySetInnerHTML={{ __html: home3.html }}
-            />
-          </div>
-          <div className="column">
-            <figure className="image">
-              <Image
-                src={home3.image.src}
-                alt={home3.image.alt}
-              />
-            </figure>
-          </div>
-        </div>
-        <ContactButton />
-      </Hero>
+      {/* <Jumbotron anchor={toAnchorLink(home1.id)} /> */}
+      {showContent()}
     </Layout>
   );
 };

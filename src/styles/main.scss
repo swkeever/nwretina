@@ -31,6 +31,10 @@ $danger: $secondary;
   margin-right: auto;
 }
 
+.has-column-order-reversed {
+  flex-direction: row-reverse;
+}
+
 // html {
 //   margin: 0 1rem;
 // }

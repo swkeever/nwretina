@@ -31,11 +31,13 @@ const Image = ({ src, alt, style }) => {
   }
 
   return (
-    <Img
-      fluid={source.node.childImageSharp.fluid}
-      alt={alt}
-      style={style}
-    />
+    <figure className="image">
+      <Img
+        fluid={source.node.childImageSharp.fluid}
+        alt={alt}
+        style={style}
+      />
+    </figure>
   );
 };
 

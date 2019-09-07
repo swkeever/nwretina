@@ -1,7 +1,7 @@
 ---
-title: about us
+header: Your Search for Retina Care is Over
+image: /uploads/sign-mo.jpg
 ---
-
 ## About Us
 
 ### Michael Osetinsky, MD
