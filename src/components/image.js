@@ -24,7 +24,7 @@ const Image = ({ src, alt, style }) => {
   const source = data
     .allFile
     .edges
-    .find((edge) => edge.node.relativePath === src);
+    .find((edge) => `/${edge.node.relativePath}` === src);
 
   if (!source) {
     throw new Error(`${src} does not exist`);
@@ -44,8 +44,9 @@ Image.defaultProps = {
 };
 
 Image.propTypes = {
-  path: PropTypes.string.isRequired,
+  src: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
   style: PropTypes.object,
 };
 

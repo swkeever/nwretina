@@ -1,4 +1,5 @@
 import { useStaticQuery, graphql } from 'gatsby';
+import toKebabCase from './to-kebab-case';
 
 const getContent = (slug) => {
   const data = useStaticQuery(graphql`
@@ -21,13 +22,17 @@ const getContent = (slug) => {
     }
   `);
 
+
   const edge = data
     .allMarkdownRemark
     .edges
     .find((e) => e.node.fields.slug === slug);
 
+  const id = toKebabCase(edge.node.frontmatter.header);
+
   return {
-    anchor: `/#${edge.node.id}`,
+    id,
+    anchor: `/#${id}`,
     html: edge.node.html,
     image: {
       src: edge.node.frontmatter.image,

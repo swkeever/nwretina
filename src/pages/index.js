@@ -8,6 +8,7 @@ import Image from '../components/image';
 import ContactButton from '../components/contact-button';
 import slugs from '../utils/slugs';
 import getContent from '../functions/get-content';
+import Header from '../components/header';
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -51,9 +52,10 @@ export default () => {
           </Link>
         </div>
       </Hero>
-      <Hero id={home1.anchor}>
+      <Hero id={home1.id}>
         <div className="columns is-vcentered">
           <div className="column">
+            <Header content={home1.header} />
             <div
               className="content"
               dangerouslySetInnerHTML={{ __html: home1.html }}
@@ -75,7 +77,7 @@ export default () => {
           </div>
         </div>
       </Hero>
-      <Hero id={home2.anchor}>
+      <Hero id={home2.id}>
         <div className="columns is-vcentered">
           <div className="column">
             <figure className="image">
@@ -86,6 +88,7 @@ export default () => {
             </figure>
           </div>
           <div className="column">
+            <Header content={home2.header} />
             <div
               className="content"
               dangerouslySetInnerHTML={{ __html: home2.html }}
@@ -96,9 +99,10 @@ export default () => {
           </div>
         </div>
       </Hero>
-      <Hero id={home3.anchor}>
+      <Hero id={home3.id}>
         <div className="columns is-vcentered">
           <div className="column">
+            <Header content={home3.header} />
             <div
               className="content"
               dangerouslySetInnerHTML={{ __html: home3.html }}
