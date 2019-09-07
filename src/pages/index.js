@@ -9,13 +9,6 @@ import ContactButton from '../components/contact-button';
 import slugs from '../utils/slugs';
 import getContent from '../functions/get-content';
 
-const anchors = {
-  OFFERED: 'what-we-offer',
-  GENERAL_INFO: 'general-information',
-  LOCATION: 'location',
-  HEADER: 'header',
-};
-
 export default () => {
   const data = useStaticQuery(graphql`
     query {
@@ -46,7 +39,7 @@ export default () => {
         <div className="buttons m-t-md">
           <a
             className="button is-white is-outlined"
-            href={`/#${anchors.OFFERED}`}
+            href={home1.anchor}
           >
             Learn more
           </a>
@@ -65,13 +58,19 @@ export default () => {
               className="content"
               dangerouslySetInnerHTML={{ __html: home1.html }}
             />
-            <a className="button is-primary" href={home2.anchor}>
+            <a
+              className="button is-primary"
+              href={home2.anchor}
+            >
               Learn more
             </a>
           </div>
           <div className="column">
             <figure className="image">
-              <Image path={home1.image.src} alt={home1.image.alt} />
+              <Image
+                src={home1.image.src}
+                alt={home1.image.alt}
+              />
             </figure>
           </div>
         </div>
@@ -80,7 +79,10 @@ export default () => {
         <div className="columns is-vcentered">
           <div className="column">
             <figure className="image">
-              <Image path={home2.image.src} alt={home2.image.alt} />
+              <Image
+                src={home2.image.src}
+                alt={home2.image.alt}
+              />
             </figure>
           </div>
           <div className="column">
@@ -105,7 +107,7 @@ export default () => {
           <div className="column">
             <figure className="image">
               <Image
-                path={home3.image.src}
+                src={home3.image.src}
                 alt={home3.image.alt}
               />
             </figure>

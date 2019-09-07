@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "dev": "rm -rf .cache && gatsby develop -o",
+    "dev": "rm -rf .cache && gatsby develop",
     "format": "node_modules/.bin/eslint . --fix",
     "start": "npm run develop",
     "reinstall": "rm -rf node_modules && rm -rf cache && npm i",

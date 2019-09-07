@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
-const Image = ({ path, alt, style }) => {
+const Image = ({ src, alt, style }) => {
   const data = useStaticQuery(graphql`
     query {
       allFile {
@@ -21,12 +21,13 @@ const Image = ({ path, alt, style }) => {
     }
   `);
 
-  const source = data.allFile.edges.find((edge) => (
-    edge.node.relativePath === path
-  ));
+  const source = data
+    .allFile
+    .edges
+    .find((edge) => edge.node.relativePath === src);
 
   if (!source) {
-    throw new Error(`${path} does not exist`);
+    throw new Error(`${src} does not exist`);
   }
 
   return (
