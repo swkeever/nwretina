@@ -30,6 +30,7 @@ module.exports = {
     ],
     'import/no-extraneous-dependencies': 0,
     'react/no-danger': 0,
+    'react/jsx-props-no-spreading': 0,
   },
   parser: "babel-eslint"
 };
