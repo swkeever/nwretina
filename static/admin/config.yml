@@ -6,25 +6,21 @@ media_folder: "static/uploads"
 public_folder: "uploads"
 
 collections:
-  - name: "content"
-    label: "Site Content"
-    delete: false
-    files:
-      - label: "Home"
-        name: "home"
-        file: "src/content/home"
-        create: true
-        delete: true
-        fields:
-          - {label: "Section Header", name: "title", widget: "string"}
-          - {label: "Featured Image", name: "image", widget: "image"}
-          - {label: "Image Description", name: "imageDescription", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}
-      - label: "About"
-        name: "about"
-        file: "src/content/about"
-        fields:
-          - {label: "Name", name: "title", widget: "string", required: true}
-          - {label: "Featured Image", name: "image", widget: "image", required: true}
-          - {label: "Image Description", name: "imageDescription", widget: "string", required: true}
-          - {label: "Bio", name: "bio", widget: "markdown", required: true}
+  - label: "Home"
+    name: "home"
+    folder: "src/content/home"
+    create: true
+    delete: true
+    fields:
+      - {label: "Section Header", name: "title", widget: "string"}
+      - {label: "Featured Image", name: "image", widget: "image"}
+      - {label: "Image Description", name: "imageDescription", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}
+  - label: "About"
+    name: "about"
+    file: "src/content/about"
+    fields:
+      - {label: "Name", name: "title", widget: "string", required: true}
+      - {label: "Featured Image", name: "image", widget: "image", required: true}
+      - {label: "Image Description", name: "imageDescription", widget: "string", required: true}
+      - {label: "Bio", name: "bio", widget: "markdown", required: true}
