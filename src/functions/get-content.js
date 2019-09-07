@@ -24,6 +24,7 @@ const getContent = (slugPrefix) => {
 
   return data.allMarkdownRemark.edges
     .filter((e) => e.node.fields.slug.startsWith(slugPrefix))
+    .reverse()
     .map((e) => ({
       id: e.node.id.toString(),
       html: e.node.html,

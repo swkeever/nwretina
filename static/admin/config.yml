@@ -6,7 +6,7 @@ media_folder: "static/uploads"
 public_folder: "uploads"
 
 collections:
-  - label: "Home Page Sections"
+  - label: "Home"
     name: "home"
     folder: "src/content/home"
     create: true
@@ -16,7 +16,7 @@ collections:
       - {label: "Featured Image", name: "image", widget: "image"}
       - {label: "Image Description", name: "imageDescription", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
-  - label: "About Page Sections"
+  - label: "About"
     name: "about"
     folder: "src/content/about"
     create: true
@@ -26,3 +26,13 @@ collections:
       - {label: "Featured Image", name: "image", widget: "image"}
       - {label: "Image Description", name: "imageDescription", widget: "string"}
       - {label: "Bio", name: "body", widget: "markdown"}
+  - label: "Your Visit"
+    name: "visit"
+    folder: "src/content/visit"
+    create: true
+    delete: true
+    fields:
+      - {label: "Section Header", name: "title", widget: "string"}
+      - {label: "Featured Image", name: "image", widget: "image"}
+      - {label: "Image Description", name: "imageDescription", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}
