@@ -1,17 +1,16 @@
 backend:
-  name: github
-  repo: swkeever/nwretina
+  name: git-gateway
+  branch: master
 
-media_folder: static/assets
-public_folder: assets
+media_folder: "static/uploads"
+public_folder: "/uploads"
 
 collections:
-  - name: blog
-    label: Blog
-    folder: blog
-    create: true
+  - name: "home-1"
+    label: "Home 1"
+    folder: "src/content"
+    create: false
+    slug: "{{slug}}"
     fields:
-      - { name: path, label: Path }
-      - { name: date, label: Date, widget: date }
-      - { name: title, label: Title }
-      - { name: body, label: Body, widget: markdown }
+      - {label: "Featured Image", name: "image", widget: "image"}
+      - {label: "Home 1", name: "home-1", widget: "markdown"}

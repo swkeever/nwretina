@@ -23,6 +23,7 @@ const Head = ({ title, reCAPTCHA }) => {
     <Helmet>
       <html lang="en" amp className="has-navbar-fixed-top" />
       <title>{`${title} | ${data.site.siteMetadata.titleFull}`}</title>
+      <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" />
       {reCAPTCHA ? <script src="https://www.google.com/recaptcha/api.js" async defer /> : null}
       <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js" />
     </Helmet>
