@@ -28,11 +28,8 @@ const getContent = (slug) => {
     .edges
     .find((e) => e.node.fields.slug === slug);
 
-  const id = toKebabCase(edge.node.frontmatter.header);
-
   return {
-    id,
-    anchor: `/#${id}`,
+    id: edge.node.id.toString(),
     html: edge.node.html,
     image: {
       src: edge.node.frontmatter.image,

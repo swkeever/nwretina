@@ -9,6 +9,7 @@ import ContactButton from '../components/contact-button';
 import slugs from '../utils/slugs';
 import getContent from '../functions/get-content';
 import Header from '../components/header';
+import toAnchorLink from '../functions/to-anchor-link';
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -40,7 +41,7 @@ export default () => {
         <div className="buttons m-t-md">
           <a
             className="button is-white is-outlined"
-            href={home1.anchor}
+            href={toAnchorLink(home1.id)}
           >
             Learn more
           </a>
@@ -62,7 +63,7 @@ export default () => {
             />
             <a
               className="button is-primary"
-              href={home2.anchor}
+              href={toAnchorLink(home2.id)}
             >
               Learn more
             </a>
@@ -93,7 +94,7 @@ export default () => {
               className="content"
               dangerouslySetInnerHTML={{ __html: home2.html }}
             />
-            <a className="button is-primary" href={home3.anchor}>
+            <a className="button is-primary" href={toAnchorLink(home3.id)}>
               Learn more
             </a>
           </div>
