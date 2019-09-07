@@ -1,6 +1,6 @@
 ---
 page: Home
-order: 2
+order: 3
 title: Location
 image: /uploads/sign-2.jpg
 imageDescription: Sign of NW Retina
