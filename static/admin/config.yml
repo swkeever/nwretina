@@ -9,7 +9,6 @@ collections:
   - name: "content"
     label: "Site Content"
     delete: false
-    create: false
     files:
       - label: "Home 1"
         name: "home-1"
