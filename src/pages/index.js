@@ -6,6 +6,8 @@ import Head from '../components/head';
 import ContactInfo from '../components/contact-info';
 import Image from '../components/image';
 import ContactButton from '../components/contact-button';
+import slugs from '../utils/slugs';
+import getContent from '../functions/get-content';
 
 const anchors = {
   OFFERED: 'what-we-offer',
@@ -23,23 +25,12 @@ export default () => {
           titleFull
         }
       }
-      allMarkdownRemark {
-        edges {
-          node {
-            html
-            frontmatter {
-              title
-            }
-          }
-        }
-      }
     }
   `);
 
-  const getMarkdown = (t) => {
-    const edge = data.allMarkdownRemark.edges.find((e) => e.node.frontmatter.title === t);
-    return edge.node.html;
-  };
+  const home1 = getContent(slugs.home.one);
+  const home2 = getContent(slugs.home.two);
+  const home3 = getContent(slugs.home.three);
 
   return (
     <Layout location="/">
@@ -66,61 +57,61 @@ export default () => {
           Contact Us
           </Link>
         </div>
-
       </Hero>
-      <Hero id={anchors.OFFERED}>
+      <Hero id={home1.anchor}>
         <div className="columns is-vcentered">
           <div className="column">
             <div
               className="content"
-              dangerouslySetInnerHTML={{ __html: getMarkdown('intro') }}
+              dangerouslySetInnerHTML={{ __html: home1.html }}
             />
-            <a className="button is-primary" href={`/#${anchors.GENERAL_INFO}`}>Learn more</a>
+            <a className="button is-primary" href={home2.anchor}>
+              Learn more
+            </a>
           </div>
           <div className="column">
             <figure className="image">
-              <Image path="dr-osetinsky.png" alt="Dr. Osetinsky" />
+              <Image path={home1.image.src} alt={home1.image.alt} />
             </figure>
           </div>
         </div>
       </Hero>
-      <Hero id={anchors.GENERAL_INFO}>
+      <Hero id={home2.anchor}>
         <div className="columns is-vcentered">
           <div className="column">
             <figure className="image">
-              <Image path="home-office.png" alt="Office" />
+              <Image path={home2.image.src} alt={home2.image.alt} />
             </figure>
           </div>
           <div className="column">
             <div
               className="content"
-              dangerouslySetInnerHTML={{ __html: getMarkdown('your care') }}
+              dangerouslySetInnerHTML={{ __html: home2.html }}
             />
-            <a className="button is-primary" href={`/#${anchors.LOCATION}`}>
+            <a className="button is-primary" href={home3.anchor}>
               Learn more
             </a>
           </div>
         </div>
       </Hero>
-      <Hero id={anchors.LOCATION}>
+      <Hero id={home3.anchor}>
         <div className="columns is-vcentered">
           <div className="column">
             <div
               className="content"
-              dangerouslySetInnerHTML={{ __html: getMarkdown('location intro') }}
+              dangerouslySetInnerHTML={{ __html: home3.html }}
             />
           </div>
           <div className="column">
             <figure className="image">
               <Image
-                path="sign-2.jpg"
-                alt="Northwest Retina sign from outside"
+                path={home3.image.src}
+                alt={home3.image.alt}
               />
             </figure>
           </div>
         </div>
         <ContactButton />
-
       </Hero>
     </Layout>
   );
