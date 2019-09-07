@@ -6,26 +6,26 @@ media_folder: "static/uploads"
 public_folder: "/uploads"
 
 collections:
-  - name: "home-1"
-    label: "Home 1"
+  - name: "Home"
+    label: "home"
     files:
       - label: "Home 1"
         name: "home-1"
-        file: "home-1.md"
+        file: "src/content/home-1.md"
         fields:
           - {label: "Section Header", name: "header", widget: "string", required: true}
           - {label: "Featured Image", name: "image", widget: "image", required: true}
           - {label: "Body", name: "body", widget: "markdown", required: true}
       - label: "Home 2"
         name: "home-2"
-        file: "home-2.md"
+        file: "src/content/home-2.md"
         fields:
           - {label: "Section Header", name: "header", widget: "string", required: true}
           - {label: "Featured Image", name: "image", widget: "image", required: true}
           - {label: "Body", name: "body", widget: "markdown", required: true}
       - label: "Home 3"
         name: "home-3"
-        file: "home-3.md"
+        file: "src/content/home-3.md"
         fields:
           - {label: "Section Header", name: "header", widget: "string", required: true}
           - {label: "Featured Image", name: "image", widget: "image", required: true}
