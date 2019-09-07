@@ -9,8 +9,10 @@ const getContent = (slugPrefix) => {
             id
             html
             frontmatter {
+              order
               title
               image
+              page
               imageDescription
             }
             fields {
@@ -24,7 +26,7 @@ const getContent = (slugPrefix) => {
 
   return data.allMarkdownRemark.edges
     .filter((e) => e.node.fields.slug.startsWith(slugPrefix))
-    .reverse()
+    .sort((a, b) => a.node.frontmatter.order - b.node.frontmatter.order)
     .map((e) => ({
       id: e.node.id.toString(),
       html: e.node.html,

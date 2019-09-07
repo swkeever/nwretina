@@ -10,11 +10,13 @@ import {
 import getContent from '../functions/get-content';
 import toAnchorLink from '../functions/to-anchor-link';
 import Jumbotron from './jumbotron';
+import slugs from '../utils/slugs';
 
-const Content = ({ slugPrefix, homePage }) => {
+const Content = ({ slugPrefix }) => {
   const content = getContent(slugPrefix);
 
-  const jumbotronElement = homePage ? <Jumbotron anchor={toAnchorLink(content[0].id)} /> : null;
+  const jumbotronElement = slugPrefix === slugs.home ? <Jumbotron anchor={toAnchorLink(content[0].id)} /> : null;
+  const anchorPrefix = slugPrefix === slugs.home ? '' : slugPrefix;
 
   const contentElements = content.map((c, i) => {
     const isLastElement = i === content.length - 1;
@@ -32,7 +34,7 @@ const Content = ({ slugPrefix, homePage }) => {
               !isLastElement && (
                 <a
                   className="button is-primary"
-                  href={toAnchorLink(content[i + 1].id)}
+                  href={`${anchorPrefix}${toAnchorLink(content[i + 1].id)}`}
                 >
                 Learn more
                 </a>
@@ -51,6 +53,8 @@ const Content = ({ slugPrefix, homePage }) => {
     );
   });
 
+  console.log(contentElements);
+
   return (
     <>
       {jumbotronElement}
@@ -59,13 +63,8 @@ const Content = ({ slugPrefix, homePage }) => {
   );
 };
 
-Content.defaultProps = {
-  homePage: false,
-};
-
 Content.propTypes = {
   slugPrefix: PropTypes.string.isRequired,
-  homePage: PropTypes.bool,
 };
 
 export default Content;
