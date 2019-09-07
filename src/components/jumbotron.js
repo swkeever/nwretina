@@ -15,8 +15,13 @@ const Jumbotron = ({ anchor }) => {
     }
   `);
 
+  console.log(anchor)
+
   return (
-    <Hero color="primary" id="nw-retina-header">
+    <Hero
+      color="primary"
+      id="nw-retina-header"
+    >
       <h1 className="title">
         {data.site.siteMetadata.title}
       </h1>

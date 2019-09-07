@@ -1,7 +1,6 @@
 import { useStaticQuery, graphql } from 'gatsby';
-import toKebabCase from './to-kebab-case';
 
-const getContent = (slug) => {
+const getContent = (slugPrefix) => {
   const data = useStaticQuery(graphql`
     query {
       allMarkdownRemark {
@@ -10,8 +9,9 @@ const getContent = (slug) => {
             id
             html
             frontmatter {
-              header
+              title
               image
+              imageDescription
             }
             fields {
               slug
@@ -22,21 +22,17 @@ const getContent = (slug) => {
     }
   `);
 
-
-  const edge = data
-    .allMarkdownRemark
-    .edges
-    .find((e) => e.node.fields.slug === slug);
-
-  return {
-    id: edge.node.id.toString(),
-    html: edge.node.html,
-    image: {
-      src: edge.node.frontmatter.image,
-      alt: edge.node.frontmatter.imageDescription,
-    },
-    header: edge.node.frontmatter.header,
-  };
+  return data.allMarkdownRemark.edges
+    .filter((e) => e.node.fields.slug.startsWith(slugPrefix))
+    .map((e) => ({
+      id: e.node.id.toString(),
+      html: e.node.html,
+      image: {
+        src: e.node.frontmatter.image,
+        alt: e.node.frontmatter.imageDescription,
+      },
+      title: e.node.frontmatter.title,
+    }));
 };
 
 export default getContent;

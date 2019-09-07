@@ -9,3 +9,5 @@ export { default as Image } from './image';
 export { default as Layout } from './layout';
 export { default as Map } from './map';
 export { default as Navbar } from './navbar';
+export { default as Jumbotron } from './jumbotron';
+export { default as Content } from './content';
