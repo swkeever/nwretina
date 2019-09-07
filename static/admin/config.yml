@@ -16,3 +16,13 @@ collections:
       - {label: "Featured Image", name: "image", widget: "image"}
       - {label: "Image Description", name: "imageDescription", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
+  - label: "About"
+    name: "about"
+    folder: "src/content/about"
+    create: true
+    delete: true
+    fields:
+      - {label: "Name, title", name: "title", widget: "string"}
+      - {label: "Featured Image", name: "image", widget: "image"}
+      - {label: "Image Description", name: "imageDescription", widget: "string"}
+      - {label: "Bio", name: "body", widget: "markdown"}
