@@ -17,6 +17,7 @@ collections:
           - {label: "Section Header", name: "header", widget: "string", required: true}
           - {label: "Featured Image", name: "image", widget: "image", required: true}
           - {label: "Body", name: "body", widget: "markdown", required: true}
+          - {label: "Title", name: "title", widget: "hidden", default: "home-1"}
       - label: "Home 2"
         name: "home-2"
         file: "src/content/home-2.md"
@@ -24,6 +25,7 @@ collections:
           - {label: "Section Header", name: "header", widget: "string", required: true}
           - {label: "Featured Image", name: "image", widget: "image", required: true}
           - {label: "Body", name: "body", widget: "markdown", required: true}
+          - {label: "Title", name: "title", widget: "hidden", default: "home-2"}
       - label: "Home 3"
         name: "home-3"
         file: "src/content/home-3.md"
@@ -31,4 +33,5 @@ collections:
           - {label: "Section Header", name: "header", widget: "string", required: true}
           - {label: "Featured Image", name: "image", widget: "image", required: true}
           - {label: "Body", name: "body", widget: "markdown", required: true}
+          - {label: "Title", name: "title", widget: "hidden", default: "home-3"}
      
