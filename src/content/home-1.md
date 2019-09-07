@@ -9,4 +9,4 @@ Our office uses state of the art equipment in the diagnosis and treatment of
 * Diabetic Retinopathy
 * Retinal Detachment
 * Macular Degeneration
-* and other Vitreo-Retinal related diseases...
+* and other Vitreo-Retinal related diseases
