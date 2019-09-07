@@ -6,14 +6,19 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "dev": "rm -rf .cache && gatsby develop",
+    "dev": "rm -rf .cache && gatsby develop -o",
     "format": "node_modules/.bin/eslint . --fix",
     "start": "npm run develop",
     "reinstall": "rm -rf node_modules && rm -rf cache && npm i",
     "gatsby:reset": "rm -rf cache && rm -rf public",
     "serve": "gatsby serve",
     "build:try": "npm run build && npm run serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
+    "test": "jest"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "dependencies": {
     "gatsby": "^2.13.73",
@@ -21,6 +26,7 @@
     "gatsby-image": "^2.2.14",
     "gatsby-plugin-catch-links": "^2.1.5",
     "gatsby-plugin-less": "^3.0.2",
+    "gatsby-plugin-netlify-cms": "^4.1.13",
     "gatsby-plugin-react-helmet": "^3.1.5",
     "gatsby-plugin-sass": "^2.1.12",
     "gatsby-plugin-sharp": "^2.2.18",
@@ -29,6 +35,7 @@
     "gatsby-transformer-remark": "^2.6.19",
     "gatsby-transformer-sharp": "^2.2.12",
     "mapbox-gl": "^1.2.1",
+    "netlify-cms-app": "^2.9.7",
     "node-sass": "^4.12.0",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
@@ -38,6 +45,10 @@
     "smooth-scroll": "^16.1.0"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^4.1.0",
+    "@testing-library/react": "^9.1.4",
+    "babel-jest": "^24.9.0",
+    "babel-preset-gatsby": "^0.2.12",
     "bulma": "^0.7.5",
     "dotenv": "^8.1.0",
     "eslint": "^6.2.1",
@@ -46,7 +57,10 @@
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
-    "eslint-plugin-react-hooks": "^1.7.0"
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.9.0",
+    "react-test-renderer": "^16.9.0"
   },
   "repository": {
     "type": "git",

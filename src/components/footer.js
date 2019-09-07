@@ -2,6 +2,7 @@ import React from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 import ContactInfo from './contact-info';
 import getGoogleMapsLink from '../functions/get-google-maps-link';
+import getExternalLinkProps from '../functions/get-external-link-props';
 
 const Footer = () => {
   const data = useStaticQuery(graphql`
@@ -9,40 +10,19 @@ const Footer = () => {
       site {
         siteMetadata {
           titleFull
-          address {
-            street {
-              line1
-              line2
-            }
-            city
-            state
-            zipCode
-          }
-          phone {
-            office
-            fax
-          }
           nav {
             internal {
-              link {
-                href
-              }
+              link
               name
             }
             external {
-              link {
-                href
-              }
+              link
               name
             }
           }
           developer {
             name
             link
-          }
-          externalLinkProps {
-            target
-            rel
           }
           socialMedia {
             facebook
@@ -55,17 +35,14 @@ const Footer = () => {
 
   const {
     titleFull,
-    address,
-    phone,
     nav,
-    externalLinkProps,
-    email,
     developer,
     socialMedia,
   } = data.site.siteMetadata;
 
   const linkColor = 'has-text-info';
   const headerSize = 'is-size-6';
+  const externalLinkProps = getExternalLinkProps();
 
   return (
     <footer className="section has-background-dark has-text-light is-size-7">
@@ -79,7 +56,13 @@ const Footer = () => {
                   {
                   nav.internal.map((navLink) => (
                     <li>
-                      <Link className={linkColor} to={navLink.link.href}>{navLink.name}</Link>
+                      <Link
+                        className={linkColor}
+                        to={navLink.link}
+                      >
+                        {navLink.name}
+
+                      </Link>
                     </li>
                   ))
                 }
@@ -87,26 +70,7 @@ const Footer = () => {
               </div>
               <div className="column">
                 <h5 className={headerSize}>Contact</h5>
-                <ul>
-                  <li>
-                    <a href={getGoogleMapsLink()} className={linkColor} {...externalLinkProps}>
-                      {
-                      `
-                      ${address.street.line1},
-                      ${address.street.line2}
-                      ${address.city}, ${address.state}
-                      ${address.zipCode}
-                      `
-                    }
-                    </a>
-                  </li>
-                  <li>
-                    <a className={linkColor} href={`tel:${phone.office}`}>{`${phone.office} (office)`}</a>
-                  </li>
-                  <li>
-                    <a className={linkColor} href={`tel:${phone.fax}`}>{`${phone.fax} (fax)`}</a>
-                  </li>
-                </ul>
+                <ContactInfo color="link" />
               </div>
               <div className="column">
                 <h5 className={headerSize}>Related</h5>
@@ -114,7 +78,11 @@ const Footer = () => {
                   {
                   nav.external.map((navLink) => (
                     <li>
-                      <a className={linkColor} href={navLink.link.href} {...externalLinkProps}>
+                      <a
+                        className={linkColor}
+                        href={navLink.link}
+                        {...externalLinkProps}
+                      >
                         {navLink.name}
                       </a>
                     </li>

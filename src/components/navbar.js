@@ -8,9 +8,7 @@ const Navbar = ({ location }) => {
         siteMetadata {
           nav {
             internal {
-              link {
-                href
-              }
+              link
               name
             }
           }
@@ -28,17 +26,17 @@ const Navbar = ({ location }) => {
     .nav
     .internal
     .map((navLink) => {
-      const { link } = navLink;
-      const linkStyle = `navbar-item is-tab has-text-light ${location === link.href && 'is-active'}`;
-      return link.href.includes('https')
+      const { link, name } = navLink;
+      const linkStyle = `navbar-item is-tab has-text-light ${location === link && 'is-active'}`;
+      return link.includes('https')
         ? (
-          <a className={linkStyle} href={link.href} target="_blank" rel="noopener noreferrer">
-            {navLink.name}
+          <a className={linkStyle} href={link} target="_blank" rel="noopener noreferrer">
+            {name}
           </a>
         )
         : (
-          <Link key={link.name} activeClassName="active" className={`${linkStyle}`} exact to={link.href}>
-            {navLink.name}
+          <Link key={link} activeClassName="active" className={`${linkStyle}`} exact to={link}>
+            {name}
           </Link>
         );
     });

@@ -6,6 +6,7 @@ import Layout from '../components/layout';
 import Head from '../components/head';
 import Image from '../components/image';
 import Hero from '../components/hero';
+import ContactButton from '../components/contact-button';
 
 const About = (props) => {
   const data = useStaticQuery(graphql`
@@ -30,7 +31,6 @@ const About = (props) => {
               className="content"
               dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}
             />
-
           </div>
           <div className="column">
             <figure className="image">
@@ -38,6 +38,7 @@ const About = (props) => {
             </figure>
           </div>
         </div>
+        <ContactButton />
       </Hero>
     </Layout>
   );

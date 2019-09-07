@@ -7,9 +7,7 @@ const getGoogleMapsLink = () => {
         siteMetadata {
           nav {
             external {
-              link {
-                href
-              }
+              link
               name
             }
           }
@@ -24,7 +22,7 @@ const getGoogleMapsLink = () => {
     .nav
     .external
     .find((item) => item.name === 'Google Maps');
-  return navLink.link.href;
+  return navLink.link;
 };
 
 export default getGoogleMapsLink;

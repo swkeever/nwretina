@@ -2,8 +2,6 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
-const path = require('path');
-
 module.exports = {
   siteMetadata: {
     title: 'NW Retina',
@@ -34,59 +32,41 @@ module.exports = {
     nav: {
       internal: [
         {
-          link: {
-            href: '/',
-          },
+          link: '/',
           name: 'Home',
         },
         {
-          link: {
-            href: '/about/',
-          },
+          link: '/about/',
           name: 'About',
         },
         {
-          link: {
-            href: '/your-visit/',
-          },
+          link: '/your-visit/',
           name: 'Your Visit',
         },
         {
-          link: {
-            href: 'location/',
-          },
+          link: 'location/',
           name: 'Location',
         },
         {
-          link: {
-            href: '/billing-insurance/',
-          },
+          link: '/billing-insurance/',
           name: 'Billing & Insurance',
         },
         {
-          link: {
-            href: '/contact/',
-          },
+          link: '/contact/',
           name: 'Contact',
         },
       ],
       external: [
         {
-          link: {
-            href: 'https://www.mypatientvisit.com/#/login?practiceID=YKOXLW',
-          },
+          link: 'https://www.mypatientvisit.com/#/login?practiceID=YKOXLW',
           name: 'Your Medical Records',
         },
         {
-          link: {
-            href: 'https://www.aao.org/',
-          },
+          link: 'https://www.aao.org/',
           name: 'American Academy of Ophthalmology',
         },
         {
-          link: {
-            href: 'https://goo.gl/maps/ZqnsBcWeuXWpVYRo9',
-          },
+          link: 'https://goo.gl/maps/ZqnsBcWeuXWpVYRo9',
           name: 'Google Maps',
         },
       ],
@@ -98,14 +78,11 @@ module.exports = {
       name: 'Sean Keever',
       link: 'https://swkeever.github.io',
     },
-    externalLinkProps: {
-      target: '_blank',
-      rel: 'noopener noreferrer',
-    },
     siteUrl: 'https://www.nwretina.com',
     email: 'office@nwretina.com',
   },
   plugins: [
+    'gatsby-plugin-netlify-cms',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     'gatsby-transformer-sharp',

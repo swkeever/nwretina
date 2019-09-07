@@ -5,6 +5,8 @@ import Layout from '../components/layout';
 import Head from '../components/head';
 import Hero from '../components/hero';
 import Image from '../components/image';
+import Questions from '../components/contact-button';
+import ContactButton from '../components/contact-button';
 
 const BillingInsurance = (props) => {
   const data = useStaticQuery(graphql`
@@ -47,7 +49,7 @@ const BillingInsurance = (props) => {
           </div>
         </div>
       </Hero>
-      <Hero color="white" id="providers">
+      <Hero id="providers">
         <div className="columns is-vcentered">
           <div className="column">
             <Image path="hero.jpg" alt="Marina" style={{ width: '80%' }} />
@@ -59,6 +61,7 @@ const BillingInsurance = (props) => {
             />
           </div>
         </div>
+        <ContactButton />
       </Hero>
     </Layout>
   );

@@ -6,28 +6,15 @@ import Head from '../components/head';
 import Hero from '../components/hero';
 import Map from '../components/map';
 import getGoogleMapsLink from '../functions/get-google-maps-link';
+import getAddress from '../functions/get-address';
+import Image from '../components/image';
+import ContactButton from '../components/contact-button';
+import getExternalLinkProps from '../functions/get-external-link-props';
 
 const Location = (props) => {
   const [north, setNorth] = useState(true);
   const data = useStaticQuery(graphql`
     query {
-      site {
-        siteMetadata {
-          address {
-            street {
-              line1
-              line2
-            }
-            city
-            state
-            zipCode
-          }
-          externalLinkProps {
-            target
-            rel
-          }
-        }
-      }
       allMarkdownRemark {
         edges {
           node {
@@ -41,10 +28,7 @@ const Location = (props) => {
     }
   `);
 
-  const {
-    address,
-    externalLinkProps,
-  } = data.site.siteMetadata;
+  const externalLinkProps = getExternalLinkProps();
 
   const getDirections = () => {
     const title = north ? 'directions from north' : 'directions from south';
@@ -52,60 +36,67 @@ const Location = (props) => {
     return edge.node.html;
   };
 
-  const addressSize = 'is-size-6';
-
   return (
     <Layout location="/location/">
       <Head title="Location" />
-      <Hero id="driving-directions">
+      <Hero id="our-address">
         <div className="columns is-vcentered">
           <div className="column">
-
             <div className="content">
-              <h2>Address</h2>
+              <h2>Our Address</h2>
+              <span className="help">
+                Click the link below to get directions from Google Maps.
+              </span>
               <p>
                 <a href={getGoogleMapsLink()} {...externalLinkProps}>
-                  {
-                    `
-                    ${address.street.line1}, ${address.street.line2}
-                    ${address.city}, ${address.state} ${address.zipCode}
-                    `
-                  }
+                  {getAddress()}
                 </a>
               </p>
-
-              <h4>Driving Directions</h4>
-              <p>Where are you coming from?</p>
-
-            </div>
-
-            <div className="m-t-md buttons">
-              <button
-                type="button"
-                className={`button is-primary ${!north && 'is-outlined'}`}
-                onClick={() => !north && setNorth(!north)}
+              <a
+                href="/location/#driving-directions"
+                className="button is-primary"
               >
-                  North
-              </button>
-              <button
-                type="button"
-                className={`button is-danger ${north && 'is-outlined'}`}
-                onClick={() => north && setNorth(!north)}
-              >
-                  South
-              </button>
+                Driving Directions
+              </a>
             </div>
-            <div
-              className="content"
-              dangerouslySetInnerHTML={{ __html: getDirections() }}
-            />
-
           </div>
           <div className="column is-two-thirds">
-            <p className="help is-info m-b-sm">Zoom in on the map to take a closer look.</p>
             <Map />
           </div>
         </div>
+      </Hero>
+      <Hero id="driving-directions">
+        <div className="columns is-vcentered">
+          <div className="column">
+            <Image path="driving.jpg" alt="Driving a car" />
+          </div>
+          <div className="column">
+            <div className="content">
+              <h2>Where are you coming from?</h2>
+              <div className="m-t-md buttons">
+                <button
+                  type="button"
+                  className={`button is-primary ${!north && 'is-outlined'}`}
+                  onClick={() => !north && setNorth(!north)}
+                >
+            North
+                </button>
+                <button
+                  type="button"
+                  className={`button is-danger ${north && 'is-outlined'}`}
+                  onClick={() => north && setNorth(!north)}
+                >
+            South
+                </button>
+              </div>
+              <div
+                className="content"
+                dangerouslySetInnerHTML={{ __html: getDirections() }}
+              />
+            </div>
+          </div>
+        </div>
+        <ContactButton />
       </Hero>
     </Layout>
   );

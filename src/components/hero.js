@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import colorType from '../types/color';
 
 const Hero = ({
   children, color, id, bold,
@@ -23,16 +24,7 @@ Hero.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]).isRequired,
-  color: PropTypes.oneOf([
-    'primary',
-    'info',
-    'warning',
-    'success',
-    'danger',
-    'dark',
-    'light',
-    'white',
-  ]),
+  color: colorType,
   id: PropTypes.string.isRequired,
   bold: PropTypes.bool,
 };

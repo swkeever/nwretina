@@ -6,6 +6,7 @@ import Layout from '../components/layout';
 import Head from '../components/head';
 import Image from '../components/image';
 import Hero from '../components/hero';
+import ContactButton from '../components/contact-button';
 
 const YourVisit = (props) => {
   const data = useStaticQuery(graphql`
@@ -42,6 +43,7 @@ const YourVisit = (props) => {
             </figure>
           </div>
         </div>
+        <ContactButton />
       </Hero>
 
     </Layout>

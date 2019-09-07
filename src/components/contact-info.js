@@ -2,28 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
 import getGoogleMapsLink from '../functions/get-google-maps-link';
+import getAddress from '../functions/get-address';
+import colorType from '../types/color';
+import getExternalLinkProps from '../functions/get-external-link-props';
 
-const ContactInfo = (props) => {
+const ContactInfo = ({ color }) => {
   const data = useStaticQuery(graphql`
     query {
       site {
         siteMetadata {
-          address {
-            street {
-              line1
-              line2
-            }
-            city
-            state
-            zipCode
-          }
           phone {
             office
             fax
-          }
-          externalLinkProps {
-            target
-            rel
           }
         }
       }
@@ -33,32 +23,34 @@ const ContactInfo = (props) => {
   const {
     address,
     phone,
-    externalLinkProps,
   } = data.site.siteMetadata;
 
-  const linkColor = 'has-text-info';
+  const linkColor = `has-text-${color}`;
+  const externalLinkProps = getExternalLinkProps();
 
   return (
     <div className="container">
       <p>
         <a className={linkColor} href={getGoogleMapsLink()} {...externalLinkProps}>
-          {`${address.street.line1} ${address.street.line2}, ${address.city} ${address.state} ${address.zipCode}`}
+          {getAddress()}
         </a>
       </p>
       <p>
-        {'Office: '}
-        <a className={linkColor} href={`tel:${phone.office}`}>{phone.office}</a>
+        <a className={linkColor} href={`tel:${phone.office}`}>{phone.office} (office)</a>
       </p>
       <p>
-        {'Fax: '}
-        <a className={linkColor} href={`tel:${phone.fax}`}>{phone.fax}</a>
+        <a className={linkColor} href={`tel:${phone.fax}`}>{phone.fax} (fax)</a>
       </p>
     </div>
   );
 };
 
-ContactInfo.propTypes = {
+ContactInfo.defaultProps = {
+  color: 'grey-darker',
+};
 
+ContactInfo.propTypes = {
+  color: colorType,
 };
 
 export default ContactInfo;

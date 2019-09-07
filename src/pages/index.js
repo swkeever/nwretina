@@ -5,6 +5,7 @@ import Hero from '../components/hero';
 import Head from '../components/head';
 import ContactInfo from '../components/contact-info';
 import Image from '../components/image';
+import ContactButton from '../components/contact-button';
 
 const anchors = {
   OFFERED: 'what-we-offer',
@@ -50,14 +51,22 @@ export default () => {
         <p className="subtitle">
           {`Welcome to ${data.site.siteMetadata.titleFull}`}
         </p>
-        <ContactInfo />
-        <a
-          className="button m-t-md is-white is-outlined"
-          isColor="info"
-          href={`/#${anchors.OFFERED}`}
-        >
-          Learn more
-        </a>
+        <ContactInfo color="light" />
+        <div className="buttons m-t-md">
+          <a
+            className="button is-white is-outlined"
+            href={`/#${anchors.OFFERED}`}
+          >
+            Learn more
+          </a>
+          <Link
+            to="/contact/"
+            className="button is-white is-outlined"
+          >
+          Contact Us
+          </Link>
+        </div>
+
       </Hero>
       <Hero id={anchors.OFFERED}>
         <div className="columns is-vcentered">
@@ -100,16 +109,18 @@ export default () => {
               className="content"
               dangerouslySetInnerHTML={{ __html: getMarkdown('location intro') }}
             />
-            <Link className="button is-primary" to="/location/">
-                Get Directions
-            </Link>
           </div>
           <div className="column">
             <figure className="image">
-              <Image path="sign-2.jpg" alt="Northwest Retina sign from outside" />
+              <Image
+                path="sign-2.jpg"
+                alt="Northwest Retina sign from outside"
+              />
             </figure>
           </div>
         </div>
+        <ContactButton />
+
       </Hero>
     </Layout>
   );
