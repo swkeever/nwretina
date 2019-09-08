@@ -1,15 +1,9 @@
-import React from 'react';
+/* eslint-disable global-require */
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
-import AOS from 'aos';
 import 'aos/dist/aos.css';
-
-if (typeof window !== 'undefined') {
-  // Make scroll behavior of internal links smooth
-  // eslint-disable-next-line global-require
-  require('smooth-scroll')('a[href*="#"]');
-}
 
 const Head = ({ title, reCAPTCHA }) => {
   const data = useStaticQuery(graphql`
@@ -22,11 +16,14 @@ const Head = ({ title, reCAPTCHA }) => {
     }
   `);
 
-  AOS.init({
-    duration: 700,
-    delay: 90,
-    ease: 'ease-in-out',
-  });
+  useEffect(() => {
+    require('smooth-scroll')('a[href*="#"]');
+    require('aos').init({
+      duration: 700,
+      delay: 90,
+      ease: 'ease-in-out',
+    });
+  }, []);
 
   return (
     <Helmet>
