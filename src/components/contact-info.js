@@ -34,7 +34,7 @@ const ContactInfo = ({ color }) => {
         ${officeHours.weekStart} - ${officeHours.weekEnd}`}
       </p>
       <p>
-        <a className={linkColor} href={googleMaps.link} {...externalLinkProps}>
+        <a className={linkColor} href={googleMaps.href} {...externalLinkProps}>
           {getAddress()}
         </a>
       </p>
