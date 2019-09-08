@@ -112,7 +112,13 @@ const Footer = () => {
             {`Copyright ©️ ${new Date().getFullYear()} ${titleFull}`}
           </li>
           <li className="level-item">
-            <a className={linkColor} href="/admin/#/">Admin Portal</a>
+            <a
+              className={linkColor}
+              href="/admin/"
+              {...externalLinkProps}
+            >
+              Admin Portal
+            </a>
           </li>
           <li className="level-item">
             <Link className={linkColor} to="/sitemap.xml">Sitemap</Link>
