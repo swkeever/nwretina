@@ -19,7 +19,7 @@ const Hero = ({
       `
     }
       id={id}
-      style={image && { opacity: 0.955 }}
+      style={image && { opacity: 0.9 }}
     >
       <div className="hero-body">
         <div className="container">
