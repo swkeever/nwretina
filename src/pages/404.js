@@ -1,8 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useStaticQuery, graphql, Link } from 'gatsby';
-import Layout from '../components/layout';
-import Hero from '../components/hero';
+import {
+  Hero,
+  Header,
+  Layout,
+} from '../components';
 
 const NotFound = (props) => {
   const data = useStaticQuery(graphql`
@@ -21,14 +23,15 @@ const NotFound = (props) => {
 
   return (
     <Layout>
-      <Hero id="not-found">
-        <div
-          className="content"
-          dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}
-        />
+      <Hero
+        id="not-found"
+        color="primary"
+        image="/uploads/pnw2.jpg"
+      >
+        <Header content="Page not found." />
         <div className="buttons">
-          <Link to="/" className="button is-primary">Go Home</Link>
-          <Link to="/contact/" className="button">Contact Us</Link>
+          <Link to="/" className="button is-white is-outlined">Go Home</Link>
+          <Link to="/contact/" className="button is-white is-outlined">Contact Us</Link>
         </div>
       </Hero>
     </Layout>

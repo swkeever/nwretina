@@ -40,7 +40,8 @@ const Footer = () => {
     socialMedia,
   } = data.site.siteMetadata;
 
-  const linkColor = 'has-text-info';
+  const color = 'info';
+  const linkColor = `has-text-${color}`;
   const headerSize = 'is-size-6';
   const externalLinkProps = getExternalLinkProps();
 
@@ -70,7 +71,7 @@ const Footer = () => {
               </div>
               <div className="column">
                 <h5 className={headerSize}>Contact</h5>
-                <ContactInfo color="link" />
+                <ContactInfo color={color} />
               </div>
               <div className="column">
                 <h5 className={headerSize}>Related</h5>
@@ -91,7 +92,6 @@ const Footer = () => {
                 </ul>
               </div>
             </div>
-
           </div>
           <div className="column has-text-centered">
             <nav className="m-t-md">

@@ -1,32 +1,55 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Img from 'gatsby-image';
 import colorType from '../types/color';
+import getFluidImage from '../functions/get-fluid-image';
+import childrenType from '../types/children';
+import BackgroundSection from './background-image';
 
 const Hero = ({
-  children, color, id, bold,
-}) => (
-  <section className={`hero is-${color} is-fullheight ${bold && 'is-bold'}`} id={id}>
-    <div className="hero-body">
-      <div className="container">
-        {children}
+  children, color, id, image,
+}) => {
+  const hero = (
+    <section
+      className={
+      `
+      hero 
+      is-${color} 
+      is-fullheight 
+      `
+    }
+      id={id}
+      style={image && { opacity: 0.955 }}
+    >
+      <div className="hero-body">
+        <div className="container">
+          {children}
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+
+  if (image) {
+    return (
+      <BackgroundSection src={image}>
+        {hero}
+      </BackgroundSection>
+    );
+  }
+
+  return hero;
+};
 
 Hero.defaultProps = {
   color: 'light',
-  bold: false,
+  image: null,
 };
 
 Hero.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]).isRequired,
+  children: childrenType.isRequired,
   color: colorType,
   id: PropTypes.string.isRequired,
-  bold: PropTypes.bool,
+  image: PropTypes.string,
 };
 
 export default Hero;

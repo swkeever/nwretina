@@ -6,9 +6,7 @@ import Hero from '../components/hero';
 import ContactInfo from '../components/contact-info';
 import { useStaticQuery, graphql } from 'gatsby';
 
-const Contact = (props) => {
-  return null;
-  
+const Contact = (props) => {  
   const data = useStaticQuery(graphql`
     query {
       site {

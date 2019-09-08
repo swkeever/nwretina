@@ -15,31 +15,47 @@ const ContactInfo = ({ color }) => {
             office
             fax
           }
+          officeHours {
+            weekStart
+            weekEnd
+            hourStart
+            hourEnd
+          }
         }
       }
     }
   `);
 
-  const {
-    address,
-    phone,
-  } = data.site.siteMetadata;
-
+  const { phone, officeHours } = data.site.siteMetadata;
   const linkColor = `has-text-${color}`;
   const externalLinkProps = getExternalLinkProps();
 
   return (
     <div className="container">
+      <p className={linkColor}>
+        {`${officeHours.hourStart} - ${officeHours.hourEnd}; 
+        ${officeHours.weekStart} - ${officeHours.weekEnd}`}
+      </p>
+
+
       <p>
         <a className={linkColor} href={getGoogleMapsLink()} {...externalLinkProps}>
           {getAddress()}
         </a>
       </p>
       <p>
-        <a className={linkColor} href={`tel:${phone.office}`}>{phone.office} (office)</a>
+        <a className={linkColor} href={`tel:${phone.office}`}>
+          {phone.office}
+          {' '}
+(office)
+        </a>
       </p>
       <p>
-        <a className={linkColor} href={`tel:${phone.fax}`}>{phone.fax} (fax)</a>
+        <a className={linkColor} href={`tel:${phone.fax}`}>
+          {phone.fax}
+          {' '}
+(fax)
+        </a>
       </p>
     </div>
   );

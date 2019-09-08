@@ -14,7 +14,7 @@ collections:
     create: true
     delete: true
     slug: "{{page}}-{{title}}"
-    summary: "{{page}} - {{title}}"
+    summary: "{{page}} | section {{order}} | {{title}}"
     fields:
       - label: "Site Page"
         name: "page"

@@ -6,6 +6,7 @@ const Navbar = ({ location }) => {
     query {
       site {
         siteMetadata {
+          title
           nav {
             internal {
               link
@@ -42,8 +43,16 @@ const Navbar = ({ location }) => {
     });
 
   return (
-    <nav className="navbar is-transparent is-fixed-top is-primary" role="navigation" aria-label="main navigation">
+    <nav className="navbar is-fixed-top is-primary" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
+        <Link
+          className="navbar-item"
+          to="/"
+        >
+          <span className="icon is-medium">
+            <i className="fas fa-tree" />
+          </span>
+        </Link>
         <button
           type="button"
           className="navbar-burger burger button is-primary"

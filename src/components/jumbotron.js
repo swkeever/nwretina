@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, useStaticQuery, graphql } from 'gatsby';
+import BackgroundImage from 'gatsby-background-image';
 import { Hero, ContactInfo } from '.';
+import getFluidImage from '../functions/get-fluid-image';
+import BackgroundSection from './background-image';
 
 const Jumbotron = ({ anchor }) => {
   const data = useStaticQuery(graphql`
@@ -15,12 +18,10 @@ const Jumbotron = ({ anchor }) => {
     }
   `);
 
-  console.log(anchor)
-
   return (
     <Hero
       color="primary"
-      id="nw-retina-header"
+      image="/uploads/pnw.jpg"
     >
       <h1 className="title">
         {data.site.siteMetadata.title}
@@ -34,16 +35,17 @@ const Jumbotron = ({ anchor }) => {
           className="button is-white is-outlined"
           href={anchor}
         >
-          Learn more
+            Learn more
         </a>
         <Link
           to="/contact/"
           className="button is-white is-outlined"
         >
-          Contact Us
+            Contact Us
         </Link>
       </div>
     </Hero>
+
   );
 };
 

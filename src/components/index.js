@@ -1,4 +1,4 @@
-export { default as ContactButton } from './contact-button';
+export { default as CallToAction } from './call-to-action';
 export { default as ContactInfo } from './contact-info';
 export { default as Dropdown } from './dropdown';
 export { default as Footer } from './footer';
