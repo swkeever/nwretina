@@ -7,7 +7,7 @@ import childrenType from '../types/children';
 const style = {
   width: '100%',
   backgroundAttachment: 'fixed',
-  backgroundPosition: 'center',
+  backgroundPosition: 'center bottom',
   backgroundRepeat: 'no-repeat',
   backgroundSize: 'cover',
   height: '100vh',

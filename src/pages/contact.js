@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import { useStaticQuery, graphql } from 'gatsby';
 import Layout from '../components/layout';
 import Head from '../components/head';
 import Hero from '../components/hero';
 import ContactInfo from '../components/contact-info';
-import { useStaticQuery, graphql } from 'gatsby';
 
-const Contact = (props) => {  
+const Contact = (props) => {
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -33,7 +32,9 @@ const Contact = (props) => {
             <div className="content">
               <h2>Contact Us</h2>
               <p>
-        Please contact the office directly for medical advice and emergency appointment needs.
+                Please contact the office
+                directly for medical advice
+                and emergency appointment needs.
               </p>
             </div>
             <ContactInfo />
@@ -41,18 +42,20 @@ const Contact = (props) => {
           <div className="column">
             <form method="POST" action={`https://formspree.io/${data.site.siteMetadata.email}`}>
               <div className="field">
-                <label htmlFor="name" className="label">Name</label>
-                <div className="control">
-                  <input
-                    type="text"
-                    className="input"
-                    placeholder="Jane Doe"
-                    name="name"
-                    value={name}
-                    onChange={({ target }) => setName(target.value)}
-                    required
-                  />
-                </div>
+                <label htmlFor="name" className="label">
+                  Name
+                  <div className="control">
+                    <input
+                      type="text"
+                      className="input"
+                      placeholder="Jane Doe"
+                      name="name"
+                      value={name}
+                      onChange={({ target }) => setName(target.value)}
+                      required
+                    />
+                  </div>
+                </label>
                 {
                   nameIsValid(name)
                     ? (

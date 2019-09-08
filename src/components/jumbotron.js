@@ -4,7 +4,7 @@ import { Link, useStaticQuery, graphql } from 'gatsby';
 import BackgroundImage from 'gatsby-background-image';
 import { Hero, ContactInfo } from '.';
 import getFluidImage from '../functions/get-fluid-image';
-import BackgroundSection from './background-image';
+import BackgroundSection from './background-section';
 
 const Jumbotron = ({ anchor }) => {
   const data = useStaticQuery(graphql`

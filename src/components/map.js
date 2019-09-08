@@ -13,7 +13,7 @@ const pinStyle = {
   stroke: 'none',
 };
 
-const CityPin = ({ size, onClick }) => (
+const CityPin = ({ size }) => (
   <svg
     height={size}
     viewBox="0 0 24 24"
@@ -21,7 +21,6 @@ const CityPin = ({ size, onClick }) => (
       ...pinStyle,
       transform: `translate(${-size / 2}px,${-size}px)`,
     }}
-    onClick={onClick}
   >
     <path d={ICON} />
   </svg>
@@ -33,10 +32,9 @@ CityPin.defaultProps = {
 
 CityPin.propTypes = {
   size: PropTypes.number,
-  onClick: PropTypes.func.isRequired,
 };
 
-const Map = (props) => {
+const Map = () => {
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -94,10 +92,6 @@ const Map = (props) => {
       </ReactMapGL>
     </div>
   );
-};
-
-Map.propTypes = {
-
 };
 
 export default Map;
