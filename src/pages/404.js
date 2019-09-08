@@ -4,6 +4,7 @@ import {
   Hero,
   Header,
   Layout,
+  Head,
 } from '../components';
 
 const NotFound = (props) => {
@@ -19,10 +20,9 @@ const NotFound = (props) => {
     }
   `);
 
-  console.log(data);
-
   return (
     <Layout>
+      <Head location="Page Not Found" />
       <Hero
         id="not-found"
         color="primary"
