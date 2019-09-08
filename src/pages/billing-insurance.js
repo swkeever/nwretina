@@ -1,16 +1,16 @@
 import React from 'react';
-import Layout from '../components/layout';
-import Head from '../components/head';
-import { Content } from '../components';
-import slugs from '../utils/slugs';
+import {
+  Layout,
+  Head,
+  Content,
+} from '../components';
+import navLinks from '../utils/routes';
 
-const BillingInsurance = () => {
-  return (
-    <Layout location="/billing-insurance/">
-      <Head title="Billing & Insurance" />
-      <Content slugPrefix={slugs.billing} />
-    </Layout>
-  );
-};
+const BillingInsurance = () => (
+  <Layout>
+    <Head title={navLinks.billing.name} />
+    <Content slugPrefix={navLinks.billing.slug} />
+  </Layout>
+);
 
 export default BillingInsurance;

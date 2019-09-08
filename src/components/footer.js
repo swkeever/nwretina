@@ -1,8 +1,8 @@
 import React from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 import ContactInfo from './contact-info';
-import getGoogleMapsLink from '../functions/get-google-maps-link';
-import getExternalLinkProps from '../functions/get-external-link-props';
+import links, { externalLinkProps } from '../utils/links';
+import navLinks from '../utils/routes';
 
 const Footer = () => {
   const data = useStaticQuery(graphql`
@@ -10,16 +10,6 @@ const Footer = () => {
       site {
         siteMetadata {
           titleFull
-          nav {
-            internal {
-              link
-              name
-            }
-            external {
-              link
-              name
-            }
-          }
           developer {
             name
             link
@@ -43,7 +33,6 @@ const Footer = () => {
   const color = 'info';
   const linkColor = `has-text-${color}`;
   const headerSize = 'is-size-6';
-  const externalLinkProps = getExternalLinkProps();
 
   return (
     <footer className="section has-background-dark has-text-light is-size-7">
@@ -55,17 +44,18 @@ const Footer = () => {
                 <h5 className={headerSize}>Navigate</h5>
                 <ul>
                   {
-                  nav.internal.map((navLink) => (
-                    <li>
-                      <Link
-                        className={linkColor}
-                        to={navLink.link}
-                      >
-                        {navLink.name}
-
-                      </Link>
-                    </li>
-                  ))
+                  Object
+                    .values(navLinks)
+                    .map((route) => (
+                      <li>
+                        <Link
+                          className={linkColor}
+                          to={route.href}
+                        >
+                          {route.name}
+                        </Link>
+                      </li>
+                    ))
                 }
                 </ul>
               </div>
@@ -77,14 +67,14 @@ const Footer = () => {
                 <h5 className={headerSize}>Related</h5>
                 <ul>
                   {
-                  nav.external.map((navLink) => (
+                  links.map((link) => (
                     <li>
                       <a
                         className={linkColor}
-                        href={navLink.link}
+                        href={link.href}
                         {...externalLinkProps}
                       >
-                        {navLink.name}
+                        {link.name}
                       </a>
                     </li>
                   ))

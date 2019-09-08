@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Img from 'gatsby-image';
 import colorType from '../types/color';
-import getFluidImage from '../functions/get-fluid-image';
 import childrenType from '../types/children';
 import BackgroundSection from './background-section';
 

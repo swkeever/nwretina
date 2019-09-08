@@ -9,32 +9,37 @@ import {
 import getContent from '../functions/get-content';
 import toAnchorLink from '../functions/to-anchor-link';
 import Jumbotron from './jumbotron';
-import slugs from '../utils/slugs';
+import navLinks from '../utils/routes';
 
 const Content = ({ slugPrefix }) => {
-  const content = getContent(slugPrefix);
+  const contents = getContent(slugPrefix);
+  const anchorPrefix = slugPrefix === navLinks.home.slug ? '' : slugPrefix;
+  const jumbotronElement = slugPrefix === navLinks.home.slug
+    ? <Jumbotron anchor={toAnchorLink(contents[0].id)} />
+    : null;
 
-  const jumbotronElement = slugPrefix === slugs.home ? <Jumbotron anchor={toAnchorLink(content[0].id)} /> : null;
-  const anchorPrefix = slugPrefix === slugs.home ? '' : slugPrefix;
-
-  const contentElements = content.map((c, i) => {
-    const isLastElement = i === content.length - 1;
+  const contentElements = contents.map((content, i) => {
+    const isLastElement = i === contents.length - 1;
 
     return (
       <>
-        <Hero id={c.id}>
-          <div className={`columns is-vcentered ${i % 2 !== 0 && 'has-column-order-reversed'}`}>
+        <Hero id={content.id}>
+          <div className={`
+            columns 
+            is-vcentered 
+            ${i % 2 !== 0 && 'has-column-order-reversed'}`}
+          >
             <div className="column">
-              <Header content={c.title} />
+              <Header>{content.title}</Header>
               <div
                 className="content"
-                dangerouslySetInnerHTML={{ __html: c.html }}
+                dangerouslySetInnerHTML={{ __html: content.html }}
               />
               {
                 !isLastElement && (
                   <a
                     className="button is-primary"
-                    href={`${anchorPrefix}${toAnchorLink(content[i + 1].id)}`}
+                    href={`${anchorPrefix}${toAnchorLink(contents[i + 1].id)}`}
                   >
                     Learn more
                   </a>
@@ -43,8 +48,8 @@ const Content = ({ slugPrefix }) => {
             </div>
             <div className="column">
               <Image
-                src={c.image.src}
-                alt={c.image.alt}
+                src={content.image.src}
+                alt={content.image.alt}
               />
             </div>
           </div>

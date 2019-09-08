@@ -1,53 +1,37 @@
 import React, { useState } from 'react';
-import { useStaticQuery, graphql, Link } from 'gatsby';
+import { Link } from 'gatsby';
+import navLinks from '../utils/routes';
 
-const Navbar = ({ location }) => {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-          nav {
-            internal {
-              link
-              name
-            }
-          }
-        }
-      }
-    }
-  `);
-
-
+const Navbar = () => {
   const [open, setOpen] = useState(false);
 
-  const links = data
-    .site
-    .siteMetadata
-    .nav
-    .internal
-    .map((navLink) => {
-      const { link, name } = navLink;
-      const linkStyle = `navbar-item is-tab has-text-light ${location === link && 'is-active'}`;
-      return link.includes('https')
-        ? (
-          <a className={linkStyle} href={link} target="_blank" rel="noopener noreferrer">
-            {name}
-          </a>
-        )
-        : (
-          <Link key={link} activeClassName="active" className={`${linkStyle}`} exact to={link}>
-            {name}
-          </Link>
-        );
+  const links = Object
+    .values(navLinks)
+    .map((route) => {
+      const { href, name } = route;
+      const linkStyle = 'navbar-item is-tab has-text-light';
+      return (
+        <Link
+          key={name}
+          activeClassName="is-active"
+          className={linkStyle}
+          to={href}
+        >
+          {name}
+        </Link>
+      );
     });
 
   return (
-    <nav className="navbar is-fixed-top is-primary" role="navigation" aria-label="main navigation">
+    <nav
+      className="navbar is-fixed-top is-primary"
+      role="navigation"
+      aria-label="main navigation"
+    >
       <div className="navbar-brand">
         <Link
-          className="navbar-item"
-          to="/"
+          className="navbar-item has-text-light"
+          to={navLinks.home.href}
         >
           <span className="icon is-medium">
             <i className="fas fa-tree" />

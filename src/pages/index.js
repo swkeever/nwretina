@@ -1,14 +1,14 @@
 import React from 'react';
-import slugs from '../utils/slugs';
 import {
   Content,
   Head,
   Layout,
 } from '../components';
+import navLinks from '../utils/routes';
 
 export default () => (
-  <Layout location="/">
-    <Head title="Home" />
-    <Content slugPrefix={slugs.home} />
+  <Layout>
+    <Head title={navLinks.home.name} />
+    <Content slugPrefix={navLinks.home.slug} />
   </Layout>
 );

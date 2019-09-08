@@ -1,3 +1,3 @@
-const toAnchorLink = (id) => `/#${id}`;
+const toAnchorLink = (htmlId) => `/#${htmlId}`;
 
 export default toAnchorLink;

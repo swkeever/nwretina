@@ -1,24 +1,22 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import Footer from './footer';
-import Navbar from './navbar';
+import {
+  Footer,
+  Navbar,
+} from '.';
 import '../styles/main.scss';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import childrenType from '../types/children';
 
-const Layout = ({ children, location }) => (
+const Layout = ({ children }) => (
   <div>
-    <Navbar location={location} />
+    <Navbar />
     {children}
     <Footer />
   </div>
 );
 
 Layout.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]).isRequired,
-  location: PropTypes.string.isRequired,
+  children: childrenType.isRequired,
 };
 
 export default Layout;

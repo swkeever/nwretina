@@ -29,48 +29,6 @@ module.exports = {
       hourStart: '8am',
       hourEnd: '5pm',
     },
-    nav: {
-      internal: [
-        {
-          link: '/',
-          name: 'Home',
-        },
-        {
-          link: '/about/',
-          name: 'About',
-        },
-        {
-          link: '/your-visit/',
-          name: 'Your Visit',
-        },
-        {
-          link: 'location/',
-          name: 'Location',
-        },
-        {
-          link: '/billing-insurance/',
-          name: 'Billing & Insurance',
-        },
-        {
-          link: '/contact/',
-          name: 'Contact',
-        },
-      ],
-      external: [
-        {
-          link: 'https://www.mypatientvisit.com/#/login?practiceID=YKOXLW',
-          name: 'Your Medical Records',
-        },
-        {
-          link: 'https://www.aao.org/',
-          name: 'American Academy of Ophthalmology',
-        },
-        {
-          link: 'https://goo.gl/maps/ZqnsBcWeuXWpVYRo9',
-          name: 'Google Maps',
-        },
-      ],
-    },
     socialMedia: {
       facebook: 'https://www.facebook.com/nwretina',
     },

@@ -15,7 +15,7 @@
     "build:try": "npm run build && npm run serve",
     "lint": "eslint .",
     "lint:fix": "npm run lint --fix",
-    "test": "jest"
+    "test": "jest --watchAll"
   },
   "husky": {
     "hooks": {

@@ -5,40 +5,37 @@ import {
   Hero,
   Map,
   CallToAction,
+  Header,
 } from '../components';
-import getGoogleMapsLink from '../functions/get-google-maps-link';
 import getAddress from '../functions/get-address';
-import getExternalLinkProps from '../functions/get-external-link-props';
+import navLinks from '../utils/routes';
+import { externalLinkProps, googleMaps } from '../utils/links';
 
-const Location = () => {
-  const externalLinkProps = getExternalLinkProps();
-
-  return (
-    <Layout location="/location/">
-      <Head title="Location" />
-      <Hero id="our-address">
-        <div className="columns is-vcentered">
-          <div className="column">
-            <div className="content">
-              <h2>Our Address</h2>
-              <span className="help">
+const Location = () => (
+  <Layout location={navLinks.location.href}>
+    <Head title={navLinks.location.name} />
+    <Hero id="our-address">
+      <div className="columns is-vcentered">
+        <div className="column">
+          <div className="content">
+            <Header>{navLinks.location.name}</Header>
+            <span className="help">
                 Click the link below to get directions from Google Maps.
-              </span>
-              <p>
-                <a href={getGoogleMapsLink()} {...externalLinkProps}>
-                  {getAddress()}
-                </a>
-              </p>
-            </div>
-          </div>
-          <div className="column is-three-fifths">
-            <Map />
+            </span>
+            <p>
+              <a className="has-text-link" href={googleMaps.href} {...externalLinkProps}>
+                {getAddress()}
+              </a>
+            </p>
           </div>
         </div>
-        <CallToAction />
-      </Hero>
-    </Layout>
-  );
-};
+        <div className="column is-three-fifths">
+          <Map />
+        </div>
+      </div>
+      <CallToAction />
+    </Hero>
+  </Layout>
+);
 
 export default Location;

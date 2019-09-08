@@ -1,45 +1,28 @@
 import React from 'react';
-import { useStaticQuery, graphql, Link } from 'gatsby';
+import { Link } from 'gatsby';
 import {
   Hero,
   Header,
   Layout,
   Head,
 } from '../components';
+import navLinks from '../utils/routes';
 
-const NotFound = (props) => {
-  const data = useStaticQuery(graphql`
-    query {
-      markdownRemark(frontmatter: {
-        title: {
-          eq: "not found"
-        }
-      }) {
-        html
-      }
-    }
-  `);
-
-  return (
-    <Layout>
-      <Head location="Page Not Found" />
-      <Hero
-        id="not-found"
-        color="primary"
-        image="/uploads/pnw2.jpg"
-      >
-        <Header content="Page not found." />
-        <div className="buttons">
-          <Link to="/" className="button is-white is-outlined">Go Home</Link>
-          <Link to="/contact/" className="button is-white is-outlined">Contact Us</Link>
-        </div>
-      </Hero>
-    </Layout>
-  );
-};
-
-NotFound.propTypes = {
-
-};
+const NotFound = () => (
+  <Layout>
+    <Head location={navLinks.notFound.href} />
+    <Hero
+      id="not-found"
+      color="primary"
+      image="/uploads/pnw2.jpg"
+    >
+      <Header>{navLinks.notFound.name}</Header>
+      <div className="buttons">
+        <Link to={navLinks.home.href} className="button is-white is-outlined">{navLinks.home.name}</Link>
+        <Link to={navLinks.contact.href} className="button is-white is-outlined"> {navLinks.contact.name}</Link>
+      </div>
+    </Hero>
+  </Layout>
+);
 
 export default NotFound;

@@ -1,14 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import childrenType from '../types/children';
 
-const Header = ({ content }) => (
+const Header = ({ children }) => (
   <h2 className="title is-4">
-    {content}
+    {children}
   </h2>
 );
 
 Header.propTypes = {
-  content: PropTypes.string.isRequired,
+  children: childrenType.isRequired,
 };
 
 export default Header;

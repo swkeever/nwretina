@@ -1,10 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, useStaticQuery, graphql } from 'gatsby';
-import BackgroundImage from 'gatsby-background-image';
 import { Hero, ContactInfo } from '.';
-import getFluidImage from '../functions/get-fluid-image';
-import BackgroundSection from './background-section';
 
 const Jumbotron = ({ anchor }) => {
   const data = useStaticQuery(graphql`
@@ -23,23 +20,20 @@ const Jumbotron = ({ anchor }) => {
       color="primary"
       image="/uploads/pnw.jpg"
     >
-      <h1 className="title">
-        {data.site.siteMetadata.title}
+      <h1 className="title is-1 has-text-light">
+        {data.site.siteMetadata.titleFull}
       </h1>
-      <p className="subtitle">
-        {`Welcome to ${data.site.siteMetadata.titleFull}`}
-      </p>
       <ContactInfo color="light" />
       <div className="buttons m-t-md">
         <a
-          className="button is-white is-outlined"
+          className="button is-light is-outlined"
           href={anchor}
         >
             Learn more
         </a>
         <Link
           to="/contact/"
-          className="button is-white is-outlined"
+          className="button is-light is-outlined"
         >
             Contact Us
         </Link>

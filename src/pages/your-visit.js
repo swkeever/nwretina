@@ -4,12 +4,12 @@ import {
   Head,
   Content,
 } from '../components';
-import slugs from '../utils/slugs';
+import navLinks from '../utils/routes';
 
 const YourVisit = () => (
-  <Layout location="/your-visit/">
-    <Head title="Your Visit" />
-    <Content slugPrefix={slugs.visit} />
+  <Layout>
+    <Head title={navLinks.visit.name} />
+    <Content slugPrefix={navLinks.visit.slug} />
   </Layout>
 );
 
