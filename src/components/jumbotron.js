@@ -20,10 +20,15 @@ const Jumbotron = ({ anchor }) => {
       color="primary"
       image="/uploads/pnw.jpg"
     >
-      <h1 className="title is-1 has-text-light">
+      <h1
+        data-aos="fade-in"
+        data-aos-duration={1600}
+        className="title is-1 has-text-light"
+      >
         {data.site.siteMetadata.titleFull}
       </h1>
       <ContactInfo color="light" />
+
       <div className="buttons m-t-md">
         <a
           className="button is-light is-outlined"
@@ -38,6 +43,7 @@ const Jumbotron = ({ anchor }) => {
             Contact Us
         </Link>
       </div>
+
     </Hero>
 
   );

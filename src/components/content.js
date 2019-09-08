@@ -20,14 +20,22 @@ const Content = ({ slugPrefix }) => {
 
   const contentElements = contents.map((content, i) => {
     const isLastElement = i === contents.length - 1;
+    const eventhElement = i % 2 === 0;
+    const fadeDirection = !eventhElement ? 'left' : 'right';
+    const hasScrollableContent = contents.length > 1;
+    const fadeEnabled = hasScrollableContent ? {
+      'data-aos': `fade-${fadeDirection}`,
+    } : null;
 
     return (
       <>
         <Hero id={content.id}>
-          <div className={`
+          <div
+            {...fadeEnabled}
+            className={`
             columns 
             is-vcentered 
-            ${i % 2 !== 0 && 'has-column-order-reversed'}`}
+            ${!eventhElement && 'has-column-order-reversed'}`}
           >
             <div className="column">
               <Header>{content.title}</Header>
