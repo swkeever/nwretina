@@ -38,6 +38,7 @@ const Navbar = () => {
           </span>
         </Link>
         <button
+          data-testid="burger"
           type="button"
           className="navbar-burger burger button is-primary"
           aria-label="menu"
@@ -50,7 +51,10 @@ const Navbar = () => {
           <span aria-hidden="true" />
         </button>
       </div>
-      <div className={`navbar-menu has-background-primary ${open && 'is-active'}`}>
+      <div
+        data-testid={open ? 'menu-active' : 'menu-inactive'}
+        className={`navbar-menu has-background-primary ${open && 'is-active'}`}
+      >
         {links}
       </div>
     </nav>

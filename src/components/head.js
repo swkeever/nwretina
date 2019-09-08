@@ -17,10 +17,14 @@ const Head = ({ title, reCAPTCHA }) => {
   `);
 
   useEffect(() => {
-    require('smooth-scroll')('a[href*="#"]');
+    require('smooth-scroll')('a[href*="#"]', {
+      speed: 600,
+      speedAsDuration: true,
+      easing: 'easeInOutCubic',
+    });
     require('aos').init({
       duration: 700,
-      delay: 90,
+      delay: 150,
       ease: 'ease-in-out',
     });
   }, []);

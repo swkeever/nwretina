@@ -17,7 +17,6 @@ const Content = ({ slugPrefix }) => {
   const jumbotronElement = slugPrefix === navLinks.home.slug
     ? <Jumbotron anchor={toAnchorLink(contents[0].id)} />
     : null;
-
   const contentElements = contents.map((content, i) => {
     const isLastElement = i === contents.length - 1;
     const eventhElement = i % 2 === 0;
@@ -47,6 +46,7 @@ const Content = ({ slugPrefix }) => {
                 !isLastElement && (
                   <a
                     className="button is-primary"
+                    data-scroll
                     href={`${anchorPrefix}${toAnchorLink(contents[i + 1].id)}`}
                   >
                     Learn more
