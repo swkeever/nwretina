@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import getAddress from '../functions/get-address';
+import getAddress from '../utils/get-address';
 import colorType from '../types/color';
 import { externalLinkProps, googleMaps } from '../utils/links';
 

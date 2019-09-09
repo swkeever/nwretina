@@ -28,7 +28,7 @@ const ContactForm = () => {
           error: 'Please enter your full name.',
         }}
         placeholder="John Doe"
-        type="email"
+        type="text"
       />
       <Input
         label="Email"
@@ -48,7 +48,11 @@ const ContactForm = () => {
       />
       <div className="field">
         <div className="control">
-          <div className="g-recaptcha" data-sitekey={process.env.RECAPTCHA_SITE_KEY} />
+          <div
+            data-testid="recaptcha"
+            className="g-recaptcha"
+            data-sitekey={process.env.RECAPTCHA_SITE_KEY}
+          />
         </div>
       </div>
       <div className="field is-grouped">

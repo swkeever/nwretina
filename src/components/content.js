@@ -1,69 +1,107 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useStaticQuery, graphql } from 'gatsby';
 import {
   Header,
   Hero,
   Image,
   CallToAction,
 } from '.';
-import getContent from '../functions/get-content';
-import toAnchorLink from '../functions/to-anchor-link';
+import toAnchorLink from '../utils/to-anchor-link';
 import Jumbotron from './jumbotron';
 import navLinks from '../utils/routes';
+import { nextSectionText } from '../utils/constants';
+
+const getContent = (slugPrefix) => {
+  const data = useStaticQuery(graphql`
+    query {
+      allMarkdownRemark {
+        edges {
+          node {
+            id
+            html
+            frontmatter {
+              order
+              title
+              image
+              page
+              imageDescription
+            }
+            fields {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  return data.allMarkdownRemark.edges
+    .filter((e) => e.node.fields.slug.startsWith(slugPrefix))
+    .sort((a, b) => a.node.frontmatter.order - b.node.frontmatter.order)
+    .map((e) => ({
+      id: e.node.id.toString(),
+      html: e.node.html,
+      image: {
+        src: e.node.frontmatter.image,
+        alt: e.node.frontmatter.imageDescription,
+      },
+      title: e.node.frontmatter.title,
+    }));
+};
 
 const Content = ({ slugPrefix }) => {
   const contents = getContent(slugPrefix);
   const anchorPrefix = slugPrefix === navLinks.home.slug ? '' : slugPrefix;
-  const jumbotronElement = slugPrefix === navLinks.home.slug
+  const isHomePage = slugPrefix === navLinks.home.slug;
+  const jumbotronElement = contents.length && isHomePage
     ? <Jumbotron anchor={toAnchorLink(contents[0].id)} />
     : null;
+
   const contentElements = contents.map((content, i) => {
     const isLastElement = i === contents.length - 1;
     const eventhElement = i % 2 === 0;
     const fadeDirection = !eventhElement ? 'left' : 'right';
-    const hasScrollableContent = contents.length > 1;
-    const fadeEnabled = hasScrollableContent ? {
+    const fadeEnabled = isHomePage ? {
       'data-aos': `fade-${fadeDirection}`,
     } : null;
 
     return (
-      <>
-        <Hero id={content.id}>
-          <div
-            {...fadeEnabled}
-            className={`
+      <Hero key={content.id} id={content.id}>
+        <div
+          {...fadeEnabled}
+          className={`
             columns 
             is-vcentered 
             ${!eventhElement && 'has-column-order-reversed'}`}
-          >
-            <div className="column">
-              <Header>{content.title}</Header>
-              <div
-                className="content"
-                dangerouslySetInnerHTML={{ __html: content.html }}
-              />
-              {
+        >
+          <div className="column">
+            <Header>{content.title}</Header>
+            <div
+              className="content"
+              dangerouslySetInnerHTML={{ __html: content.html }}
+            />
+            {
                 !isLastElement && (
                   <a
                     className="button is-primary"
                     data-scroll
                     href={`${anchorPrefix}${toAnchorLink(contents[i + 1].id)}`}
                   >
-                    Learn more
+                    {nextSectionText}
                   </a>
                 )
               }
-            </div>
-            <div className="column">
-              <Image
-                src={content.image.src}
-                alt={content.image.alt}
-              />
-            </div>
           </div>
-          {isLastElement && <CallToAction />}
-        </Hero>
-      </>
+          <div className="column">
+            <Image
+              src={content.image.src}
+              alt={content.image.alt}
+            />
+          </div>
+        </div>
+        {isLastElement && <CallToAction />}
+      </Hero>
     );
   });
 

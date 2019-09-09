@@ -1,7 +1,7 @@
 import React from 'react';
 import BackgroundImage from 'gatsby-background-image';
 import PropTypes from 'prop-types';
-import getFluidImage from '../functions/get-fluid-image';
+import getFluidImage from '../utils/get-fluid-image';
 import childrenType from '../types/children';
 
 const style = {

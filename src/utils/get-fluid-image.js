@@ -24,7 +24,7 @@ const getFluidImage = (src) => {
     .find((e) => `/${e.node.relativePath}` === src);
 
   if (!edge) {
-    throw new Error(`No image found - "${src}" does not exist`);
+    return undefined;
   }
 
   return edge.node.childImageSharp.fluid;

@@ -29,9 +29,12 @@ module.exports = {
       hourStart: '8am',
       hourEnd: '5pm',
     },
-    socialMedia: {
-      facebook: 'https://www.facebook.com/nwretina',
-    },
+    socialMedia: [
+      {
+        name: 'Facebook',
+        href: 'https://www.facebook.com/nwretina',
+      },
+    ],
     developer: {
       name: 'Sean Keever',
       link: 'https://swkeever.github.io',

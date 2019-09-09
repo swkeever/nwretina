@@ -15,7 +15,8 @@ const Footer = () => {
             link
           }
           socialMedia {
-            facebook
+            name
+            href
           }
           email
         }
@@ -25,7 +26,6 @@ const Footer = () => {
 
   const {
     titleFull,
-    nav,
     developer,
     socialMedia,
   } = data.site.siteMetadata;
@@ -47,7 +47,7 @@ const Footer = () => {
                   Object
                     .values(navLinks)
                     .map((route) => (
-                      <li>
+                      <li key={route.name}>
                         <Link
                           className={linkColor}
                           to={route.href}
@@ -68,7 +68,7 @@ const Footer = () => {
                 <ul>
                   {
                   links.map((link) => (
-                    <li>
+                    <li key={link.name}>
                       <a
                         className={linkColor}
                         href={link.href}
@@ -86,13 +86,22 @@ const Footer = () => {
           <div className="column has-text-centered">
             <nav className="m-t-md">
               <ul className="level">
-                <li className="level-item">
-                  <span className="icon is-size-2">
-                    <a className={linkColor} href={socialMedia.facebook} {...externalLinkProps}>
-                      <i className="fab fa-facebook" />
-                    </a>
-                  </span>
-                </li>
+                {
+                  socialMedia.map((link) => (
+                    <li key={link.name} className="level-item">
+                      <span className="icon is-size-2">
+                        <a
+                          data-testid={link.name}
+                          className={linkColor}
+                          href={link.href}
+                          {...externalLinkProps}
+                        >
+                          <i className="fab fa-facebook" />
+                        </a>
+                      </span>
+                    </li>
+                  ))
+                }
               </ul>
             </nav>
           </div>

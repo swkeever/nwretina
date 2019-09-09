@@ -7,7 +7,7 @@ import {
   CallToAction,
   Header,
 } from '../components';
-import getAddress from '../functions/get-address';
+import getAddress from '../utils/get-address';
 import navLinks from '../utils/routes';
 import { externalLinkProps, googleMaps } from '../utils/links';
 
