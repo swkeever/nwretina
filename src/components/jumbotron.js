@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import { Hero, ContactInfo } from '.';
-import { nextSectionText } from '../utils/constants';
+import { nextSectionText, SITE_HEADER } from '../utils/constants';
 
 const Jumbotron = ({ anchor }) => {
   const data = useStaticQuery(graphql`
@@ -20,7 +20,7 @@ const Jumbotron = ({ anchor }) => {
     <Hero
       color="primary"
       image="/uploads/pnw.jpg"
-      id="header"
+      id={SITE_HEADER}
     >
       <h1
         className={`

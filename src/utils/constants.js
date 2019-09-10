@@ -1,5 +1,7 @@
 export const nextSectionText = 'Learn more';
 
+export const SITE_HEADER = 'site-header';
+
 export const siteMetadata = {
   title: 'NW Retina',
   titleFull: 'Northwest Retina, LLC',

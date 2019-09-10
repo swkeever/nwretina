@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import Input from './input';
 import TextArea from './text-area';

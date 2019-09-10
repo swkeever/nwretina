@@ -9,7 +9,7 @@ import {
 import navLinks, { notFound } from '../utils/routes';
 
 const NotFound = () => (
-  <Layout>
+  <Layout location={notFound.name}>
     <Head location={notFound.href} />
     <Hero
       id="not-found"
@@ -18,8 +18,20 @@ const NotFound = () => (
     >
       <Header>{notFound.name}</Header>
       <div className="buttons">
-        <Link to={navLinks.home.href} className="button is-white is-outlined">{navLinks.home.name}</Link>
-        <Link to={navLinks.contact.href} className="button is-white is-outlined"> {navLinks.contact.name}</Link>
+        <Link
+          to={navLinks.home.href}
+          className="button is-white is-outlined"
+        >
+          {navLinks.home.name}
+
+        </Link>
+        <Link
+          to={navLinks.contact.href}
+          className="button is-white is-outlined"
+        >
+          {' '}
+          {navLinks.contact.name}
+        </Link>
       </div>
     </Hero>
   </Layout>

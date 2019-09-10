@@ -5,11 +5,6 @@ import TextArea from '../text-area';
 const props = {
   label: 'Message',
   name: 'message',
-  validation: {
-    isValid: (value) => value === utils.goodInput,
-    success: '✔️',
-    error: '💩',
-  },
   placeholder: 'Jane Doe',
 };
 

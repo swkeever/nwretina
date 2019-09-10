@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
-import navLinks from '../utils/routes';
+import PropTypes from 'prop-types';
+import routes from '../utils/routes';
+import toAnchorLink from '../utils/to-anchor-link';
+import { SITE_HEADER } from '../utils/constants';
 
-const Navbar = () => {
+const Navbar = ({ home }) => {
   const [open, setOpen] = useState(false);
 
   const links = Object
-    .values(navLinks)
+    .values(routes)
     .map((route) => {
       const { href, name } = route;
       const linkStyle = 'navbar-item is-tab has-text-light';
@@ -22,6 +25,32 @@ const Navbar = () => {
       );
     });
 
+  const showBrand = () => {
+    const icon = (
+      <span className="icon is-medium">
+        <i className="fas fa-tree" />
+      </span>
+    );
+    const className = 'navbar-item has-text-light';
+    return home
+      ? (
+        <a
+          className={className}
+          href={toAnchorLink(SITE_HEADER)}
+        >
+          {icon}
+        </a>
+      )
+      : (
+        <Link
+          className={className}
+          to={routes.home.href}
+        >
+          {icon}
+        </Link>
+      );
+  };
+
   return (
     <nav
       className="navbar is-fixed-top is-primary"
@@ -29,21 +58,15 @@ const Navbar = () => {
       aria-label="main navigation"
     >
       <div className="navbar-brand">
-        <Link
-          className="navbar-item has-text-light"
-          to={navLinks.home.href}
-        >
-          <span className="icon is-medium">
-            <i className="fas fa-tree" />
-          </span>
-        </Link>
+        {showBrand()}
+
         <button
           data-testid="burger"
           type="button"
           className="navbar-burger burger button is-primary"
           aria-label="menu"
           aria-expanded="false"
-          data-target="navbarBasicExample"
+          data-target="navbar-menu"
           onClick={() => setOpen(!open)}
         >
           <span aria-hidden="true" />
@@ -52,6 +75,7 @@ const Navbar = () => {
         </button>
       </div>
       <div
+        id="navbar-menu"
         data-testid={open ? 'menu-active' : 'menu-inactive'}
         className={`navbar-menu has-background-primary ${open && 'is-active'}`}
       >
@@ -59,6 +83,10 @@ const Navbar = () => {
       </div>
     </nav>
   );
+};
+
+Navbar.propTypes = {
+  home: PropTypes.bool.isRequired,
 };
 
 export default Navbar;

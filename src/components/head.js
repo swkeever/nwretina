@@ -31,7 +31,7 @@ const Head = ({ title, reCAPTCHA }) => {
 
   return (
     <Helmet>
-      <html lang="en" amp className="has-navbar-fixed-top" />
+      <html lang="en" />
       <title>{`${title} | ${data.site.siteMetadata.titleFull}`}</title>
       <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" />
       <script src="https://unpkg.com/aos@next/dist/aos.js" />

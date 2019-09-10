@@ -17,8 +17,8 @@ test('I can the navigate links', () => {
     .values(routes)
     .forEach((route) => {
       // we get all because theres multiple text that say 'contact'
-      const links = component.getAllByText(route.name);
-      const link = links.find((x) => x.hasAttribute('href'));
+      const allLinks = component.getAllByText(route.name);
+      const link = allLinks.find((x) => x.hasAttribute('href'));
       expect(link.getAttribute('href')).toBe(route.href);
     });
 });

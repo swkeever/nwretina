@@ -4,12 +4,12 @@ import {
   Head,
   Content,
 } from '../components';
-import navLinks from '../utils/routes';
+import routes from '../utils/routes';
 
 const BillingInsurance = () => (
   <Layout>
-    <Head title={navLinks.billing.name} />
-    <Content slugPrefix={navLinks.billing.slug} />
+    <Head title={routes.billing.name} />
+    <Content slugPrefix={routes.billing.slug} />
   </Layout>
 );
 

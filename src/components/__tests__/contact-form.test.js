@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { useStaticQuery } from 'gatsby';
 import ContactForm from '../contact-form';
 import { siteData } from '../../test-utils';
@@ -30,10 +30,10 @@ test('should have a textarea', () => {
   const component = setup();
   const input = component.getByLabelText(/message/i);
   expect(input.tagName).toBe('TEXTAREA');
-})
+});
 
 test('should have a recaptcha', () => {
-  const component = setup()
+  const component = setup();
   const element = component.getByTestId('recaptcha');
   expect(element).toBeDefined();
-})
+});

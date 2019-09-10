@@ -7,7 +7,7 @@ import {
 import navLinks from '../utils/routes';
 
 export default () => (
-  <Layout>
+  <Layout home>
     <Head title={navLinks.home.name} />
     <Content slugPrefix={navLinks.home.slug} />
   </Layout>

@@ -12,7 +12,7 @@ import navLinks from '../utils/routes';
 import { externalLinkProps, googleMaps } from '../utils/links';
 
 const Location = () => (
-  <Layout location={navLinks.location.href}>
+  <Layout>
     <Head title={navLinks.location.name} />
     <Hero id="our-address">
       <div className="columns is-vcentered">
