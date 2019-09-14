@@ -3,17 +3,20 @@
 ## Todo
 
 ### Things to do with client
-- [ ] Get new photos for site
+- [x] Get new photos for site (handled by CMS)
 - [ ] Figure out billing
   - [ ] Contact form
-    - [ ] ReCAPTCHA on page
+    - [x] ReCAPTCHA on page
   - [ ] Map
   - [ ] Hosting
-- [ ] Create a CMS solution for client?
+- [x] Create a CMS solution for client?
 - [ ] Figure out site colors
 
 ### Things to do without client
 - [ ] Write tests
+  - [x] Unit/integration
+  - [ ] End to end
 - [ ] SEO
 - [ ] Deployment/domain name solution
 - [ ] Put company hours on page
+- [ ] Build a logo

@@ -3,6 +3,17 @@ import { useStaticQuery, graphql, Link } from 'gatsby';
 import ContactInfo from './contact-info';
 import links, { externalLinkProps } from '../utils/links';
 import navLinks from '../utils/routes';
+import childrenType from '../types/children';
+
+const FooterHeader = ({ children }) => (
+  <h2 className="is-size-6">
+    {children}
+  </h2>
+);
+
+FooterHeader.propTypes = {
+  children: childrenType.isRequired,
+};
 
 const Footer = () => {
   const data = useStaticQuery(graphql`
@@ -35,13 +46,16 @@ const Footer = () => {
   const headerSize = 'is-size-6';
 
   return (
-    <footer className="section has-background-dark has-text-light is-size-7">
+    <footer
+      role="contentinfo"
+      className="section has-background-dark has-text-light is-size-7"
+    >
       <div className="container">
         <div className="columns">
           <div className="column is-two-thirds">
             <div className="columns">
               <div className="column">
-                <h5 className={headerSize}>Navigate</h5>
+                <FooterHeader className={headerSize}>Navigate</FooterHeader>
                 <ul>
                   {
                   Object
@@ -60,11 +74,11 @@ const Footer = () => {
                 </ul>
               </div>
               <div className="column">
-                <h5 className={headerSize}>Contact</h5>
+                <FooterHeader className={headerSize}>Contact</FooterHeader>
                 <ContactInfo color={color} />
               </div>
               <div className="column">
-                <h5 className={headerSize}>Related</h5>
+                <FooterHeader className={headerSize}>Related</FooterHeader>
                 <ul>
                   {
                   links.map((link) => (
@@ -92,6 +106,7 @@ const Footer = () => {
                       <span className="icon is-size-2">
                         <a
                           data-testid={link.name}
+                          aria-label={link.name}
                           className={linkColor}
                           href={link.href}
                           {...externalLinkProps}
@@ -106,7 +121,7 @@ const Footer = () => {
             </nav>
           </div>
         </div>
-        <ul className="level has-text-grey is-marginless">
+        <ul className="level has-text-light is-marginless has-text-grey-light">
           <li className="level-item">
             {`Copyright ©️ ${new Date().getFullYear()} ${titleFull}`}
           </li>

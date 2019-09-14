@@ -1,11 +1,21 @@
 import React, { useState } from 'react';
-import { Link } from 'gatsby';
+import { Link, useStaticQuery, graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import routes from '../utils/routes';
 import toAnchorLink from '../utils/to-anchor-link';
 import { SITE_HEADER } from '../utils/constants';
 
 const Navbar = ({ home }) => {
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `);
+
   const [open, setOpen] = useState(false);
 
   const links = Object
@@ -26,11 +36,16 @@ const Navbar = ({ home }) => {
     });
 
   const showBrand = () => {
-    const icon = (
-      <span className="icon is-medium">
-        <i className="fas fa-tree" />
-      </span>
+    const brand = (
+      <div>
+
+        <span>
+          {data.site.siteMetadata.title}
+        </span>
+      </div>
+
     );
+
     const className = 'navbar-item has-text-light';
     return home
       ? (
@@ -38,7 +53,7 @@ const Navbar = ({ home }) => {
           className={className}
           href={toAnchorLink(SITE_HEADER)}
         >
-          {icon}
+          {brand}
         </a>
       )
       : (
@@ -46,15 +61,15 @@ const Navbar = ({ home }) => {
           className={className}
           to={routes.home.href}
         >
-          {icon}
+          {brand}
         </Link>
       );
   };
 
   return (
-    <nav
+    <header
       className="navbar is-fixed-top is-primary"
-      role="navigation"
+      role="banner"
       aria-label="main navigation"
     >
       <div className="navbar-brand">
@@ -74,19 +89,26 @@ const Navbar = ({ home }) => {
           <span aria-hidden="true" />
         </button>
       </div>
-      <div
+      <nav
+        role="navigation"
         id="navbar-menu"
         data-testid={open ? 'menu-active' : 'menu-inactive'}
         className={`navbar-menu has-background-primary ${open && 'is-active'}`}
       >
-        {links}
-      </div>
-    </nav>
+        <div className="navbar-end">
+          {links}
+        </div>
+      </nav>
+    </header>
   );
 };
 
+Navbar.defaultProps = {
+  home: false,
+};
+
 Navbar.propTypes = {
-  home: PropTypes.bool.isRequired,
+  home: PropTypes.bool,
 };
 
 export default Navbar;

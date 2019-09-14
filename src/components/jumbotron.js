@@ -32,7 +32,6 @@ const Jumbotron = ({ anchor }) => {
         {data.site.siteMetadata.titleFull}
       </h1>
       <ContactInfo color="light" />
-
       <div className="buttons m-t-md">
         <a
           className="button is-light is-outlined"
@@ -47,9 +46,7 @@ const Jumbotron = ({ anchor }) => {
             Contact Us
         </Link>
       </div>
-
     </Hero>
-
   );
 };
 

@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql, navigate } from 'gatsby';
 import {
-  Header,
   Hero,
   Image,
   CallToAction,
+  SectionHeader,
 } from '.';
 import toAnchorLink from '../utils/to-anchor-link';
 import Jumbotron from './jumbotron';
-import navLinks from '../utils/routes';
+import navLinks, { notFound } from '../utils/routes';
 import { nextSectionText } from '../utils/constants';
+import Title from './title';
 
 const getContent = (slugPrefix) => {
   const data = useStaticQuery(graphql`
@@ -76,22 +77,27 @@ const Content = ({ slugPrefix }) => {
             ${!eventhElement && 'has-column-order-reversed'}`}
         >
           <div className="column">
-            <Header>{content.title}</Header>
+            {
+              !isHomePage && i === 0
+                ? <Title>{content.title}</Title>
+                : <SectionHeader>{content.title}</SectionHeader>
+            }
+
             <div
               className="content"
               dangerouslySetInnerHTML={{ __html: content.html }}
             />
             {
-                !isLastElement && (
-                  <a
-                    className="button is-primary"
-                    data-scroll
-                    href={`${anchorPrefix}${toAnchorLink(contents[i + 1].id)}`}
-                  >
-                    {nextSectionText}
-                  </a>
-                )
-              }
+              !isLastElement && (
+                <a
+                  className="button is-primary"
+                  data-scroll
+                  href={`${anchorPrefix}${toAnchorLink(contents[i + 1].id)}`}
+                >
+                  {nextSectionText}
+                </a>
+              )
+            }
           </div>
           <div className="column">
             <Image
@@ -112,6 +118,7 @@ const Content = ({ slugPrefix }) => {
     </>
   );
 };
+
 
 Content.propTypes = {
   slugPrefix: PropTypes.string.isRequired,

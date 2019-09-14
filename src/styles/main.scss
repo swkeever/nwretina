@@ -1,17 +1,15 @@
 @charset "utf-8";
 
-@import url(https://fonts.googleapis.com/css?family=Lato:300,400&display=swap);
-
 // color overrides
-$primary: #687864;
-$info: #5085a5;
+$primary: #3d7c47;
+$info: #76c1d4;
 $link: #31708e;
-$light: #f7f9fb;
+$test: #09868b;
+$light: #f7f7f7;
 $dark: #162e1a;
-$success: #8fc1e3;
+$danger: #DC143C;
 
 // font overrides
-$family-primary: 'Lato', sans-serif;
 
 @import "~bulma/bulma.sass";
 @import "~mapbox-gl/dist/mapbox-gl.css";

@@ -34,6 +34,8 @@ CityPin.propTypes = {
   size: PropTypes.number,
 };
 
+const mapClassName = 'map';
+
 const Map = () => {
   const data = useStaticQuery(graphql`
     query {
@@ -56,7 +58,7 @@ const Map = () => {
     {
       latitude: coordinates.latitude,
       longitude: coordinates.longitude,
-      zoom: 11,
+      zoom: 8,
     },
   );
 
@@ -72,6 +74,13 @@ const Map = () => {
   useEffect(() => {
     window.addEventListener('resize', resizeMap);
     resizeMap();
+
+    // This is a hack used to make the map accessible.
+    // The grandparent of the map has set tabindex=1.
+    document.getElementsByClassName(mapClassName)[0]
+      .parentNode
+      .parentNode
+      .setAttribute('tabindex', 0);
     return () => window.removeEventListener('resize', resizeMap);
   }, []);
 
@@ -79,6 +88,7 @@ const Map = () => {
     <div className="container">
       <ReactMapGL
         {...viewport}
+        className={mapClassName}
         mapboxApiAccessToken={process.env.MAP_ACCESS_TOKEN}
         onViewportChange={onViewportChange}
         mapStyle="mapbox://styles/mapbox/streets-v9"

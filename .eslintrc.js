@@ -3,9 +3,12 @@ module.exports = {
     browser: true,
     es6: true,
     jest: true,
+    "cypress/globals": true,
   },
   extends: [
     'airbnb',
+    "plugin:cypress/recommended",
+    'plugin:jsx-a11y/recommended'
   ],
   globals: {
     Atomics: 'readonly',
@@ -20,6 +23,8 @@ module.exports = {
   },
   plugins: [
     'react',
+    'cypress',
+    'jsx-a11y',
   ],
   rules: {
     "react/jsx-filename-extension": [

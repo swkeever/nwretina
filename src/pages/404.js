@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import {
   Hero,
-  Header,
+  Title,
   Layout,
   Head,
 } from '../components';
@@ -10,13 +10,13 @@ import navLinks, { notFound } from '../utils/routes';
 
 const NotFound = () => (
   <Layout location={notFound.name}>
-    <Head location={notFound.href} />
+    <Head title={notFound.href} />
     <Hero
       id="not-found"
       color="primary"
       image="/uploads/pnw2.jpg"
     >
-      <Header>{notFound.name}</Header>
+      <Title>{notFound.name}</Title>
       <div className="buttons">
         <Link
           to={navLinks.home.href}

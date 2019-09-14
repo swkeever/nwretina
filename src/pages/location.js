@@ -5,7 +5,7 @@ import {
   Hero,
   Map,
   CallToAction,
-  Header,
+  Title,
 } from '../components';
 import getAddress from '../utils/get-address';
 import navLinks from '../utils/routes';
@@ -18,7 +18,7 @@ const Location = () => (
       <div className="columns is-vcentered">
         <div className="column">
           <div className="content">
-            <Header>{navLinks.location.name}</Header>
+            <Title>{navLinks.location.name}</Title>
             <span className="help">
                 Click the link below to get directions from Google Maps.
             </span>
@@ -29,12 +29,15 @@ const Location = () => (
             </p>
           </div>
         </div>
-        <div className="column is-three-fifths">
+        <div
+          className="column is-three-fifths"
+        >
           <Map />
         </div>
       </div>
       <CallToAction />
     </Hero>
+
   </Layout>
 );
 

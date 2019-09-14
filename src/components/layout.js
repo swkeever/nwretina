@@ -9,11 +9,13 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import childrenType from '../types/children';
 
 const Layout = ({ children, home }) => (
-  <div>
+  <>
     <Navbar home={home} />
-    {children}
+    <main role="main">
+      {children}
+    </main>
     <Footer />
-  </div>
+  </>
 );
 
 Layout.defaultProps = {

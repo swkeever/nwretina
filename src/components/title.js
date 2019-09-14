@@ -1,14 +1,14 @@
 import React from 'react';
 import childrenType from '../types/children';
 
-const Header = ({ children }) => (
-  <h2 className="title is-4">
+const Title = ({ children }) => (
+  <h1 className="title is-4">
     {children}
-  </h2>
+  </h1>
 );
 
-Header.propTypes = {
+Title.propTypes = {
   children: childrenType.isRequired,
 };
 
-export default Header;
+export default Title;

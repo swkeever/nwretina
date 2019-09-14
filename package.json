@@ -16,7 +16,9 @@
     "lint": "eslint .",
     "lint:fix": "npm run lint --fix",
     "test": "jest --watchAll",
-    "test:coverage": "jest --collectCoverage"
+    "test:coverage": "jest --collectCoverage",
+    "cy:open": "cypress open",
+    "test:e2e": "start-server-and-test dev http://localhost:8000 cy:open"
   },
   "husky": {
     "hooks": {
@@ -49,22 +51,28 @@
     "smooth-scroll": "^16.1.0"
   },
   "devDependencies": {
+    "@testing-library/cypress": "^5.0.0",
     "@testing-library/jest-dom": "^4.1.0",
     "@testing-library/react": "^9.1.4",
+    "axe-core": "^3.3.2",
     "babel-jest": "^24.9.0",
     "babel-preset-gatsby": "^0.2.12",
     "bulma": "^0.7.5",
+    "cypress": "^3.4.1",
+    "cypress-axe": "^0.5.1",
     "dotenv": "^8.1.0",
     "eslint": "^6.2.1",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-loader": "^2.2.1",
+    "eslint-plugin-cypress": "^2.6.1",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^1.7.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
-    "react-test-renderer": "^16.9.0"
+    "react-test-renderer": "^16.9.0",
+    "start-server-and-test": "^1.10.0"
   },
   "repository": {
     "type": "git",

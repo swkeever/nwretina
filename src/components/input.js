@@ -28,7 +28,7 @@ const Input = ({
       {
       validation.isValid(value)
         ? (
-          <p className="help is-success">
+          <p className="help is-primary">
             {validation.success}
           </p>
         )

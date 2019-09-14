@@ -1,83 +1,18 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { useStaticQuery } from 'gatsby';
+import { useStaticQuery, navigate } from 'gatsby';
 import Content from '../content';
 import routes from '../../utils/routes';
 import { nextSectionText } from '../../utils/constants';
+import NotFound from '../../pages/404';
+import { siteData, allMarkdownRemarkData, allFileData } from '../../test-utils';
 
 const image = '__mocks__/apple.png';
 
 const data = {
-  allMarkdownRemark: {
-    edges: [
-      {
-        node: {
-          id: '1',
-          html: '<div><p>Lorem nostrud ex reprehenderit pariatur eu magna veniam voluptate voluptate pariatur nostrud exercitation.</p></div>',
-          frontmatter: {
-            order: 1,
-            title: 'Your Eyes Matter 👀',
-            image: `/${image}`,
-            page: routes.about.name,
-            imageDescription: 'Apple',
-          },
-          fields: {
-            slug: routes.about.slug,
-          },
-        },
-      },
-      {
-        node: {
-          id: '2',
-          html: '<div><p>In esse deserunt tempor officia minim ex dolore est commodo laboris culpa esse aute.</p></div>',
-          frontmatter: {
-            order: 2,
-            title: 'Retina Care',
-            image: `/${image}`,
-            page: routes.about.name,
-            imageDescription: '🍎',
-          },
-          fields: {
-            slug: routes.about.slug,
-          },
-        },
-      },
-      {
-        node: {
-          id: '3',
-          html: '<div><p>In esse <strong>deserunt</strong> tempor officia minim ex dolore est commodo laboris culpa esse aute.</p></div>',
-          frontmatter: {
-            order: 3,
-            title: 'We Put Patients First',
-            image: `/${image}`,
-            page: routes.about.name,
-            imageDescription: '😃',
-          },
-          fields: {
-            slug: routes.about.slug,
-          },
-        },
-      },
-    ],
-  },
-  allFile: {
-    edges: [
-      {
-        node: {
-          childImageSharp: {
-            fluid: {
-              base64: 'base64',
-              aspectRatio: 1.0,
-              src: image,
-              srcSet: image,
-              sizes: '100',
-            },
-          },
-          relativePath: `${image}`,
-        },
-      },
-    ],
-  },
+  ...siteData,
+  ...allMarkdownRemarkData,
+  ...allFileData,
 };
 
 useStaticQuery.mockImplementation(() => data);
