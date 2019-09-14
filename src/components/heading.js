@@ -7,7 +7,7 @@ const Heading = ({ children, tag }) => {
   const TagName = tag;
 
   return (
-    <TagName className="title is-4">
+    <TagName className="title is-4 p-t-lg">
       {children}
     </TagName>
   );

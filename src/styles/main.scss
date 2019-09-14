@@ -24,3 +24,8 @@ $danger: #DC143C;
 .has-column-order-reversed {
   flex-direction: row-reverse;
 }
+
+html, body {
+    width: 100%;
+    overflow-x: hidden; 
+}
