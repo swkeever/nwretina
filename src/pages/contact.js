@@ -5,7 +5,7 @@ import {
   Hero,
   ContactForm,
   ContactInfo,
-  Title,
+  Heading,
 } from '../components';
 import navLinks from '../utils/routes';
 
@@ -16,7 +16,7 @@ const Contact = () => (
       <div className="columns is-vcentered">
         <div className="column">
           <div className="content">
-            <Title>{navLinks.contact.name}</Title>
+            <Heading>{navLinks.contact.name}</Heading>
             <p>
                 Please contact the office
                 directly for medical advice

@@ -5,13 +5,12 @@ import {
   Hero,
   Image,
   CallToAction,
-  SectionHeader,
+  Heading,
 } from '.';
 import toAnchorLink from '../utils/to-anchor-link';
 import Jumbotron from './jumbotron';
-import navLinks, { notFound } from '../utils/routes';
+import navLinks from '../utils/routes';
 import { nextSectionText } from '../utils/constants';
-import Title from './title';
 
 const getContent = (slugPrefix) => {
   const data = useStaticQuery(graphql`
@@ -66,6 +65,7 @@ const Content = ({ slugPrefix }) => {
     const fadeEnabled = isHomePage ? {
       'data-aos': `fade-${fadeDirection}`,
     } : null;
+    const tagName = !isHomePage & i === 0 ? 'h1' : 'h2';
 
     return (
       <Hero key={content.id} id={content.id}>
@@ -77,12 +77,9 @@ const Content = ({ slugPrefix }) => {
             ${!eventhElement && 'has-column-order-reversed'}`}
         >
           <div className="column">
-            {
-              !isHomePage && i === 0
-                ? <Title>{content.title}</Title>
-                : <SectionHeader>{content.title}</SectionHeader>
-            }
-
+            <Heading>
+              {content.title}
+            </Heading>
             <div
               className="content"
               dangerouslySetInnerHTML={{ __html: content.html }}

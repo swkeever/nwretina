@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import {
   Hero,
-  Title,
+  Heading,
   Layout,
   Head,
 } from '../components';
@@ -16,7 +16,7 @@ const NotFound = () => (
       color="primary"
       image="/uploads/pnw2.jpg"
     >
-      <Title>{notFound.name}</Title>
+      <Heading>{notFound.name}</Heading>
       <div className="buttons">
         <Link
           to={navLinks.home.href}

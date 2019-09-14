@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 
 const CallToAction = () => (
-  <div className="has-text-centered">
+  <div className="has-text-centered p-t-lg">
     Questions?
     {' '}
     <Link

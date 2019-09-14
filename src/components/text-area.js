@@ -7,6 +7,8 @@ const TextArea = ({
   ...rest
 }) => {
   const [value, setValue] = useState('');
+  const minLength = 15;
+  const isValid = value.length >= minLength;
 
   return (
     <div className="field">
@@ -14,9 +16,10 @@ const TextArea = ({
         {label}
         <div className="control">
           <textarea
-            className="textarea"
+            className={`textarea ${isValid ? 'is-primary' : 'is-danger'}`}
             id={name}
             name={name}
+            minLength={minLength}
             value={value}
             onChange={({ target }) => setValue(target.value)}
             required
