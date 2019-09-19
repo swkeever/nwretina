@@ -10,13 +10,10 @@
   - [ ] Map
   - [ ] Hosting
 - [x] Create a CMS solution for client?
-- [ ] Figure out site colors
+- [x] Figure out site colors
 
 ### Things to do without client
-- [ ] Write tests
-  - [x] Unit/integration
-  - [ ] End to end
+- [x] Write tests
 - [ ] SEO
 - [ ] Deployment/domain name solution
-- [ ] Put company hours on page
-- [ ] Build a logo
+- [x] Put company hours on page

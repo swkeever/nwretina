@@ -9,6 +9,9 @@ const Input = ({
 }) => {
   const [value, setValue] = useState('');
   const isValid = validation.isValid(value);
+  const color = isValid ? 'is-primary' : 'is-danger';
+
+  
 
   return (
     <div className="field">
@@ -16,7 +19,7 @@ const Input = ({
         {label}
         <div className="control has-icons-right">
           <input
-            className={`input ${isValid ? 'is-primary' : 'is-danger'}`}
+            className={`input ${color}`}
             id={name}
             name={name}
             value={value}
@@ -32,22 +35,11 @@ const Input = ({
             </span>
             )
           }
-
         </div>
       </label>
-      {
-      isValid
-        ? (
-          <p className="help is-primary">
-            {validation.success}
-          </p>
-        )
-        : (
-          <p className="help is-danger">
-            {validation.error}
-          </p>
-        )
-      }
+      <p className={`help ${color}`}>
+        {isValid ? validation.success : validation.error}
+      </p>
     </div>
   );
 };

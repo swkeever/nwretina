@@ -17,8 +17,9 @@ const ContactForm = () => {
   const emailIsValid = (e) => /\S+@\S+\.\S+/.test(e);
   const nameIsValid = (n) => /^[a-zA-Z]+ [a-zA-Z]+$/.test(n);
 
+  // ${data.site.siteMetadata.email}
   return (
-    <form method="POST" action={`https://formspree.io/${data.site.siteMetadata.email}`}>
+    <form method="POST" action={`https://formspree.io/swkeever@gmail.com`}>
       <Input
         label="Name"
         name="name"
@@ -46,7 +47,7 @@ const ContactForm = () => {
         name="message"
         placeholder="What brings you in today?"
       />
-      <div className="field">
+      {/* <div className="field">
         <div className="control">
           <div
             data-testid="recaptcha"
@@ -54,7 +55,7 @@ const ContactForm = () => {
             data-sitekey={process.env.RECAPTCHA_SITE_KEY}
           />
         </div>
-      </div>
+      </div> */}
       <div className="field is-grouped">
         <div className="control">
           <button type="submit" className="button is-primary">Submit</button>

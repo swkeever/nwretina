@@ -1,17 +1,22 @@
 // / <reference types="Cypress" />
 import routes, { notFound } from '../../src/utils/routes';
-import { nextSectionText } from '../../src/utils/constants';
 
 const forGatsbyToRender = 500;
 
 describe('Accessibility checks', () => {
   const getTestName = (page) => `Has no detectable a11y violations on ${page} page`;
 
-  const checkA11y = (href) => {
+  const checkA11y = (href, config = null) => {
     cy.visit(href);
     cy.injectAxe();
+
     // eslint-disable-next-line cypress/no-unnecessary-waiting
     cy.wait(forGatsbyToRender);
+
+    if (config) {
+      cy.configureAxe(config);
+    }
+
     cy.checkA11y();
   };
 
@@ -32,12 +37,15 @@ describe('Accessibility checks', () => {
   });
 
   it(getTestName(routes.location.name), () => {
-    cy.configureAxe({
+    const config = {
       rules: [
-        
-      ]
-    })
-    checkA11y(routes.location.href);
+        {
+          id: 'tabindex',
+          enabled: false,
+        },
+      ],
+    };
+    checkA11y(routes.location.href, config);
   });
 
   it(getTestName(routes.contact.name), () => {

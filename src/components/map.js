@@ -56,7 +56,7 @@ const Map = () => {
     {
       latitude: coordinates.latitude,
       longitude: coordinates.longitude,
-      zoom: 8,
+      zoom: 9,
     },
   );
 

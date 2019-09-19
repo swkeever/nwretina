@@ -16,6 +16,13 @@ const Jumbotron = ({ anchor }) => {
     }
   `);
 
+  const buttonStyles = `
+    button
+    is-light
+    is-medium
+    is-outlined
+  `;
+
   return (
     <Hero
       color="primary"
@@ -34,14 +41,14 @@ const Jumbotron = ({ anchor }) => {
       <ContactInfo color="light" />
       <div className="buttons m-t-md">
         <a
-          className="button is-light is-outlined"
+          className={buttonStyles}
           href={anchor}
         >
           {nextSectionText}
         </a>
         <Link
           to="/contact/"
-          className="button is-light is-outlined"
+          className={buttonStyles}
         >
             Contact Us
         </Link>
