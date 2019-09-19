@@ -5,7 +5,7 @@ title: 'Michael Osetinsky, MD'
 image: /uploads/sign-mo.jpg
 imageDescription: Dr. Osetinsky
 ---
-Dr. Osetinsky received his Bachelor of Science in Engineering 
+Dr. Michael Osetinsky received his Bachelor of Science in Engineering 
 from Duke University in 1980. Later went on to receive his 
 medical degree at Louisiana State University, School of Medicine 
 in 1984. Following the completion of his residency training at
