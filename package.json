@@ -15,14 +15,16 @@
     "build:try": "npm run build && npm run serve",
     "lint": "eslint .",
     "lint:fix": "npm run lint --fix",
-    "test": "jest --watchAll",
+    "test": "jest",
     "test:coverage": "jest --collectCoverage",
     "cy:open": "cypress open",
-    "test:e2e": "start-server-and-test dev http://localhost:8000 cy:open"
+    "test:e2e": "start-server-and-test dev http://localhost:8000 cy:open",
+    "test:watch": "jest --watchAll"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "npm test",
+      "pre-push": "npm test"
     }
   },
   "dependencies": {
@@ -69,8 +71,10 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^1.7.0",
+    "husky": "^3.0.5",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
+    "lint-staged": "^9.2.5",
     "react-test-renderer": "^16.9.0",
     "start-server-and-test": "^1.10.0"
   },
