@@ -1,12 +1,19 @@
 /* eslint-disable global-require */
 import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 import 'aos/dist/aos.css';
+import routes from '../utils/routes';
+import routeType from '../types/route';
+import {
+  cmsIdentity,
+  aos,
+  reCAPTCHA,
+  fontAwesome,
+} from '../utils/scripts';
 
 
-const Head = ({ title, reCAPTCHA }) => {
+const Head = ({ title }) => {
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -33,21 +40,16 @@ const Head = ({ title, reCAPTCHA }) => {
   return (
     <Helmet>
       <title>{`${title} | ${data.site.siteMetadata.titleFull}`}</title>
-      <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" />
-      <script src="https://unpkg.com/aos@next/dist/aos.js" />
-      {reCAPTCHA ? <script src="https://www.google.com/recaptcha/api.js" async defer /> : null}
-      <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js" />
+      {cmsIdentity}
+      {title === routes.home.name && aos}
+      {title === routes.contact.name && reCAPTCHA}
+      {fontAwesome}
     </Helmet>
   );
 };
 
-Head.defaultProps = {
-  reCAPTCHA: false,
-};
-
 Head.propTypes = {
-  title: PropTypes.string.isRequired,
-  reCAPTCHA: PropTypes.bool,
+  title: routeType.isRequired,
 };
 
 export default Head;

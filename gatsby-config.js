@@ -2,6 +2,21 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
+const cspDirectives = [
+  "default-src 'self'",
+  `script-src 
+  'self' 
+  'unsafe-inline' 
+  https://identity.netlify.com/v1/netlify-identity-widget.js
+  https://unpkg.com/aos@next/dist/aos.js
+  https://www.google.com/recaptcha/api.js
+  https://use.fontawesome.com/releases/v5.3.1/js/all.js
+  `,
+  "style-src 'self'",
+];
+
+const directivesToCspHeader = (headers) => headers.join(';');
+
 module.exports = {
   siteMetadata: {
     title: 'NW Retina',
@@ -64,7 +79,19 @@ module.exports = {
     },
     'gatsby-transformer-remark',
     'gatsby-plugin-catch-links',
-    'gatsby-plugin-csp',
-    'gatsby-plugin-netlify',
+    {
+      resolve: 'gatsby-plugin-netlify',
+      options: {
+        headers: {
+          '/*': [
+            'X-Frame-Options: DENY',
+            'X-XSS-Protection: 1; mode=block',
+            'X-Content-Type-Options: nosniff',
+            `Content-Security-Policy: ${directivesToCspHeader(cspDirectives)}`,
+            'Referrer-Policy: no-referrer-when-downgrade',
+          ],
+        },
+      },
+    },
   ],
 };

@@ -24,14 +24,17 @@ const Navbar = ({ home }) => {
       const { href, name } = route;
       const linkStyle = 'navbar-item is-tab has-text-light';
       return (
-        <Link
-          key={name}
-          activeClassName="is-active"
-          className={linkStyle}
-          to={href}
-        >
-          {name}
-        </Link>
+        <li>
+          <Link
+            key={name}
+            className={linkStyle}
+            activeClassName="is-active"
+            to={href}
+          >
+            {name}
+          </Link>
+        </li>
+
       );
     });
 
@@ -95,9 +98,9 @@ const Navbar = ({ home }) => {
         data-testid={open ? 'menu-active' : 'menu-inactive'}
         className={`navbar-menu has-background-primary ${open && 'is-active'}`}
       >
-        <div className="navbar-end">
+        <ul className="navbar-end">
           {links}
-        </div>
+        </ul>
       </nav>
     </header>
   );
