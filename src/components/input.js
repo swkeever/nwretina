@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import Icon from './icon';
 
 const Input = ({
   label,
@@ -29,7 +30,7 @@ const Input = ({
             isValid
             && (
             <span className="icon is-small is-right">
-              <i className="fas fa-check" />
+              <Icon name="check" />
             </span>
             )
           }

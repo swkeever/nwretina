@@ -4,6 +4,7 @@ import ContactInfo from './contact-info';
 import links, { externalLinkProps } from '../utils/links';
 import navLinks from '../utils/routes';
 import childrenType from '../types/children';
+import Icon from './icon';
 
 const FooterHeader = ({ children }) => (
   <h2 className="is-size-6">
@@ -111,12 +112,13 @@ const Footer = () => {
                           href={link.href}
                           {...externalLinkProps}
                         >
-                          <i className="fab fa-facebook-square" />
+                          <Icon name={link.name} />
                         </a>
                       </span>
                     </li>
                   ))
-                }
+}
+
               </ul>
             </nav>
           </div>

@@ -33,6 +33,7 @@ module.exports = {
       {
         name: 'Facebook',
         href: 'https://www.facebook.com/nwretina',
+        icon: 'icon-facebook',
       },
     ],
     developer: {
