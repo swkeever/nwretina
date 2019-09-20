@@ -79,7 +79,7 @@ const Map = () => {
     <div className="container">
       <ReactMapGL
         {...viewport}
-        mapboxApiAccessToken={process.env.MAP_ACCESS_TOKEN}
+        mapboxApiAccessToken={process.env.GATSBY_MAP_ACCESS_TOKEN}
         onViewportChange={onViewportChange}
         mapStyle="mapbox://styles/mapbox/streets-v9"
       >

@@ -69,7 +69,7 @@ const ContactForm = () => {
           <div
             data-testid="recaptcha"
             className="g-recaptcha"
-            data-sitekey={process.env.RECAPTCHA_SITE_KEY}
+            data-sitekey={process.env.GATSBY_RECAPTCHA_SITE_KEY}
           />
         </div>
       </div> */}
