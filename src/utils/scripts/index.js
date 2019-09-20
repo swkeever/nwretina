@@ -1,21 +1,22 @@
 import React from 'react';
+import sources from './sources';
 
 // used for the CMS
 // https://www.netlifycms.org/docs/add-to-your-site
 export const cmsIdentity = (
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" />
+  <script src={sources.cmsIdentity} />
 );
 
 // used for animations
 // https://github.com/michalsnik/aos
 export const aos = (
-  <script src="https://unpkg.com/aos@next/dist/aos.js" />
+  <script src={sources.aos} />
 );
 
 // reCAPTCHA for contact form
 export const reCAPTCHA = (
   <script
-    src="https://www.google.com/recaptcha/api.js"
+    src={sources.reCAPTCHA}
     async
     defer
   />
@@ -23,5 +24,10 @@ export const reCAPTCHA = (
 
 // icons
 export const fontAwesome = (
-  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js" />
+  <script
+    defer
+    src={sources.fontAwesome}
+  />
 );
+
+module.exports = sources;
