@@ -32,10 +32,6 @@ const Head = ({ title, reCAPTCHA }) => {
 
   return (
     <Helmet>
-      <meta
-        httpEquiv="Content-Security-Policy"
-        content="script-src 'self';"
-      />
       <title>{`${title} | ${data.site.siteMetadata.titleFull}`}</title>
       <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" />
       <script src="https://unpkg.com/aos@next/dist/aos.js" />
