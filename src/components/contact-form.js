@@ -9,6 +9,9 @@ const ContactForm = () => {
       site {
         siteMetadata {
           email
+          phone {
+            office
+          }
         }
       }
     }
@@ -22,6 +25,18 @@ const ContactForm = () => {
       method="POST"
       action={`https://formspree.io/${data.site.siteMetadata.email}`}
     >
+      <div className="notification is-primary">
+        <i className="fas fa-info-circle" />
+        {' '}
+        Our contact form is currently under construction.
+        Please
+        {' '}
+        <a href={`tel:${data.site.siteMetadata.phone.office}`}>
+          call our office
+        </a>
+        {' '}
+        for medical advice and emergency appointment needs.
+      </div>
       <Input
         label="Name"
         name="name"
@@ -58,6 +73,7 @@ const ContactForm = () => {
           />
         </div>
       </div> */}
+
       <div className="field is-grouped">
         <div className="control">
           <button
