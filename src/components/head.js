@@ -9,7 +9,6 @@ import {
   cmsIdentity,
   aos,
   reCAPTCHA,
-  fontAwesome,
 } from '../utils/scripts';
 
 
@@ -40,10 +39,13 @@ const Head = ({ title }) => {
   return (
     <Helmet>
       <title>{`${title} | ${data.site.siteMetadata.titleFull}`}</title>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"
+      />
       {cmsIdentity}
       {title === routes.home.name && aos}
       {title === routes.contact.name && reCAPTCHA}
-      {fontAwesome}
     </Helmet>
   );
 };

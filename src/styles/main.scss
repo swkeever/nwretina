@@ -1,48 +1,9 @@
 @charset "utf-8";
 
-// color overrides
-$primary: #3d7c47;
-$info: #76c1d4;
-$link: #31708e;
-$test: #09868b;
-$light: #f7f7f7;
-$dark: #162e1a;
-$danger: #DC143C;
-
-$body-size: 18px;
-// font overrides
-
-//
-// BULMA IMPORTS
-//
-@import "~bulma/sass/utilities/_all";
-@import "~bulma/sass/base/_all";
-@import "~bulma/sass/elements/button";
-@import "~bulma/sass/elements/notification";
-@import "~bulma/sass/elements/icon";
-@import "~bulma/sass/elements/title";
-@import "~bulma/sass/elements/content";
-@import "~bulma/sass/elements/image";
-@import "~bulma/sass/form/shared";
-@import "~bulma/sass/form/input-textarea";
-@import "~bulma/sass/form/tools";
-@import "~bulma/sass/components/level";
-@import "~bulma/sass/components/navbar";
-@import "~bulma/sass/grid/columns";
-@import "~bulma/sass/layout/_all";
-
+@import 'bulma';
 @import "~mapbox-gl/dist/mapbox-gl.css";
 @import 'spacing';
-
-// extra helper classes
-.has-image-centered {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.has-column-order-reversed {
-  flex-direction: row-reverse;
-}
+@import 'helpers';
 
 html, body {
     width: 100%;

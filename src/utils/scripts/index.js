@@ -24,12 +24,3 @@ export const reCAPTCHA = (
     defer
   />
 );
-
-// icons
-export const fontAwesome = (
-  <script
-    defer
-    async
-    src={sources.fontAwesome}
-  />
-);
