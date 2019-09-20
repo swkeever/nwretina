@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { useStaticQuery, graphql, navigate } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 import {
   Hero,
   Image,
@@ -65,7 +65,6 @@ const Content = ({ slugPrefix }) => {
     const fadeEnabled = isHomePage ? {
       'data-aos': `fade-${fadeDirection}`,
     } : null;
-    const tagName = !isHomePage & i === 0 ? 'h1' : 'h2';
 
     return (
       <Hero key={content.id} id={content.id}>

@@ -1,11 +1,11 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
+import { useStaticQuery } from 'gatsby';
 import Navbar from '../navbar';
 import navLinks from '../../utils/routes';
-import { useStaticQuery } from 'gatsby';
 import { siteData } from '../../test-utils';
 
-useStaticQuery.mockImplementation(() => siteData)
+useStaticQuery.mockImplementation(() => siteData);
 
 test('Menu is initially not open', () => {
   const component = render(<Navbar />);

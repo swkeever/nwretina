@@ -11,8 +11,6 @@ const Input = ({
   const isValid = validation.isValid(value);
   const color = isValid ? 'is-primary' : 'is-danger';
 
-  
-
   return (
     <div className="field">
       <label htmlFor={name} className="label">

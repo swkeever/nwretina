@@ -1,13 +1,10 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { useStaticQuery, navigate } from 'gatsby';
+import { useStaticQuery } from 'gatsby';
 import Content from '../content';
 import routes from '../../utils/routes';
 import { nextSectionText } from '../../utils/constants';
-import NotFound from '../../pages/404';
 import { siteData, allMarkdownRemarkData, allFileData } from '../../test-utils';
-
-const image = '__mocks__/apple.png';
 
 const data = {
   ...siteData,
