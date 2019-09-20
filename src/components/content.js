@@ -61,15 +61,10 @@ const Content = ({ slugPrefix }) => {
   const contentElements = contents.map((content, i) => {
     const isLastElement = i === contents.length - 1;
     const eventhElement = i % 2 === 0;
-    const fadeDirection = !eventhElement ? 'left' : 'right';
-    const fadeEnabled = isHomePage ? {
-      'data-aos': `fade-${fadeDirection}`,
-    } : null;
 
     return (
       <Hero key={content.id} id={content.id}>
         <div
-          {...fadeEnabled}
           className={`
             columns 
             is-vcentered 

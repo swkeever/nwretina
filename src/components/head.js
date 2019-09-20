@@ -2,15 +2,12 @@
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
-import 'aos/dist/aos.css';
 import routes from '../utils/routes';
 import routeType from '../types/route';
 import {
   cmsIdentity,
-  aos,
   reCAPTCHA,
 } from '../utils/scripts';
-
 
 const Head = ({ title }) => {
   const data = useStaticQuery(graphql`
@@ -29,18 +26,12 @@ const Head = ({ title }) => {
       speedAsDuration: true,
       easing: 'easeInOutCubic',
     });
-    require('aos').init({
-      duration: 700,
-      delay: 150,
-      ease: 'ease-in-out',
-    });
   }, []);
 
   return (
     <Helmet>
       <title>{`${title} | ${data.site.siteMetadata.titleFull}`}</title>
       {cmsIdentity}
-      {title === routes.home.name && aos}
       {title === routes.contact.name && reCAPTCHA}
     </Helmet>
   );

@@ -10,12 +10,6 @@ export const cmsIdentity = (
   />
 );
 
-// used for animations
-// https://github.com/michalsnik/aos
-export const aos = (
-  <script src={sources.aos} />
-);
-
 // reCAPTCHA for contact form
 export const reCAPTCHA = (
   <script
