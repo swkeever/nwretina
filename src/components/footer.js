@@ -111,7 +111,7 @@ const Footer = () => {
                           href={link.href}
                           {...externalLinkProps}
                         >
-                          <i class="fab fa-facebook-square"></i>
+                          <i className="fab fa-facebook-square" />
                         </a>
                       </span>
                     </li>
