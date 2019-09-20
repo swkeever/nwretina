@@ -4,7 +4,10 @@ import sources from './sources';
 // used for the CMS
 // https://www.netlifycms.org/docs/add-to-your-site
 export const cmsIdentity = (
-  <script src={sources.cmsIdentity} />
+  <script
+    defer
+    src={sources.cmsIdentity}
+  />
 );
 
 // used for animations
@@ -26,6 +29,7 @@ export const reCAPTCHA = (
 export const fontAwesome = (
   <script
     defer
+    async
     src={sources.fontAwesome}
   />
 );
