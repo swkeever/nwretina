@@ -29,5 +29,3 @@ export const fontAwesome = (
     src={sources.fontAwesome}
   />
 );
-
-module.exports = sources;
