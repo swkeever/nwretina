@@ -17,9 +17,11 @@ const ContactForm = () => {
   const emailIsValid = (e) => /\S+@\S+\.\S+/.test(e);
   const nameIsValid = (n) => /^[a-zA-Z]+ [a-zA-Z]+$/.test(n);
 
-  // ${data.site.siteMetadata.email}
   return (
-    <form method="POST" action={`https://formspree.io/swkeever@gmail.com`}>
+    <form
+      method="POST"
+      action={`https://formspree.io/${data.site.siteMetadata.email}`}
+    >
       <Input
         label="Name"
         name="name"
@@ -28,7 +30,7 @@ const ContactForm = () => {
           success: 'Nice to meet you.',
           error: 'Please enter your full name.',
         }}
-        placeholder="John Doe"
+        placeholder="Jane Doe"
         type="text"
       />
       <Input
@@ -58,7 +60,13 @@ const ContactForm = () => {
       </div> */}
       <div className="field is-grouped">
         <div className="control">
-          <button type="submit" className="button is-primary">Submit</button>
+          <button
+            type="submit"
+            className="button is-primary"
+            disabled
+          >
+            Submit
+          </button>
         </div>
       </div>
     </form>
