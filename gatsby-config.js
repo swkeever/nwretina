@@ -1,7 +1,6 @@
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
-const scriptSources = require('./src/utils/scripts/sources');
 
 module.exports = {
   siteMetadata: {
@@ -66,16 +65,5 @@ module.exports = {
     'gatsby-transformer-remark',
     'gatsby-plugin-catch-links',
     'gatsby-plugin-netlify',
-    {
-      resolve: 'gatsby-plugin-csp',
-      options: {
-        directives: {
-          'script-src': [
-            '\'self\'',
-            ...Object.values(scriptSources),
-          ].join(' '),
-        },
-      },
-    },
   ],
 };
