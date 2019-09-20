@@ -24,9 +24,8 @@ const Navbar = ({ home }) => {
       const { href, name } = route;
       const linkStyle = 'navbar-item is-tab has-text-light';
       return (
-        <li>
+        <li key={name}>
           <Link
-            key={name}
             className={linkStyle}
             activeClassName="is-active"
             to={href}
