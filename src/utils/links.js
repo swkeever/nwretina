@@ -13,10 +13,15 @@ export const medicalRecords = {
   name: 'Your Medical Records',
 };
 
+export const providence = {
+  href: 'https://washington.providence.org/',
+  name: 'Providence Health & Services',
+};
+
 const links = [
   medicalRecords,
   aao,
-  googleMaps,
+  providence,
 ];
 
 

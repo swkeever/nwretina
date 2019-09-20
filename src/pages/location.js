@@ -11,6 +11,16 @@ import getAddress from '../utils/get-address';
 import navLinks from '../utils/routes';
 import { externalLinkProps, googleMaps } from '../utils/links';
 
+const Address = () => (
+  <a
+    className="has-text-link"
+    href={googleMaps.href}
+    {...externalLinkProps}
+  >
+    {getAddress()}
+  </a>
+);
+
 const Location = () => (
   <Layout>
     <Head title={navLinks.location.name} />
@@ -19,13 +29,10 @@ const Location = () => (
         <div className="column">
           <div className="content">
             <Heading>{navLinks.location.name}</Heading>
-            <span className="help">
-                Click the link below to get directions from Google Maps.
-            </span>
             <p>
-              <a className="has-text-link" href={googleMaps.href} {...externalLinkProps}>
-                {getAddress()}
-              </a>
+              {'Our office is located at '}
+              <Address />
+              {', on the beautiful waterfront in Marina Village. Dr. Osetinsky performs surgery at the new medical tower at Providence Everett Medical Center.'}
             </p>
           </div>
         </div>

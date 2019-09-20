@@ -1,6 +1,6 @@
 export const nextSectionText = 'Learn more';
 
-export const SITE_HEADER = 'site-header';
+export const SITE_HEADER = 'home';
 
 export const siteMetadata = {
   title: 'NW Retina',

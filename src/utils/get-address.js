@@ -21,10 +21,8 @@ const getAddress = () => {
 
   const { address } = data.site.siteMetadata;
 
-  return `
-    ${address.street.line1} ${address.street.line2},
-    ${address.city}, ${address.state} ${address.zipCode}
-  `;
+  return `${address.street.line1} ${address.street.line2},
+    ${address.city}, ${address.state} ${address.zipCode}`;
 };
 
 export default getAddress;
