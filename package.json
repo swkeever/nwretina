@@ -34,6 +34,7 @@
     "gatsby-plugin-catch-links": "^2.1.5",
     "gatsby-plugin-less": "^3.0.2",
     "gatsby-plugin-netlify-cms": "^4.1.13",
+    "gatsby-plugin-netlify-headers": "^1.0.1",
     "gatsby-plugin-react-helmet": "^3.1.5",
     "gatsby-plugin-sass": "^2.1.12",
     "gatsby-plugin-sharp": "^2.2.20",
