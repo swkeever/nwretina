@@ -6,6 +6,7 @@ import sources from './sources';
 export const cmsIdentity = (
   <script
     defer
+    async
     src={sources.cmsIdentity}
   />
 );
