@@ -31,7 +31,7 @@ const Head = ({ title }) => {
 
   return (
     <Helmet>
-      <title>{`${title} | ${data.site.siteMetadata.title} - Everett, WA`}</title>
+      <title>{`${title} | ${data.site.siteMetadata.title} | Everett Retina Specialist`}</title>
       <meta name="description" content={data.site.siteMetadata.description} />
       {cmsIdentity}
       {title === routes.contact.name && reCAPTCHA}
