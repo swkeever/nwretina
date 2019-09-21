@@ -33,6 +33,7 @@ const Head = ({ title }) => {
     <Helmet>
       <title>{`${title} | ${data.site.siteMetadata.title} | Everett Retina Specialist`}</title>
       <meta name="description" content={data.site.siteMetadata.description} />
+      <meta name="keywords" content={data.site.siteMetadata.keywords.join(',')} />
       {cmsIdentity}
       {title === routes.contact.name && reCAPTCHA}
     </Helmet>
