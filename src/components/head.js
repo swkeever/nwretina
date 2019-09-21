@@ -14,7 +14,8 @@ const Head = ({ title }) => {
     query {
       site {
         siteMetadata {
-          titleFull
+          title
+          description
         }
       }
     }
@@ -30,7 +31,8 @@ const Head = ({ title }) => {
 
   return (
     <Helmet>
-      <title>{`${title} | ${data.site.siteMetadata.titleFull}`}</title>
+      <title>{`${title} | ${data.site.siteMetadata.title} - Everett, WA`}</title>
+      <meta name="description" content={data.site.siteMetadata.description} />
       {cmsIdentity}
       {title === routes.contact.name && reCAPTCHA}
     </Helmet>

@@ -5,6 +5,7 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     siteUrl: 'https://www.nwretina.com',
+    description: 'Dr. Michael Osetinsky is a retina specialist in vitreo retinal diseases of the eye including macular degeneration, diabetic retinopathy, and retinal detachments.',
     title: 'NW Retina',
     titleFull: 'Northwest Retina, LLC',
     phone: {
