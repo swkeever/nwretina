@@ -8,9 +8,8 @@ connect-src 'self';
 font-src data:;
 frame-src https://www.google.com;
 img-src 'self' data:;
-script-src 'unsafe-inline' https://identity.netlify.com/v1/netlify-identity-widget.js https://www.google.com/recaptcha/api.js https://www.gstatic.com/recaptcha/api2/v1566858990656/recaptcha__en.js;
+script-src 'unsafe-inline' https://identity.netlify.com https://www.google.com https://www.gstatic.com;
 style-src 'unsafe-inline';
-base-uri 'self'
 `;
 
 module.exports = {
