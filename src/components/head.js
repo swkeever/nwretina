@@ -16,6 +16,7 @@ const Head = ({ title }) => {
         siteMetadata {
           title
           description
+          keywords
         }
       }
     }
