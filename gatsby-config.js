@@ -8,7 +8,7 @@ connect-src 'self';
 font-src data:;
 frame-src https://www.google.com;
 img-src 'self' data:;
-script-src 'strict-dynamic' 'nonce-LgD4Zk/ALDBCCFvVCUS/xA==' 'unsafe-inline' https://identity.netlify.com/v1/netlify-identity-widget.js https://www.google.com/recaptcha/api.js https://www.gstatic.com/recaptcha/api2/v1566858990656/recaptcha__en.js;
+script-src 'unsafe-inline' https://identity.netlify.com/v1/netlify-identity-widget.js https://www.google.com/recaptcha/api.js https://www.gstatic.com/recaptcha/api2/v1566858990656/recaptcha__en.js;
 style-src 'unsafe-inline';
 base-uri 'self'
 `;
