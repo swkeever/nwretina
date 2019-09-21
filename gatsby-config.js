@@ -2,6 +2,8 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
+const csp = "default-src 'none'; connect-src 'self'; font-src data:; frame-src https://www.google.com; img-src 'self' data:; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://identity.netlify.com/v1/netlify-identity-widget.js https://www.google.com/recaptcha/api.js https://www.gstatic.com/recaptcha/api2/v1566858990656/recaptcha__en.js; style-src 'unsafe-inline'";
+
 module.exports = {
   siteMetadata: {
     siteUrl: 'https://www.nwretina.com',
@@ -88,7 +90,17 @@ module.exports = {
     'gatsby-transformer-remark',
     'gatsby-plugin-catch-links',
     'gatsby-plugin-sitemap',
-    'gatsby-plugin-netlify',
+    {
+      resolve: 'gatsby-plugin-netlify',
+      options: {
+        allPageHeaders: [
+          `Content-Security-Policy: ${csp}`,
+        ],
+        // mergeSecurityHeaders: true,
+        // mergeLinkHeaders: true,
+        // mergeCachingHeaders: true,
+      },
+    },
     'gatsby-plugin-netlify-cache',
   ],
 };
