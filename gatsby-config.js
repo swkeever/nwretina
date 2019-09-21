@@ -2,15 +2,15 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
-const csp = `
-default-src 'none';
-connect-src 'self';
-font-src data:;
-frame-src https://www.google.com;
-img-src 'self' data:;
-script-src 'unsafe-inline' https://identity.netlify.com https://www.google.com https://www.gstatic.com;
-style-src 'unsafe-inline';
-`;
+const csp = [
+  "default-src 'none'",
+  "connect-src 'self'",
+  'font-src data:',
+  'frame-src https://www.google.com',
+  "img-src 'self' data:",
+  "script-src 'unsafe-inline https://identity.netlify.com https://www.google.com https://www.gstatic.com",
+  "style-src 'unsafe-inline'",
+].join('; ');
 
 module.exports = {
   siteMetadata: {
