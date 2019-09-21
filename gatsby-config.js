@@ -11,7 +11,7 @@ const csp = [
   "script-src 'self' 'nonce-4AEemGb0xJptoIGFP3Nd' 'strict-dynamic' 'unsafe-inline' https://identity.netlify.com https://www.google.com https://www.gstatic.com",
   "style-src 'unsafe-inline'",
   "base-uri 'self'",
-  "object-src 'self'",
+  "object-src 'none'",
 ].join('; ');
 
 module.exports = {
