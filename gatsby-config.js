@@ -8,7 +8,7 @@ const csp = [
   "img-src 'self', data:",
   "font-src 'self' data:",
   "style-src 'self' 'unsafe-inline'",
-  "script-src 'self' https://identity.netlify.com https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js https://www.google.com/recaptcha/api.js https://www.gstatic.com",
+  "script-src 'self' 'unsafe-inline' https://identity.netlify.com https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js https://www.google.com/recaptcha/api.js https://www.gstatic.com",
   "object-src 'none'",
 ].join('; ');
 
