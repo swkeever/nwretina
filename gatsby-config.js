@@ -96,9 +96,9 @@ module.exports = {
         allPageHeaders: [
           `Content-Security-Policy: ${csp}`,
         ],
-        // mergeSecurityHeaders: true,
-        // mergeLinkHeaders: true,
-        // mergeCachingHeaders: true,
+        mergeSecurityHeaders: true,
+        mergeLinkHeaders: true,
+        mergeCachingHeaders: true,
       },
     },
     'gatsby-plugin-netlify-cache',
