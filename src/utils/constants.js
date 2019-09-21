@@ -36,7 +36,7 @@ export const siteMetadata = {
   ],
   developer: {
     name: 'Sean Keever',
-    link: 'https://swkeever.github.io',
+    link: 'https://www.skies.dev',
   },
   siteUrl: 'https://www.nwretina.com',
   email: 'office@nwretina.com',

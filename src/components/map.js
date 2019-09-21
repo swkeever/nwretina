@@ -22,7 +22,7 @@ export const EMBED_MAP_SRC = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m
 const Map = () => (
   <div style={containerStyle} className="container nw-image">
     <iframe
-    
+
       title="map"
       data-testid="map"
       src={EMBED_MAP_SRC}
