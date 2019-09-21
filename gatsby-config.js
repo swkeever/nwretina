@@ -5,12 +5,8 @@ require('dotenv').config({
 const csp = [
   "default-src 'self'",
   "connect-src 'self'",
-  'font-src data:',
   'frame-src https://www.google.com',
-  "img-src 'self' data:",
-  "script-src 'self' 'unsafe-inline' https://identity.netlify.com https://www.google.com https://www.gstatic.com",
-  "style-src 'unsafe-inline'",
-  "base-uri 'self'",
+  "script-src 'self' https://identity.netlify.com https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js https://www.google.com/recaptcha/api.js https://www.gstatic.com",
   "object-src 'none'",
 ].join('; ');
 
