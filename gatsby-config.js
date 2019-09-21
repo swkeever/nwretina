@@ -3,7 +3,7 @@ require('dotenv').config({
 });
 
 const csp = [
-  "default-src 'none'",
+  "default-src 'self'",
   "connect-src 'self'",
   'font-src data:',
   'frame-src https://www.google.com',
