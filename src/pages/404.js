@@ -10,7 +10,7 @@ import navLinks, { notFound } from '../utils/routes';
 
 const NotFound = () => (
   <Layout location={notFound.name}>
-    <Head title={notFound.href} />
+    <Head title={notFound.name} />
     <Hero
       id="not-found"
       color="primary"

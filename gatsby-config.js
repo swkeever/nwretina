@@ -4,6 +4,7 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
+    siteUrl: 'https://www.nwretina.com',
     title: 'NW Retina',
     titleFull: 'Northwest Retina, LLC',
     phone: {
@@ -40,7 +41,6 @@ module.exports = {
       name: 'Sean Keever',
       link: 'https://swkeever.github.io',
     },
-    siteUrl: 'https://www.nwretina.com',
     email: 'office@nwretina.com',
   },
   plugins: [
@@ -65,5 +65,6 @@ module.exports = {
     },
     'gatsby-transformer-remark',
     'gatsby-plugin-catch-links',
+    'gatsby-plugin-sitemap',
   ],
 };
