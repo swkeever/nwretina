@@ -28,7 +28,7 @@ module.exports = {
       'retinal detachment',
     ],
     title: 'NW Retina',
-    titleFull: 'Northwest Retina, LLC',
+    titleFull: 'Northwest Retina',
     phone: {
       office: '425-252-2333',
       fax: '425-525-3359',
