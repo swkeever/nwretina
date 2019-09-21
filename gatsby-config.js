@@ -8,8 +8,10 @@ const csp = [
   'font-src data:',
   'frame-src https://www.google.com',
   "img-src 'self' data:",
-  "script-src 'self' 'unsafe-inline' https://identity.netlify.com https://www.google.com https://www.gstatic.com",
+  "script-src 'self' 'nonce-4AEemGb0xJptoIGFP3Nd' 'strict-dynamic' 'unsafe-inline' https://identity.netlify.com https://www.google.com https://www.gstatic.com",
   "style-src 'unsafe-inline'",
+  "base-uri 'self'",
+  "object-src 'self'",
 ].join('; ');
 
 module.exports = {
