@@ -1,97 +1,35 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import ReactMapGL, { Marker } from 'react-map-gl';
-import { useStaticQuery, graphql } from 'gatsby';
+import React from 'react';
 
-const ICON = `M20.2,15.7L20.2,15.7c1.1-1.6,1.8-3.6,1.8-5.7c0-5.6-4.5-10-10-10S2,4.5,2,10c0,2,0.6,3.9,1.6,5.4c0,0.1,0.1,0.2,0.2,0.3
-  c0,0,0.1,0.1,0.1,0.2c0.2,0.3,0.4,0.6,0.7,0.9c2.6,3.1,7.4,7.6,7.4,7.6s4.8-4.5,7.4-7.5c0.2-0.3,0.5-0.6,0.7-0.9
-  C20.1,15.8,20.2,15.8,20.2,15.7z`;
-
-const pinStyle = {
-  cursor: 'pointer',
-  fill: '#d00',
-  stroke: 'none',
+const mapStyle = {
+  border: 0,
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  width: '100%',
+  height: '100%',
 };
 
-const CityPin = ({ size }) => (
-  <svg
-    height={size}
-    viewBox="0 0 24 24"
-    style={{
-      ...pinStyle,
-      transform: `translate(${-size / 2}px,${-size}px)`,
-    }}
-  >
-    <path d={ICON} />
-  </svg>
+const containerStyle = {
+  position: 'relative',
+  paddingBottom: '20em',
+  height: 0,
+  overflow: 'hidden',
+};
+
+const mapSrc = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2669.954183807548!2d-122.2246638845308!3d47.9952725690408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x549aaab222715759%3A0xcbbb7a04f5348df7!2sNW%20Retina%20LLC!5e0!3m2!1sen!2sus!4v1569090042946!5m2!1sen!2sus';
+
+const Map = () => (
+  <div style={containerStyle} className="container">
+    <iframe
+      title="map"
+      src={mapSrc}
+      width="600"
+      height="450"
+      frameBorder="0"
+      style={mapStyle}
+      allowFullScreen="true"
+    />
+  </div>
 );
-
-CityPin.defaultProps = {
-  size: 20,
-};
-
-CityPin.propTypes = {
-  size: PropTypes.number,
-};
-
-const Map = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          address {
-            coordinates {
-              latitude
-              longitude
-            }
-          }
-        }
-      }
-    }
-  `);
-
-  const { coordinates } = data.site.siteMetadata.address;
-
-  const [viewport, setViewport] = useState(
-    {
-      latitude: coordinates.latitude,
-      longitude: coordinates.longitude,
-      zoom: 9,
-    },
-  );
-
-  const onViewportChange = (vp) => setViewport({ ...viewport, ...vp });
-
-  const resizeMap = () => {
-    onViewportChange({
-      width: '100%',
-      height: '50vh',
-    });
-  };
-
-  useEffect(() => {
-    window.addEventListener('resize', resizeMap);
-    resizeMap();
-    return () => window.removeEventListener('resize', resizeMap);
-  }, []);
-
-  return (
-    <div className="container">
-      <ReactMapGL
-        {...viewport}
-        mapboxApiAccessToken={process.env.GATSBY_MAP_ACCESS_TOKEN}
-        onViewportChange={onViewportChange}
-        mapStyle="mapbox://styles/mapbox/streets-v9"
-      >
-        <Marker
-          longitude={coordinates.longitude}
-          latitude={coordinates.latitude}
-        >
-          <CityPin size={25} />
-        </Marker>
-      </ReactMapGL>
-    </div>
-  );
-};
 
 export default Map;

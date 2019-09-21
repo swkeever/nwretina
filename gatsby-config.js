@@ -88,5 +88,7 @@ module.exports = {
     'gatsby-transformer-remark',
     'gatsby-plugin-catch-links',
     'gatsby-plugin-sitemap',
+    'gatsby-plugin-netlify',
+    'gatsby-plugin-netlify-cache',
   ],
 };

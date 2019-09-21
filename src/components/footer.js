@@ -124,10 +124,10 @@ const Footer = () => {
           </div>
         </div>
         <ul className="level has-text-light is-marginless has-text-grey-light">
-          <li className="level-item">
+          <li key="copyright" className="level-item">
             {`Copyright ©️ ${new Date().getFullYear()} ${titleFull}`}
           </li>
-          <li className="level-item">
+          <li key="admin-portal" className="level-item">
             <a
               className={linkColor}
               href="/admin/"
@@ -136,10 +136,10 @@ const Footer = () => {
               Admin Portal
             </a>
           </li>
-          <li className="level-item">
-            <Link className={linkColor} to="/sitemap.xml">Sitemap</Link>
+          <li key="sitemap" className="level-item">
+            <a className={linkColor} href="/sitemap.xml">Sitemap</a>
           </li>
-          <li className="level-item">
+          <li key="credits" className="level-item">
             {'Website made with '}
             <span role="img" className="m-l-xxs m-r-xxs" aria-label="Love">❤️</span>
             {' by '}
