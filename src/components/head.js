@@ -32,6 +32,7 @@ const Head = ({ title }) => {
 
   return (
     <Helmet>
+      <html lang="en" />
       <title>{`${title} | ${data.site.siteMetadata.title} | Everett Retina Care Provider`}</title>
       <meta name="description" content={data.site.siteMetadata.description} />
       <meta name="keywords" content={data.site.siteMetadata.keywords.join(',')} />
