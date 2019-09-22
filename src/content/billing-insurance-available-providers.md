@@ -2,8 +2,8 @@
 page: Billing & Insurance
 order: 2
 title: Available Providers
-image: /uploads/hero.jpg
-imageDescription: Marina
+image: /uploads/sign-2.jpg
+imageDescription: NW Retina office from outside
 ---
 * Aetna
 * Cigna
