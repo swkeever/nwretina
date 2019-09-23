@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from 'react';
 import { render } from '@testing-library/react';
 import { useStaticQuery } from 'gatsby';
@@ -16,7 +17,14 @@ useStaticQuery.mockImplementation(() => ({
 }));
 
 test('should throw error if src does not exist', () => {
+  // turn off error message since its expected
+  const originalError = console.error;
+  console.error = jest.fn();
+
   const alt = 'Does not exist';
-  const component = render(<Image src="oops" alt={alt} />);
-  expect(component.queryByTestId(alt)).toBeNull();
+  expect(() => {
+    render(<Image src="oops" alt={alt} />);
+  }).toThrow();
+
+  console.error = originalError;
 });

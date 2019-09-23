@@ -6,10 +6,6 @@ import getFluidImage from '../utils/get-fluid-image';
 const Image = ({ src, alt }) => {
   const fluid = getFluidImage(src);
 
-  if (!fluid) {
-    return null;
-  }
-
   return (
     <figure className="image">
       <Img

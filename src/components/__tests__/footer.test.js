@@ -1,15 +1,11 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { useStaticQuery } from 'gatsby';
 import Footer from '../footer';
-import { siteData } from '../../test-utils';
 import routes from '../../utils/routes';
 import links from '../../utils/links';
-
-useStaticQuery.mockImplementation(() => siteData);
+import { acceptSubstrings, data } from '../../../setup-test-env';
 
 const setup = () => render(<Footer />);
-const acceptSubstrings = { exact: false };
 
 test('I can the navigate links', () => {
   const component = setup();
@@ -34,7 +30,7 @@ test('I can see external links', () => {
 describe('I can see contact info', () => {
   test('I can see the office hours', () => {
     const component = setup();
-    const { officeHours } = siteData.site.siteMetadata;
+    const { officeHours } = data.site.siteMetadata;
     Object
       .values(officeHours)
       .forEach((element) => {
@@ -44,7 +40,7 @@ describe('I can see contact info', () => {
 
   test('I can see the address', () => {
     const component = setup();
-    const { address } = siteData.site.siteMetadata;
+    const { address } = data.site.siteMetadata;
     component.getByText(address.street.line1, acceptSubstrings);
     component.getByText(address.street.line2, acceptSubstrings);
     component.getByText(address.city, acceptSubstrings);
@@ -54,12 +50,12 @@ describe('I can see contact info', () => {
 
   test('I can see the office phone number', () => {
     const component = setup();
-    component.getByText(siteData.site.siteMetadata.phone.office, acceptSubstrings);
+    component.getByText(data.site.siteMetadata.phone.office, acceptSubstrings);
   });
 
   test('I can see the fax phone number', () => {
     const component = setup();
-    component.getByText(siteData.site.siteMetadata.phone.fax, acceptSubstrings);
+    component.getByText(data.site.siteMetadata.phone.fax, acceptSubstrings);
   });
 });
 
@@ -87,12 +83,12 @@ test('Has up to date year', () => {
 
 test('Has developer credits', () => {
   const component = setup();
-  component.getByText(siteData.site.siteMetadata.developer.name, acceptSubstrings);
+  component.getByText(data.site.siteMetadata.developer.name, acceptSubstrings);
 });
 
 test('Has social media links', () => {
   const component = setup();
-  const { socialMedia } = siteData.site.siteMetadata;
+  const { socialMedia } = data.site.siteMetadata;
   Object
     .values(socialMedia)
     .forEach((link) => {
@@ -103,5 +99,5 @@ test('Has social media links', () => {
 
 test('Has the company name', () => {
   const component = setup();
-  component.getByText(siteData.site.siteMetadata.titleFull, acceptSubstrings);
+  component.getByText(data.site.siteMetadata.titleFull, acceptSubstrings);
 });

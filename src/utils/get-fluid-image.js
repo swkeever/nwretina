@@ -21,10 +21,10 @@ const getFluidImage = (src) => {
   const edge = data
     .allFile
     .edges
-    .find((e) => `/${e.node.relativePath}` === src);
+    .find((e) => `/${e.node.relativePath}` === src || e.node.relativePath === src);
 
   if (!edge) {
-    return undefined;
+    throw Error(`Image ${src} was not found!`);
   }
 
   return edge.node.childImageSharp.fluid;

@@ -17,6 +17,7 @@ const TextArea = ({
         <div className="control">
           <textarea
             className={`textarea ${isValid ? 'is-primary' : 'is-danger'}`}
+            data-testid={isValid ? 'valid-textarea' : 'invalid-textarea'}
             id={name}
             name={name}
             minLength={minLength}

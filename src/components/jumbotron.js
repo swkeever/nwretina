@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import { Hero } from '.';
 import { nextSectionText, SITE_HEADER } from '../utils/constants';
+import routes from '../utils/routes';
 
-const Jumbotron = ({ anchor }) => {
+const Jumbotron = ({ anchor, imageSrc }) => {
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -24,7 +25,7 @@ const Jumbotron = ({ anchor }) => {
   return (
     <Hero
       color="primary"
-      image="/uploads/pnw.jpg"
+      image={imageSrc}
       id={SITE_HEADER}
     >
       <h1
@@ -42,7 +43,7 @@ const Jumbotron = ({ anchor }) => {
           {nextSectionText}
         </a>
         <Link
-          to="/contact/"
+          to={routes.contact.href}
           className={buttonStyles}
         >
             Contact Us
@@ -52,7 +53,12 @@ const Jumbotron = ({ anchor }) => {
   );
 };
 
+Jumbotron.defaultProps = {
+  imageSrc: '/uploads/pnw.jpg',
+};
+
 Jumbotron.propTypes = {
+  imageSrc: PropTypes.string,
   anchor: PropTypes.string.isRequired,
 };
 

@@ -1,10 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { useStaticQuery } from 'gatsby';
 import ContactForm from '../contact-form';
-import { siteData } from '../../test-utils';
-
-useStaticQuery.mockImplementation(() => siteData);
 
 const setup = () => render(<ContactForm />);
 

@@ -1,18 +1,9 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { useStaticQuery } from 'gatsby';
 import Content from '../content';
 import routes from '../../utils/routes';
 import { nextSectionText } from '../../utils/constants';
-import { siteData, allMarkdownRemarkData, allFileData } from '../../test-utils';
-
-const data = {
-  ...siteData,
-  ...allMarkdownRemarkData,
-  ...allFileData,
-};
-
-useStaticQuery.mockImplementation(() => data);
+import { data } from '../../../setup-test-env';
 
 const props = {
   slugPrefix: routes.about.slug,
