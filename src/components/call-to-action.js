@@ -1,12 +1,14 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import Heading from './heading';
 
 const CallToAction = () => (
   <div className="has-text-centered p-t-lg">
-    Questions?
-    {' '}
+    <Heading>
+      Questions?
+    </Heading>
     <Link
-      className="has-text-link"
+      className="button is-outlined is-primary is-medium"
       data-testid="contact-link"
       to="/contact/"
     >

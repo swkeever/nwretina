@@ -1,62 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useStaticQuery, graphql } from 'gatsby';
 import {
   Hero,
   Image,
   CallToAction,
   Heading,
+  Jumbotron,
 } from '.';
 import toAnchorLink from '../utils/to-anchor-link';
-import Jumbotron from './jumbotron';
 import navLinks from '../utils/routes';
 import { nextSectionText } from '../utils/constants';
-
-const getContent = (slugPrefix) => {
-  const data = useStaticQuery(graphql`
-    query {
-      allMarkdownRemark {
-        edges {
-          node {
-            id
-            html
-            frontmatter {
-              order
-              title
-              image
-              page
-              imageDescription
-            }
-            fields {
-              slug
-            }
-          }
-        }
-      }
-    }
-  `);
-
-  return data.allMarkdownRemark.edges
-    .filter((e) => e.node.fields.slug.startsWith(slugPrefix))
-    .sort((a, b) => a.node.frontmatter.order - b.node.frontmatter.order)
-    .map((e) => ({
-      id: e.node.id.toString(),
-      html: e.node.html,
-      image: {
-        src: e.node.frontmatter.image,
-        alt: e.node.frontmatter.imageDescription,
-      },
-      title: e.node.frontmatter.title,
-    }));
-};
+import getContent from '../utils/get-content';
 
 const Content = ({ slugPrefix }) => {
   const contents = getContent(slugPrefix);
-  const anchorPrefix = slugPrefix === navLinks.home.slug ? '' : slugPrefix;
-  const isHomePage = slugPrefix === navLinks.home.slug;
-  const jumbotronElement = contents.length && isHomePage
-    ? <Jumbotron anchor={toAnchorLink(contents[0].id)} />
-    : null;
+
+  const anchorPrefix = slugPrefix === navLinks.home.slug
+    ? ''
+    : slugPrefix;
 
   const contentElements = contents.map((content, i) => {
     const isLastElement = i === contents.length - 1;
@@ -104,7 +65,11 @@ const Content = ({ slugPrefix }) => {
 
   return (
     <>
-      {jumbotronElement}
+      {
+        contents.length && slugPrefix === navLinks.home.slug
+          ? <Jumbotron anchor={toAnchorLink(contents[0].id)} />
+          : null
+      }
       {contentElements}
     </>
   );
