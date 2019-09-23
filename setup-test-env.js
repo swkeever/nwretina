@@ -109,7 +109,7 @@ const allMarkdownRemarkData = {
             title: 'Your Eyes Matter 👀',
             image: `/${testImage}`,
             page: routes.about.name,
-            imageDescription: 'Apple',
+            imageDescription: 'description',
           },
           fields: {
             slug: routes.about.slug,
