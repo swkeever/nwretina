@@ -1,6 +1,6 @@
 # NW Retina
 
-[https://www.nwretina.com](https://www.nwretina.com)
+[nwretina.com](https://www.nwretina.com)
 
 ## Setup
 

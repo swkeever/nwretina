@@ -13,7 +13,7 @@ const Hero = ({
       `
       hero 
       is-${color} 
-      is-fullheight 
+      is-fullheight
       `
     }
       id={id}

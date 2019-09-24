@@ -42,8 +42,9 @@ const Location = () => (
           <Map />
         </div>
       </div>
-      <CallToAction />
     </Hero>
+    <CallToAction />
+
 
   </Layout>
 );

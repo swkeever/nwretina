@@ -25,7 +25,7 @@ const ContactForm = () => {
       method="POST"
       action={`https://formspree.io/${data.site.siteMetadata.email}`}
     >
-      <div className="notification is-primary">
+      <div className="notification is-info has-text-dark">
         <i className="fas fa-info-circle" />
         {' '}
         Our contact form is currently under construction.

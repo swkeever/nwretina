@@ -12,7 +12,7 @@ const Image = ({ src, alt }) => {
         data-testid={alt}
         fluid={fluid}
         alt={alt}
-        style={{ margin: '1rem', maxHeight: 'calc(80vh - 4rem)' }}
+        style={{ margin: '1rem', maxHeight: 'calc(80vh - 10em)' }}
         imgStyle={{ objectFit: 'contain' }}
       />
     </figure>

@@ -21,7 +21,7 @@ const Content = ({ slugPrefix }) => {
 
   const contentElements = contents.map((content, i) => {
     const isLastElement = i === contents.length - 1;
-    const eventhElement = i % 2 === 0;
+    const evenIdx = i % 2 === 0;
 
     return (
       <Hero key={content.id} id={content.id}>
@@ -29,7 +29,7 @@ const Content = ({ slugPrefix }) => {
           className={`
             columns 
             is-vcentered 
-            ${!eventhElement && 'has-column-order-reversed'}`}
+            ${!evenIdx && 'has-column-order-reversed'}`}
         >
           <div className="column">
             <Heading>
@@ -58,7 +58,6 @@ const Content = ({ slugPrefix }) => {
             />
           </div>
         </div>
-        {isLastElement && <CallToAction />}
       </Hero>
     );
   });
@@ -71,6 +70,7 @@ const Content = ({ slugPrefix }) => {
           : null
       }
       {contentElements}
+      <CallToAction />
     </>
   );
 };

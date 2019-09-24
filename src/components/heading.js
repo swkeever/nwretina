@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 import childrenType from '../types/children';
 
 
-const Heading = ({ children, tag }) => {
+const Heading = ({ children, tag, ...rest }) => {
   const TagName = tag;
 
+  const { color, size } = rest;
+
   return (
-    <TagName className="title is-4 p-t-lg">
+    <TagName className={`title ${color && `has-text-${color}`} ${`is-${size || '4'}`} p-t-lg`}>
       {children}
     </TagName>
   );

@@ -5,7 +5,7 @@ import getFluidImage from '../utils/get-fluid-image';
 import childrenType from '../types/children';
 
 const style = {
-  width: '100%',
+  width: 'auto',
   backgroundAttachment: 'fixed',
   backgroundPosition: 'center bottom',
   backgroundRepeat: 'no-repeat',

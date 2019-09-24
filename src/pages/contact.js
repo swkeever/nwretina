@@ -3,9 +3,9 @@ import {
   Layout,
   Head,
   Hero,
-  ContactForm,
   ContactInfo,
   Heading,
+  Image,
 } from '../components';
 import navLinks from '../utils/routes';
 
@@ -26,7 +26,7 @@ const Contact = () => (
           <ContactInfo />
         </div>
         <div className="column">
-          <ContactForm />
+          <Image src="uploads/sign-1.jpg" />
         </div>
       </div>
     </Hero>

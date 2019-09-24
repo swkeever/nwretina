@@ -55,6 +55,7 @@ const Footer = () => {
         <div className="columns">
           <div className="column is-two-thirds">
             <div className="columns">
+              
               <div className="column">
                 <FooterHeader className={headerSize}>Navigate</FooterHeader>
                 <ul>
@@ -75,27 +76,28 @@ const Footer = () => {
                 </ul>
               </div>
               <div className="column">
-                <FooterHeader className={headerSize}>Contact</FooterHeader>
-                <ContactInfo color={color} />
-              </div>
-              <div className="column">
                 <FooterHeader className={headerSize}>Related</FooterHeader>
                 <ul>
                   {
-                  links.map((link) => (
-                    <li key={link.name}>
-                      <a
-                        className={linkColor}
-                        href={link.href}
-                        {...externalLinkProps}
-                      >
-                        {link.name}
-                      </a>
-                    </li>
-                  ))
-                }
+                    links.map((link) => (
+                      <li key={link.name}>
+                        <a
+                          className={linkColor}
+                          href={link.href}
+                          {...externalLinkProps}
+                        >
+                          {link.name}
+                        </a>
+                      </li>
+                    ))
+                  }
                 </ul>
               </div>
+              <div className="column">
+                <FooterHeader className={headerSize}>Contact</FooterHeader>
+                <ContactInfo color={color} />
+              </div>
+
             </div>
           </div>
           <div className="column has-text-centered">

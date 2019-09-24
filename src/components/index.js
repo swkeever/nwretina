@@ -12,5 +12,4 @@ export { default as Content } from './content';
 export { default as Input } from './input';
 export { default as TextArea } from './text-area';
 export { default as ContactForm } from './contact-form';
-export { default as Section } from './section';
 export { default as Heading } from './heading';
