@@ -79,9 +79,6 @@
     "type": "git",
     "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
   },
-  "resolutions": {
-    "minipass": "2.7.0"
-  },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   }
