@@ -3,7 +3,7 @@
   "private": true,
   "description": "NW Retina",
   "version": "0.1.0",
-  "license": "MIT",
+  "license": "GPL-3.0",
   "scripts": {
     "build": "gatsby build",
     "dev": "rm -rf .cache && gatsby develop",
