@@ -17,11 +17,12 @@ This is for reCAPTCHA in the contact form, *which at the moment is a work in pro
 
 ### Starting development
 
-Once you've set up everything in the previous steps, you are ready to install dependencies with `yarn`, then run a local dev server using `yarn dev`.
+Once you've set up everything in the previous steps, you are ready to install dependencies by running `yarn`, then run a local server using `yarn dev`.
 
 ## Testing
 
-Test files are demarked as `*.test.js` files and are place near the tested components in a `__tests__` directory.
+Tests are saved as `*.test.js` files and are placed near their tested components in a `__tests__/` directory.
+End-to-end tests are placed at the root in `cypress/`.
 
 ### Unit testing
 
