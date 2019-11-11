@@ -55,7 +55,7 @@ const Footer = () => {
         <div className="columns">
           <div className="column is-two-thirds">
             <div className="columns">
-              
+
               <div className="column">
                 <FooterHeader className={headerSize}>Navigate</FooterHeader>
                 <ul>

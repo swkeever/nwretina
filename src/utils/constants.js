@@ -41,4 +41,3 @@ export const siteMetadata = {
   siteUrl: 'https://www.nwretina.com',
   email: 'office@nwretina.com',
 };
-
