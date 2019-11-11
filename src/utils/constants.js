@@ -7,7 +7,7 @@ export const siteMetadata = {
   titleFull: 'Northwest Retina, LLC',
   phone: {
     office: '425-252-2333',
-    fax: '425-525-3359',
+    fax: '425-252-3359',
   },
   address: {
     street: {
