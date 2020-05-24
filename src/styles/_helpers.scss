@@ -1,3 +1,6 @@
+@import "./passport/_config";
+@import 'variables';
+
 .has-image-centered {
   margin-left: auto;
   margin-right: auto;
@@ -6,3 +9,29 @@
 .has-column-order-reversed {
   flex-direction: row-reverse;
 }
+
+.nw-image {
+  box-shadow: box-shadow(2xl);
+  
+  border-radius: border-radius(sm);
+  margin: auto;
+
+  width: width("10/12");
+
+
+
+  // border: 10px solid green;
+}
+
+.nw-hero {
+  border: $silly;
+  
+}
+
+
+
+// a:hover {
+//   box-shadow: box-shadow(lg);
+//   transition: .3s;
+//   transform: translateY(-1px);
+// }

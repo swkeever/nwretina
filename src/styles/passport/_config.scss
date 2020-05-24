@@ -1,0 +1,28 @@
+@import "./lib/normalize/index";
+@import "./lib/tailwind/index";
+@import "./lib/include-media/index";
+
+// viewport types
+$phone: "<=sm";
+$tablet: (">sm", "<=md");
+$laptop: (">md", "<=lg");
+$desktop: ">lg";
+
+// application colors
+$primary: $blue;
+$bg: $white;
+$color-text: color($gray, 900);
+
+// for debugging purposes
+$show-media: true;
+
+
+$translate-y-0: 0;
+$translate-y-1: 0.25rem;
+$translate-y-2: 0.5rem;
+$translate-y-3: 0.75rem;
+$translate-y-4: 1rem;
+$translate-y-5: 1.25rem;
+$translate-y-6: 1.5rem;
+$translate-y-8: 2rem;
+$translate-y-10: 2.5rem;

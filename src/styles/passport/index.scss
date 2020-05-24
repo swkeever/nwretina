@@ -1,0 +1,55 @@
+@import "config";
+
+// Add custom CSS here
+body {
+  background-color: color($bg);
+  font-family: font-family(sans);
+  color: color($color-text);
+  margin: spacing(4);
+  line-height: line-height();
+
+  margin: auto;
+
+  @if $show-media {
+    background-color: color($red, 200);
+  }
+
+  @include media($tablet...) {
+    @if $show-media {
+      background-color: color($blue, 200);
+    }
+
+    width: width("10/12");
+  }
+
+  @include media($laptop...) {
+    @if $show-media {
+      background-color: color($green, 200);
+    }
+
+    width: width("3/5");
+  }
+
+  @include media($desktop...) {
+    @if $show-media {
+      background-color: color($orange, 200);
+    }
+
+    line-height: line-height(loose);
+    width: width("6/12");
+  }
+}
+
+a {
+  color: color($primary, 600);
+  text-decoration: none;
+
+  &:hover {
+    color: color($primary, 700);
+    text-decoration: underline;
+  }
+
+  &:visited {
+    color: color($primary, 900);
+  }
+}

@@ -7,12 +7,12 @@ const Image = ({ src, alt }) => {
   const fluid = getFluidImage(src);
 
   return (
-    <figure className="image">
+    <figure>
       <Img
+        className="nw-image"
         data-testid={alt}
         fluid={fluid}
         alt={alt}
-        style={{ margin: '1rem', maxHeight: 'calc(80vh - 10em)' }}
         imgStyle={{ objectFit: 'contain' }}
       />
     </figure>

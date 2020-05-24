@@ -10,7 +10,6 @@ const style = {
   backgroundPosition: 'center bottom',
   backgroundRepeat: 'no-repeat',
   backgroundSize: 'cover',
-  height: '100vh',
 };
 
 const BackgroundSection = ({ src, children }) => {
@@ -20,7 +19,7 @@ const BackgroundSection = ({ src, children }) => {
     <BackgroundImage
       fluid={fluid}
       style={style}
-      className="hero is-primary"
+      className="hero is-primary is-fullheight"
     >
       {children}
     </BackgroundImage>
