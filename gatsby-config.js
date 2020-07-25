@@ -60,7 +60,7 @@ module.exports = {
     ],
     developer: {
       name: 'Sean Keever',
-      link: 'https://swkeever.github.io',
+      link: 'https://www.skies.dev',
     },
     email: 'office@nwretina.com',
   },
