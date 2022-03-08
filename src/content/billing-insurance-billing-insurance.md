@@ -9,4 +9,6 @@ Northwest Retina, LLC is contracted with several insurance carriers. As a courte
 
 We encourage you to check with your insurance plan before making an appointment. This will allow you to become familiar with your coverage, copay and referral requirements.
 
-![](/uploads/xpress-pay-it-button.png)
+now you can pay online...
+
+ [![button to pay online](/uploads/xpress-pay-it-button.png)](https://www.example.com)
