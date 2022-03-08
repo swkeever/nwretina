@@ -11,4 +11,4 @@ We encourage you to check with your insurance plan before making an appointment.
 
 now you can pay online...
 
- [![button to pay online](/uploads/xpress-pay-it-button.png)](https://www.example.com)
+ [![button to pay online](/uploads/xpress-pay-it-button.png)](https://pay.xpress-pay.com/org/1E9CEA4659884D2)
