@@ -9,18 +9,11 @@ import {
 } from '.';
 import toAnchorLink from '../utils/to-anchor-link';
 import navLinks from '../utils/routes';
-import { nextSectionText } from '../utils/constants';
 import getContent from '../utils/get-content';
 
 const Content = ({ slugPrefix }) => {
   const contents = getContent(slugPrefix);
-
-  const anchorPrefix = slugPrefix === navLinks.home.slug
-    ? ''
-    : slugPrefix;
-
   const contentElements = contents.map((content, i) => {
-    const isLastElement = i === contents.length - 1;
     const evenIdx = i % 2 === 0;
 
     return (
@@ -39,17 +32,6 @@ const Content = ({ slugPrefix }) => {
               className="content"
               dangerouslySetInnerHTML={{ __html: content.html }}
             />
-            {
-              !isLastElement && (
-                <a
-                  className="button is-primary"
-                  data-scroll
-                  href={`${anchorPrefix}${toAnchorLink(contents[i + 1].id)}`}
-                >
-                  {nextSectionText}
-                </a>
-              )
-            }
           </div>
           <div className="column">
             <Image

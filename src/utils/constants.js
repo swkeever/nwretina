@@ -1,5 +1,3 @@
-export const nextSectionText = 'Learn more';
-
 export const SITE_HEADER = 'home';
 
 export const siteMetadata = {

@@ -2,7 +2,6 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import Content from '../content';
 import routes from '../../utils/routes';
-import { nextSectionText } from '../../utils/constants';
 import { data } from '../../../setup-test-env';
 
 const props = {
@@ -21,11 +20,6 @@ test('Able to see images', () => {
   data.allMarkdownRemark.edges.forEach((edge) => {
     component.getByAltText(edge.node.frontmatter.imageDescription);
   });
-});
-
-test('I can see a button that takes me to the next section', () => {
-  const component = render(<Content {...props} />);
-  component.getAllByText(nextSectionText);
 });
 
 describe('Contact link', () => {

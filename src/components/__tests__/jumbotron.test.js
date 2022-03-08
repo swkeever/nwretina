@@ -2,7 +2,6 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import Jumbotron from '../jumbotron';
 import { data, acceptSubstrings, testImage } from '../../../setup-test-env';
-import { nextSectionText } from '../../utils/constants';
 
 const props = {
   anchor: 'test',
@@ -18,6 +17,5 @@ test('should show the title', () => {
 
 test('should have some buttons guiding the user', () => {
   const component = setup();
-  component.getByText(nextSectionText);
   component.getByText(/contact/i, acceptSubstrings);
 });

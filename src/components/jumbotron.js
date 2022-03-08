@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import { Hero } from '.';
-import { nextSectionText, SITE_HEADER } from '../utils/constants';
+import { SITE_HEADER } from '../utils/constants';
 import routes from '../utils/routes';
 
 const Jumbotron = ({ anchor, imageSrc }) => {
@@ -40,7 +40,7 @@ const Jumbotron = ({ anchor, imageSrc }) => {
           className={buttonStyles}
           href={anchor}
         >
-          {nextSectionText}
+          Learn more
         </a>
         <Link
           to={routes.contact.href}
