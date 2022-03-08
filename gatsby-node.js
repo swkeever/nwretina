@@ -12,7 +12,6 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 };
 
-
 exports.createPages = ({ actions }) => {
   const { createRedirect } = actions;
   createRedirect({

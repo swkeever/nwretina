@@ -46,7 +46,7 @@ const Jumbotron = ({ anchor, imageSrc }) => {
           to={routes.contact.href}
           className={buttonStyles}
         >
-            Contact Us
+          Contact Us
         </Link>
       </div>
     </Hero>

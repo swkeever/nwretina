@@ -75,7 +75,6 @@ const Content = ({ slugPrefix }) => {
   );
 };
 
-
 Content.propTypes = {
   slugPrefix: PropTypes.string.isRequired,
 };

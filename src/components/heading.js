@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import childrenType from '../types/children';
 
-
 const Heading = ({ children, tag, ...rest }) => {
   const TagName = tag;
 

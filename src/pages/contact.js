@@ -18,9 +18,9 @@ const Contact = () => (
           <div className="content">
             <Heading>{navLinks.contact.name}</Heading>
             <p>
-                Please contact the office
-                directly for medical advice
-                and emergency appointment needs.
+              Please contact the office
+              directly for medical advice
+              and emergency appointment needs.
             </p>
           </div>
           <ContactInfo />

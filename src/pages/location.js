@@ -32,7 +32,9 @@ const Location = () => (
             <p>
               {'Our office is located at '}
               <Address />
-              {', on the beautiful waterfront in Marina Village. Dr. Osetinsky performs surgery at the new medical tower at Providence Everett Medical Center.'}
+              , on the beautiful waterfront in Marina Village.
+              Dr. Osetinsky performs surgery at the new medical
+              tower at Providence Everett Medical Center.
             </p>
           </div>
         </div>
@@ -44,7 +46,6 @@ const Location = () => (
       </div>
     </Hero>
     <CallToAction />
-
 
   </Layout>
 );
