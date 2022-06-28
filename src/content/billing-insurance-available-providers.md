@@ -7,14 +7,13 @@ imageDescription: NW Retina office from outside
 ---
 * Aetna
 * Cigna
-* Community Healthplan of Washington
-* DSHS
+* DSHS (Department of Social and Health Services)
 * First Choice
 * GEHA
 * Humana
 * Lifewise
 * Medicare
-* Molina
+* Molina Healthcare
 * Premera Blue Cross
 * Premera Medicare Advantage
 * Regence Blue Shield
@@ -22,3 +21,5 @@ imageDescription: NW Retina office from outside
 * Soundpath
 * Tricare/Triwest
 * Uniform Medical
+* United Healthcare
+* Wellcare (Medicare Advantage only)
