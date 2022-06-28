@@ -10,7 +10,9 @@ imageDescription: NW Retina office from outside
 * DSHS (Department of Social and Health Services)
 * First Choice
 * GEHA
+* HMA (Healthcare Management Administrators)
 * Humana
+* Kaiser Permanente (Access PPO only)
 * Lifewise
 * Medicare
 * Molina Healthcare
