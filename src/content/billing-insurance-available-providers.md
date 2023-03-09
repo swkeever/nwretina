@@ -23,5 +23,5 @@ imageDescription: NW Retina office from outside
 * Soundpath
 * Tricare/Triwest
 * Uniform Medical
-* United Healthcare
+* United Healthcare (Medicare Advantage and Commercial plans)
 * Wellcare (Medicare Advantage only)
