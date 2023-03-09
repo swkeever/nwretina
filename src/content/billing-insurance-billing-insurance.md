@@ -12,3 +12,5 @@ We encourage you to check with your insurance plan before making an appointment.
 now you can pay online...
 
  [![button to pay online](/uploads/xpress-pay-it-button.png)](https://pay.balancecollect.com/m/nwretina)
+
+<https://pay.balancecollect.com/m/nwretina>
