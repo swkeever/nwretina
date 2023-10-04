@@ -7,7 +7,7 @@ imageDescription: NW Retina office from outside
 ---
 * Aetna
 * Cigna
-* C﻿oordinated Care
+* Coordinated Care
 * DSHS (Department of Social and Health Services)
 * First Choice
 * GEHA
